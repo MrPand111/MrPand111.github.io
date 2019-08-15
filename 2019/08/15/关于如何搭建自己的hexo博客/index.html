@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: javaScript | MrPanda刘畅的博客</title>
+  <title>关于如何搭建自己的hexo博客 | MrPanda刘畅的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="华中农业大学的计科菜鸡，大前端研习ing">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MrPanda刘畅的博客">
-<meta property="og:url" content="http://yoursite.com/tags/javaScript/index.html">
+  <meta name="description" content="一、环境准备 下载node.js(在官网下载就可以了，之后无脑点击下一步安装，安装好之后可以在cmd( win键 + R 打开运行，在里面输入cmd就可以进入cmd了 )里输入: node –version 检查版本，有版本就说明安装好了，在下载node的时候也会绑定下载npm，用同样的方法在cmd里输入: npm –version 看下npm装上了没有)  npm上下载的资源比较慢，所以我们用国">
+<meta name="keywords" content="hexo,windows">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于如何搭建自己的hexo博客">
+<meta property="og:url" content="http://yoursite.com/2019/08/15/关于如何搭建自己的hexo博客/index.html">
 <meta property="og:site_name" content="MrPanda刘畅的博客">
-<meta property="og:description" content="华中农业大学的计科菜鸡，大前端研习ing">
+<meta property="og:description" content="一、环境准备 下载node.js(在官网下载就可以了，之后无脑点击下一步安装，安装好之后可以在cmd( win键 + R 打开运行，在里面输入cmd就可以进入cmd了 )里输入: node –version 检查版本，有版本就说明安装好了，在下载node的时候也会绑定下载npm，用同样的方法在cmd里输入: npm –version 看下npm装上了没有)  npm上下载的资源比较慢，所以我们用国">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-08-15T07:40:26.531Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MrPanda刘畅的博客">
-<meta name="twitter:description" content="华中农业大学的计科菜鸡，大前端研习ing">
+<meta name="twitter:title" content="关于如何搭建自己的hexo博客">
+<meta name="twitter:description" content="一、环境准备 下载node.js(在官网下载就可以了，之后无脑点击下一步安装，安装好之后可以在cmd( win键 + R 打开运行，在里面输入cmd就可以进入cmd了 )里输入: node –version 检查版本，有版本就说明安装好了，在下载node的时候也会绑定下载npm，用同样的方法在cmd里输入: npm –version 看下npm装上了没有)  npm上下载的资源比较慢，所以我们用国">
   
     <link rel="alternative" href="/atom.xml" title="MrPanda刘畅的博客" type="application/atom+xml">
   
@@ -157,68 +159,228 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-关于如何搭建自己的hexo博客" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/15/我的第一篇博客文章/" class="archive-article-date">
-  	<time datetime="2019-08-15T01:15:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-15</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/15/我的第一篇博客文章/">JS实现一个简单的计算器</a>
+    <h1 class="article-title" itemprop="name">
+      关于如何搭建自己的hexo博客
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/08/15/关于如何搭建自己的hexo博客/" class="archive-article-date">
+  	<time datetime="2019-08-15T03:36:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、环境准备"><a href="#一、环境准备" class="headerlink" title="一、环境准备"></a>一、环境准备</h2><ol>
+<li><p>下载node.js(在官网下载就可以了，之后无脑点击下一步安装，安装好之后可以在cmd( win键 + R 打开运行，在里面输入cmd就可以进入cmd了 )里输入: node –version 检查版本，有版本就说明安装好了，在下载node的时候也会绑定下载npm，用同样的方法在cmd里输入: npm –version 看下npm装上了没有)</p>
+</li>
+<li><p>npm上下载的资源比较慢，所以我们用国内的淘宝镜像cnpm，用npm安装cnpm: npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a> (记得cnpm -v检查下版本哦)</p>
+</li>
+<li><p>下载Git，同样是在官网下载，下载安装完成后(记得安装的路径)在桌面一空白区域右键，看下是否出现了两个Git GUI 和 Git Bash的选项，如果有的话在cmd中输入: git –version ，查看一下版本号，可能这里cmd提示说找不到git这个命令，这就表明需要<strong>添加环境变量</strong>，具体操作自行百度，非常简单，path里加一个路径即可</p>
+</li>
+<li><p>安装hexo: cnpm install -g hexo-cli (hexo -v检查版本)</p>
+</li>
+</ol>
+<h2 id="二、创建博客"><a href="#二、创建博客" class="headerlink" title="二、创建博客"></a>二、创建博客</h2><ol>
+<li><p>创建一个文件夹存放博客的所有资源,可以在cmd里直接创建，或者去到某个文件夹里新建文件夹都是可以的(我这里直接在默认的<strong>我的文档</strong>下创建了一个叫blog的文件夹)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\23163&gt;mkdir blog</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在cmd中移动到你这个新建文件夹中(我这里直接cd blog就可以了)</p>
+</li>
+<li><p>初始化hexo，看到终端提示：INFO  Start blogging with Hexo! 就说明初始化成功了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\23163\blog&gt;hexo init</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在cmd中执行命令: hexo s (hexo serve的简写形式)，就可以在本地服务器运行你的hexo博客了，会给一个默认的端口( INFO  Hexo is running at <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> . Press Ctrl+C to stop. )，想要退出的话，就像它提示的那样在终端输入Ctrl+C就可以了</p>
+</li>
+<li><p>在cmd中执行命令: hexo n “我的第一篇博客文章” (hexo new “XXX”的简写形式)，就会为你创建一篇新的博客了，博客的格式为markdown，你可以通过vim或者vscode都可以对博客的内容进行操作</p>
+</li>
+<li><p>在cmd中执行命令: hexo clean  这一步是清除原有的静态文件(当你更新了配置、主题、内容有可能无法显示，直接清除原有的静态文件再创建新的静态文件是稳妥的方法)</p>
+</li>
+<li><p>在cmd中执行命令: hexo g (hexo generate的简写形式)，生成包括html、css、js、图片等各种静态文件</p>
+</li>
+<li><p>再次执行 hexo s 命令，就可以看到刚刚创建的文章被添加到博客里了</p>
+</li>
+</ol>
+<h2 id="三、部署博客到Github"><a href="#三、部署博客到Github" class="headerlink" title="三、部署博客到Github"></a>三、部署博客到Github</h2><ol>
+<li><p>退出刚才在运行的本地博客，在cmd中执行命令,安装部署的工具(记得还是在之前新建的blog文件夹下)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\23163\blog&gt;cnpm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>需要你拥有一个GitHub账号，登录你的GitHub，创建一个仓库【create a new repository】，仓库名的格式为：Owner.github.io 其中Owner是你GitHub的名字，这里一定要用这个名字才可以，描述随便写就可以了，创建好仓库后，记录下它的https地址</p>
+</li>
+<li><p>打开blog文件夹中的_config.yml文件，移动到该文件内容的最底端#Depolyment部分，加上配置，这里的rope换成你自己刚才设置的地址就可以(<strong>敲代码的时候注意缩进为两格，冒号后面需要一个空格</strong>)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/MrPand111/MrPand111.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>返回到cmd,执行命令: hexo d (hexo deploy的简写形式)，中途需要你登录GitHub账户，登录一下就可以，如果遇到了 Error: Spawn failed，应该是你之前没有在git配置过信息导致的，在cmd中执行: git config –global user.email “<a href="mailto:you@example.com" target="_blank" rel="noopener">you@example.com</a>“ 和  git config –global user.name “Your Name” (双引号里输入你的GitHub信息就行)，然后再次hexo d估计就没问题了</p>
+</li>
+<li><p>到这里你就可以通过刚才设置的 Owner.github.io 来访问自己的博客了，这里拿我的博客作为示范: <a href="https://mrpand111.github.io/" target="_blank" rel="noopener">https://mrpand111.github.io/</a></p>
+</li>
+</ol>
+<blockquote>
+<p>作者：刘畅<br>欢迎大家一起来讨论和深入研究hexo鸭！</p>
+</blockquote>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">windows</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/15/关于如何搭建自己的hexo博客/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/08/15/我的第一篇博客文章/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JS实现一个简单的计算器</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script>
+  var cloudTieConfig = {
+    url: "http://yoursite.com/2019/08/15/关于如何搭建自己的hexo博客/", 
+    sourceId: "关于如何搭建自己的hexo博客",
+    productKey: "true",
+    target: "cloud-tie-wrapper"
+  };
+</script>
+<script src="//img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -241,9 +403,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
