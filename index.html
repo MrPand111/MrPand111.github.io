@@ -260,7 +260,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-13 12:37:27" itemprop="dateModified" datetime="2019-09-13T12:37:27+08:00">2019-09-13</time>
+                <time title="修改时间：2019-09-13 12:40:14" itemprop="dateModified" datetime="2019-09-13T12:40:14+08:00">2019-09-13</time>
               </span>
             
           
@@ -276,50 +276,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
-            <h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>JavaScript对象的属性是由名字、值和一组特性（可写、柯枚举、可配置等）构成的。属性值可以用一个或两个方法代替，就是getter和setter。</p>
+          <h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>JavaScript对象的属性是由名字、值和一组特性（可写、柯枚举、可配置等）构成的。属性值可以用一个或两个方法代替，就是getter和setter。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myObj = &#123;</span><br><span class="line">    a: <span class="number">2</span>,</span><br><span class="line">    <span class="keyword">get</span> b() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">3</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(myObj.a)    <span class="comment">//2</span></span><br><span class="line"><span class="built_in">console</span>.log(myObj.b)    <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>上面的代码中，属性a称为<strong>数据属性</strong>，它只有一个简单的值；属性b用getter和setter方法定义的属性称为<strong>存取器属性</strong>。</li>
-</ul>
-<h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><ul>
-<li><p>存取器属性定义为一个或两个<strong>与属性同名的函数</strong>。</p>
-</li>
-<li><p>当程序查询存取器的属性值时，JavaScript调用getter方法（无参数），这个方法的返回值就是该属性存取表达式的值。当程序设置一个存取器属性值时，JavaScript调用setter方法，将赋值表达式右侧的值当作参数传入setter，将赋值表达式右侧的值当作参数传入setter。从某种意义上来说，这个方法负责设置属性值，可以忽略该方法的返回值。</p>
-</li>
-<li><p>当一个属性被定义为存取器属性时，JavaScript会忽略它的value和writable特性，取而代之的是set和get（还有configurable和enumerable）特性。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myObj = &#123;</span><br><span class="line">    <span class="keyword">get</span> a() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>._a_;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span> a(val)&#123;</span><br><span class="line">        <span class="keyword">this</span>._a_ = val</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">myObj.a = <span class="number">3</span></span><br><span class="line"><span class="built_in">console</span>.log(myObj.a)    <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>getter和setter方法中的this都指向myObj对象。</strong></p>
-</li>
-<li><p>存取器属性也是可以继承的：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> anotherObj = <span class="built_in">Object</span>.create(myObj)</span><br><span class="line"><span class="built_in">console</span>.log(another.a)  <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h2 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty"></a>Object.defineProperty</h2><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><ul>
-<li>Object.defineProperty(obj,prop,descriptor)，该方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回这个对象。</li>
-<li>参数：<ol>
-<li><strong>obj</strong>：要在其上定义属性的对象。</li>
-<li><strong>prop</strong>：要定义或修改的属性的名称。</li>
-<li><strong>descriptor</strong>：将被定义或修改的属性描述符。</li>
-</ol>
-</li>
-<li>属性描述符：<ol>
-<li><strong>configurable</strong>：当且仅当该属性的configurable为true时，该属性描述符才能够被改变，同时该属性也能从对应的对象上被删除。默认为false。</li>
-<li><strong>enumerable</strong>：当且仅当该属性的enumerable为true时，该属性才能够出现在对象的枚举属性中。默认为false。</li>
-<li><strong>value</strong>：该属性对应的值，可以是任何有效的JavaScript值（数值，对象，函数等）。默认为undefined。</li>
-<li><strong>writable</strong>：当且仅当该属性的writable为true时，value才能被赋值运算符改变。<strong><font color="red">默认为false</font></strong>。</li>
-<li><strong>get</strong>：一个给属性提供getter的方法，如果没有getter则为undefined。当访问该属性时，该方法被执行，方法执行时没有参数传入，但是会传入this对象（由于继承关系，这里的this并不一定是定义该属性的对象）。默认为undefined。</li>
-<li><strong>set</strong>：一个给属性提供setter的方法，如果没有setter则为undefined。当属性值修改时，触发执行该方法。该方法将接受唯一参数，即该属性新的参数值。</li>
-</ol>
-</li>
-</ul>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;&#125;  <span class="comment">//创建一个新对象</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(o,<span class="string">"a"</span>,&#123;</span><br><span class="line">    value: <span class="number">37</span>,</span><br><span class="line">    writable: <span class="literal">true</span>,</span><br><span class="line">    enumerable: <span class="literal">true</span>,</span><br><span class="line">    configurable: <span class="literal">true</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对象o拥有了属性a，值为37</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bValue</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(o,<span class="string">"b"</span>, &#123;</span><br><span class="line">    <span class="keyword">get</span>: function() &#123;</span><br><span class="line">        <span class="keyword">return</span> bValue</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span>: function(newValue) &#123;</span><br><span class="line">        bValue = newValue</span><br><span class="line">    &#125;,</span><br><span class="line">    enumerable: <span class="literal">true</span>,</span><br><span class="line">    configurable: <span class="literal">true</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-
+<li>上面的代码中，属性a称为<strong>数据属性</strong>，它只有一个简单的值；属性b用getter和setter方法定义的属性称为<strong>存取器属性</strong>。
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/09/12/JavaScript深入-二-——getter与setter的使用/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
