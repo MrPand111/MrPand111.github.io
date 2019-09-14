@@ -217,6 +217,113 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/14/vue源码分析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MrPanda刘畅">
+      <meta itemprop="description" content="华中农业大学的计科菜鸡，大前端研习ing">
+      <meta itemprop="image" content="/images/me.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="畅喵の博客">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/09/14/vue源码分析/" class="post-title-link" itemprop="url">vue源码分析</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-14 15:55:37 / 修改时间：21:06:37" itemprop="dateCreated datePublished" datetime="2019-09-14T15:55:37+08:00">2019-09-14</time>
+            </span>
+          
+            
+
+            
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <h2 id="数据代理"><a href="#数据代理" class="headerlink" title="数据代理"></a>数据代理</h2><ol>
+<li>数据代理：通过一个对象代理对另一个对象中属性的操作（读/写）。</li>
+<li>vue数据代理：通过vm对象来处理data中所有属性的操作。</li>
+<li>好处：更方便的操作data中的数据。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#test'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        name: <span class="string">'Panda'</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(vm.name)    <span class="comment">//panda  vm代理对data数据的读操作</span></span><br><span class="line">vm.name = <span class="string">'cat'</span> <span class="comment">//vm代理对data数据的写操作</span></span><br><span class="line"><span class="built_in">console</span>.log(vm._data.name)  <span class="comment">//cat</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>基本实现流程：<ul>
+<li>通过Object.defineProperty()给vm添加与data对象的属性对应的属性描述符。</li>
+<li>所有添加的属性都包含getter/setter</li>
+<li>getter/setter内部去操作data中对应的属性数据。</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">_proxyData: <span class="function"><span class="keyword">function</span>(<span class="params">key, setter, getter</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//保存vm</span></span><br><span class="line">    <span class="keyword">var</span> me = <span class="keyword">this</span>;</span><br><span class="line">    setter = setter || </span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(me, key, &#123;</span><br><span class="line">        configurable: <span class="literal">false</span>,    <span class="comment">//不能重新定义</span></span><br><span class="line">        enumerable: <span class="literal">true</span>,   <span class="comment">//可以枚举遍历</span></span><br><span class="line">        <span class="comment">//当通过vm.xxx读取属性值时调用，从data中获取对应的属性值返回    代理读操作</span></span><br><span class="line">        <span class="keyword">get</span>: function proxyGetter() &#123;</span><br><span class="line">            <span class="keyword">return</span> me._data[key];</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">//当通过vm.xxx = value时，value被保存到data中对应的属性上   代理写操作</span></span><br><span class="line">        <span class="keyword">set</span>: function proxySetter(newVal) &#123;</span><br><span class="line">            me._data[key] = newVal;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="模板解析"><a href="#模板解析" class="headerlink" title="模板解析"></a>模板解析</h2><h3 id="模板解析的基本流程"><a href="#模板解析的基本流程" class="headerlink" title="模板解析的基本流程"></a>模板解析的基本流程</h3><ol>
+<li>将el的所有子节点取出，添加到一个新建的文档fragment对象中。</li>
+<li>对fragment中的所有层次子节点递归进行编译解析处理。<ul>
+<li>对表达式文本节点进行解析</li>
+<li>对元素节点的指令属性进行解析<ul>
+<li>事件指令解析</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/12/JavaScript深入-二-——getter与setter的使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1193,7 +1300,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1243,7 +1350,9 @@
         
           
         
-        <span class="site-state-item-count">7</span>
+          
+        
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
