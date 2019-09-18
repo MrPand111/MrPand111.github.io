@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="数据代理 数据代理：通过一个对象代理对另一个对象中属性的操作（读/写）。 vue数据代理：通过vm对象来处理data中所有属性的操作。 好处：更方便的操作data中的数据。  123456789const vm = new Vue(&amp;#123;    el: &apos;#test&apos;,    data: &amp;#123;        name: &apos;Panda&apos;,    &amp;#125;&amp;#125;)console">
+  <meta name="description" content="数据代理 数据代理：通过一个对象代理对另一个对象中属性的操作（读/写）。 vue数据代理：通过vm对象来处理data中所有属性的操作。 好处：更方便的操作data中的数据。">
 <meta name="keywords" content="javaScript,vue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue源码分析">
 <meta property="og:url" content="http://yoursite.com/2019/09/14/vue源码分析/index.html">
 <meta property="og:site_name" content="畅喵の博客">
-<meta property="og:description" content="数据代理 数据代理：通过一个对象代理对另一个对象中属性的操作（读/写）。 vue数据代理：通过vm对象来处理data中所有属性的操作。 好处：更方便的操作data中的数据。  123456789const vm = new Vue(&amp;#123;    el: &apos;#test&apos;,    data: &amp;#123;        name: &apos;Panda&apos;,    &amp;#125;&amp;#125;)console">
+<meta property="og:description" content="数据代理 数据代理：通过一个对象代理对另一个对象中属性的操作（读/写）。 vue数据代理：通过vm对象来处理data中所有属性的操作。 好处：更方便的操作data中的数据。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-14T13:06:37.390Z">
+<meta property="og:updated_time" content="2019-09-18T12:32:44.434Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue源码分析">
-<meta name="twitter:description" content="数据代理 数据代理：通过一个对象代理对另一个对象中属性的操作（读/写）。 vue数据代理：通过vm对象来处理data中所有属性的操作。 好处：更方便的操作data中的数据。  123456789const vm = new Vue(&amp;#123;    el: &apos;#test&apos;,    data: &amp;#123;        name: &apos;Panda&apos;,    &amp;#125;&amp;#125;)console">
+<meta name="twitter:description" content="数据代理 数据代理：通过一个对象代理对另一个对象中属性的操作（读/写）。 vue数据代理：通过vm对象来处理data中所有属性的操作。 好处：更方便的操作data中的数据。">
   <link rel="canonical" href="http://yoursite.com/2019/09/14/vue源码分析/">
 
 
@@ -251,11 +251,19 @@
                 
               
 
-              <time title="创建时间：2019-09-14 15:55:37 / 修改时间：21:06:37" itemprop="dateCreated datePublished" datetime="2019-09-14T15:55:37+08:00">2019-09-14</time>
+              <time title="创建时间：2019-09-14 15:55:37" itemprop="dateCreated datePublished" datetime="2019-09-14T15:55:37+08:00">2019-09-14</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-18 20:32:44" itemprop="dateModified" datetime="2019-09-18T20:32:44+08:00">2019-09-18</time>
+              </span>
             
           
 
@@ -283,6 +291,8 @@
 <li>vue数据代理：通过vm对象来处理data中所有属性的操作。</li>
 <li>好处：更方便的操作data中的数据。</li>
 </ol>
+<a id="more"></a>
+
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#test'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        name: <span class="string">'Panda'</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(vm.name)    <span class="comment">//panda  vm代理对data数据的读操作</span></span><br><span class="line">vm.name = <span class="string">'cat'</span> <span class="comment">//vm代理对data数据的写操作</span></span><br><span class="line"><span class="built_in">console</span>.log(vm._data.name)  <span class="comment">//cat</span></span><br></pre></td></tr></table></figure>
 
 <ol start="4">
@@ -382,6 +392,10 @@
 
             <div class="post-nav-prev post-nav-item">
               
+                <a href="/2019/09/18/JavaScript深入-三-——作用域和执行上下文/" rel="prev" title="JavaScript深入(三)——作用域和执行上下文">
+                  JavaScript深入(三)——作用域和执行上下文 <i class="fa fa-chevron-right"></i>
+                </a>
+              
             </div>
           </div>
         
@@ -440,7 +454,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
