@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="作用域 作用域是指程序源代码中定义变量的区域。 作用域规定了如何查找变量，也就是确定当前执行代码对变量的访问权限。 JavaScript采用词法作用域，也就是静态作用域。  静态作用域 因为JavaScript采用的是词法作用域，函数的作用域在函数定义的时候就决定了。 相对的是动态作用域，函数的作用域是在函数调用的时候才决定的。12345678910111213var value = 1funct">
+  <meta name="description" content="作用域 作用域是指程序源代码中定义变量的区域。 作用域规定了如何查找变量，也就是确定当前执行代码对变量的访问权限。 JavaScript采用词法作用域，也就是静态作用域。">
 <meta name="keywords" content="javaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript深入(三)——作用域和执行上下文">
 <meta property="og:url" content="http://yoursite.com/2019/09/18/JavaScript深入-三-——作用域和执行上下文/index.html">
 <meta property="og:site_name" content="畅喵の博客">
-<meta property="og:description" content="作用域 作用域是指程序源代码中定义变量的区域。 作用域规定了如何查找变量，也就是确定当前执行代码对变量的访问权限。 JavaScript采用词法作用域，也就是静态作用域。  静态作用域 因为JavaScript采用的是词法作用域，函数的作用域在函数定义的时候就决定了。 相对的是动态作用域，函数的作用域是在函数调用的时候才决定的。12345678910111213var value = 1funct">
+<meta property="og:description" content="作用域 作用域是指程序源代码中定义变量的区域。 作用域规定了如何查找变量，也就是确定当前执行代码对变量的访问权限。 JavaScript采用词法作用域，也就是静态作用域。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-18T14:17:45.426Z">
+<meta property="og:updated_time" content="2019-09-20T12:48:46.789Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript深入(三)——作用域和执行上下文">
-<meta name="twitter:description" content="作用域 作用域是指程序源代码中定义变量的区域。 作用域规定了如何查找变量，也就是确定当前执行代码对变量的访问权限。 JavaScript采用词法作用域，也就是静态作用域。  静态作用域 因为JavaScript采用的是词法作用域，函数的作用域在函数定义的时候就决定了。 相对的是动态作用域，函数的作用域是在函数调用的时候才决定的。12345678910111213var value = 1funct">
+<meta name="twitter:description" content="作用域 作用域是指程序源代码中定义变量的区域。 作用域规定了如何查找变量，也就是确定当前执行代码对变量的访问权限。 JavaScript采用词法作用域，也就是静态作用域。">
   <link rel="canonical" href="http://yoursite.com/2019/09/18/JavaScript深入-三-——作用域和执行上下文/">
 
 
@@ -251,11 +251,19 @@
                 
               
 
-              <time title="创建时间：2019-09-18 20:33:41 / 修改时间：22:17:45" itemprop="dateCreated datePublished" datetime="2019-09-18T20:33:41+08:00">2019-09-18</time>
+              <time title="创建时间：2019-09-18 20:33:41" itemprop="dateCreated datePublished" datetime="2019-09-18T20:33:41+08:00">2019-09-18</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-20 20:48:46" itemprop="dateModified" datetime="2019-09-20T20:48:46+08:00">2019-09-20</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -296,6 +304,9 @@
 <li>作用域规定了如何查找变量，也就是确定当前执行代码对变量的访问权限。</li>
 <li>JavaScript采用词法作用域，也就是<font color="red"><strong>静态作用域</strong></font>。</li>
 </ul>
+<a id="more"></a>
+
+
 <h3 id="静态作用域"><a href="#静态作用域" class="headerlink" title="静态作用域"></a>静态作用域</h3><ul>
 <li>因为JavaScript采用的是词法作用域，函数的作用域在<strong>函数定义的时候就决定了</strong>。</li>
 <li>相对的是动态作用域，函数的作用域是在<strong>函数调用的时候才决定的</strong>。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> value = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> value = <span class="number">2</span></span><br><span class="line">    foo()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bar()</span><br></pre></td></tr></table></figure>
@@ -398,6 +409,10 @@
 
             <div class="post-nav-prev post-nav-item">
               
+                <a href="/2019/09/20/JavaScript深入-四-——this机制/" rel="prev" title="JavaScript深入(四)——this机制">
+                  JavaScript深入(四)——this机制 <i class="fa fa-chevron-right"></i>
+                </a>
+              
             </div>
           </div>
         
@@ -456,7 +471,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
