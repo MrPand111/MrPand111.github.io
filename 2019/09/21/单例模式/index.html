@@ -55,19 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="一、环境准备 下载node.js(在官网下载就可以了，之后无脑点击下一步安装，安装好之后可以在cmd( win键 + R 打开运行，在里面输入cmd就可以进入cmd了 )里输入: node –version 检查版本，有版本就说明安装好了，在下载node的时候也会绑定下载npm，用同样的方法在cmd里输入: npm –version 看下npm装上了没有)  npm上下载的资源比较慢，所以我们用国">
-<meta name="keywords" content="hexo,windows">
+  <meta name="description" content="单例模式：保证一个类仅有一个实例，并提供一个访问它的全局访问点">
+<meta name="keywords" content="javaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于如何搭建自己的hexo博客">
-<meta property="og:url" content="http://yoursite.com/2019/08/15/关于如何搭建自己的hexo博客/index.html">
+<meta property="og:title" content="单例模式">
+<meta property="og:url" content="http://yoursite.com/2019/09/21/单例模式/index.html">
 <meta property="og:site_name" content="畅喵の博客">
-<meta property="og:description" content="一、环境准备 下载node.js(在官网下载就可以了，之后无脑点击下一步安装，安装好之后可以在cmd( win键 + R 打开运行，在里面输入cmd就可以进入cmd了 )里输入: node –version 检查版本，有版本就说明安装好了，在下载node的时候也会绑定下载npm，用同样的方法在cmd里输入: npm –version 看下npm装上了没有)  npm上下载的资源比较慢，所以我们用国">
+<meta property="og:description" content="单例模式：保证一个类仅有一个实例，并提供一个访问它的全局访问点">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-16T12:03:24.756Z">
+<meta property="og:updated_time" content="2019-09-21T06:04:04.346Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于如何搭建自己的hexo博客">
-<meta name="twitter:description" content="一、环境准备 下载node.js(在官网下载就可以了，之后无脑点击下一步安装，安装好之后可以在cmd( win键 + R 打开运行，在里面输入cmd就可以进入cmd了 )里输入: node –version 检查版本，有版本就说明安装好了，在下载node的时候也会绑定下载npm，用同样的方法在cmd里输入: npm –version 看下npm装上了没有)  npm上下载的资源比较慢，所以我们用国">
-  <link rel="canonical" href="http://yoursite.com/2019/08/15/关于如何搭建自己的hexo博客/">
+<meta name="twitter:title" content="单例模式">
+<meta name="twitter:description" content="单例模式：保证一个类仅有一个实例，并提供一个访问它的全局访问点">
+  <link rel="canonical" href="http://yoursite.com/2019/09/21/单例模式/">
 
 
 <script id="page-configurations">
@@ -81,7 +81,7 @@
   };
 </script>
 
-  <title>关于如何搭建自己的hexo博客 | 畅喵の博客</title>
+  <title>单例模式 | 畅喵の博客</title>
   
 
 
@@ -220,7 +220,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/15/关于如何搭建自己的hexo博客/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/21/单例模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MrPanda刘畅">
@@ -234,7 +234,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">关于如何搭建自己的hexo博客
+          <h1 class="post-title" itemprop="name headline">单例模式
 
             
           </h1>
@@ -251,19 +251,11 @@
                 
               
 
-              <time title="创建时间：2019-08-15 11:36:04" itemprop="dateCreated datePublished" datetime="2019-08-15T11:36:04+08:00">2019-08-15</time>
+              <time title="创建时间：2019-09-21 13:10:55 / 修改时间：14:04:04" itemprop="dateCreated datePublished" datetime="2019-09-21T13:10:55+08:00">2019-09-21</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-08-16 20:03:24" itemprop="dateModified" datetime="2019-08-16T20:03:24+08:00">2019-08-16</time>
-              </span>
             
           
             <span class="post-meta-item">
@@ -272,7 +264,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
 
                 
                 
@@ -299,57 +291,35 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="一、环境准备"><a href="#一、环境准备" class="headerlink" title="一、环境准备"></a>一、环境准备</h2><ol>
-<li><p>下载node.js(在官网下载就可以了，之后无脑点击下一步安装，安装好之后可以在cmd( win键 + R 打开运行，在里面输入cmd就可以进入cmd了 )里输入: node –version 检查版本，有版本就说明安装好了，在下载node的时候也会绑定下载npm，用同样的方法在cmd里输入: npm –version 看下npm装上了没有)</p>
-</li>
-<li><p>npm上下载的资源比较慢，所以我们用国内的淘宝镜像cnpm，用npm安装cnpm: npm install -g cnpm –registry=<a href="https://registry.npm.taobao.org" target="_blank" rel="noopener">https://registry.npm.taobao.org</a> (记得cnpm -v检查下版本哦)</p>
-</li>
-</ol>
+        <blockquote>
+<p>单例模式：保证一个类仅有一个实例，并提供一个访问它的全局访问点</p>
+</blockquote>
 <a id="more"></a>
 
-<ol start="3">
-<li><p>下载Git，同样是在官网下载，下载安装完成后(记得安装的路径)在桌面一空白区域右键，看下是否出现了两个Git GUI 和 Git Bash的选项，如果有的话在cmd中输入: git –version ，查看一下版本号，可能这里cmd提示说找不到git这个命令，这就表明需要<strong>添加环境变量</strong>，具体操作自行百度，非常简单，path里加一个路径即可</p>
+<h3 id="什么是单例模式"><a href="#什么是单例模式" class="headerlink" title="什么是单例模式"></a>什么是单例模式</h3><p>例子：在页面中点击登录按钮，弹出了一个登录浮窗，这个登录浮窗是唯一的，无论我们单击多少次，浮窗只会创建一次。<strong>单例模式的核心是确保只有一个实例，并提供全局访问</strong>。</p>
+<h3 id="降低全局污染"><a href="#降低全局污染" class="headerlink" title="降低全局污染"></a>降低全局污染</h3><ol>
+<li><p>使用命名空间<br> <strong>适当使用命名空间，并不会杜绝全局变量，但是可以减少全局变量的数量。</strong></p>
 </li>
-<li><p>安装hexo: cnpm install -g hexo-cli (hexo -v检查版本)</p>
-</li>
-</ol>
-<h2 id="二、创建博客"><a href="#二、创建博客" class="headerlink" title="二、创建博客"></a>二、创建博客</h2><ol>
-<li><p>创建一个文件夹存放博客的所有资源,可以在cmd里直接创建，或者去到某个文件夹里新建文件夹都是可以的(我这里直接在默认的<strong>我的文档</strong>下创建了一个叫blog的文件夹)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\23163&gt;mkdir blog</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在cmd中移动到你这个新建文件夹中(我这里直接cd blog就可以了)</p>
-</li>
-<li><p>初始化hexo，看到终端提示：INFO  Start blogging with Hexo! 就说明初始化成功了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\23163\blog&gt;hexo init</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在cmd中执行命令: hexo s (hexo serve的简写形式)，就可以在本地服务器运行你的hexo博客了，会给一个默认的端口( INFO  Hexo is running at <a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> . Press Ctrl+C to stop. )，想要退出的话，就像它提示的那样在终端输入Ctrl+C就可以了</p>
-</li>
-<li><p>在cmd中执行命令: hexo n “我的第一篇博客文章” (hexo new “XXX”的简写形式)，就会为你创建一篇新的博客了，博客的格式为markdown，你可以通过vim或者vscode都可以对博客的内容进行操作</p>
-</li>
-<li><p>在cmd中执行命令: hexo clean  这一步是清除原有的静态文件(当你更新了配置、主题、内容有可能无法显示，直接清除原有的静态文件再创建新的静态文件是稳妥的方法)</p>
-</li>
-<li><p>在cmd中执行命令: hexo g (hexo generate的简写形式)，生成包括html、css、js、图片等各种静态文件</p>
-</li>
-<li><p>再次执行 hexo s 命令，就可以看到刚刚创建的文章被添加到博客里了</p>
+<li><p>使用闭包封装私有变量</p>
 </li>
 </ol>
-<h2 id="三、部署博客到Github"><a href="#三、部署博客到Github" class="headerlink" title="三、部署博客到Github"></a>三、部署博客到Github</h2><ol>
-<li><p>退出刚才在运行的本地博客，在cmd中执行命令,安装部署的工具(记得还是在之前新建的blog文件夹下)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\23163\blog&gt;cnpm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> payen = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _name = <span class="string">'panda'</span>,</span><br><span class="line">        _age = <span class="number">19</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        getinfo: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> _name + <span class="string">' '</span> + _age </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+
+<p><strong>变量被封装在了闭包内，只暴露一些接口用于外部通信，从而避免了对全局的命令污染。</strong></p>
+<h3 id="简单的惰性单例模式"><a href="#简单的惰性单例模式" class="headerlink" title="简单的惰性单例模式"></a>简单的惰性单例模式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> createDiv = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> div</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!div) &#123;</span><br><span class="line">            div = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>)</span><br><span class="line">            div.style.width = <span class="string">'100px'</span></span><br><span class="line">            div.style.height = <span class="string">'100px'</span></span><br><span class="line">            div.style.background = <span class="string">'red'</span></span><br><span class="line">            <span class="built_in">document</span>.body.appendChild(div)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br><span class="line"></span><br><span class="line">createDiv()</span><br><span class="line">createDiv()</span><br><span class="line">createDiv()</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>使用单例模式让它只创建一个div</li>
+<li>问题：<ul>
+<li>违反了单一职责原则，创建对象和管理单例放在了一个函数中createDiv</li>
+<li>如果我们还想创建一个其他的对象，那就只能copy了</li>
+</ul>
 </li>
-<li><p>需要你拥有一个GitHub账号，登录你的GitHub，创建一个仓库【create a new repository】，仓库名的格式为：Owner.github.io 其中Owner是你GitHub的名字，这里一定要用这个名字才可以，描述随便写就可以了，创建好仓库后，记录下它的https地址</p>
-</li>
-<li><p>打开blog文件夹中的_config.yml文件，移动到该文件内容的最底端#Depolyment部分，加上配置，这里的rope换成你自己刚才设置的地址就可以(<strong>敲代码的时候注意缩进为两格，冒号后面需要一个空格</strong>)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/MrPand111/MrPand111.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>返回到cmd,执行命令: hexo d (hexo deploy的简写形式)，中途需要你登录GitHub账户，登录一下就可以，如果遇到了 Error: Spawn failed，应该是你之前没有在git配置过信息导致的，在cmd中执行: git config –global user.email “<a href="mailto:you@example.com" target="_blank" rel="noopener">you@example.com</a>“ 和  git config –global user.name “Your Name” (双引号里输入你的GitHub信息就行)，然后再次hexo d估计就没问题了</p>
-</li>
-<li><p>到这里你就可以通过刚才设置的 Owner.github.io 来访问自己的博客了，这里拿我的博客作为示范: <a href="https://mrpand111.github.io/" target="_blank" rel="noopener">https://mrpand111.github.io/</a></p>
-</li>
+<li>综上，我们需要：<strong>把不变的部分隔离出来，把可变的封装起来，这给予了我们扩展程序的能力，符合开发-封闭原则</strong></li>
 </ol>
-<blockquote>
-<p>欢迎大家一起来讨论和深入研究hexo鸭！</p>
-</blockquote>
+<h3 id="抽出管理单例"><a href="#抽出管理单例" class="headerlink" title="抽出管理单例"></a>抽出管理单例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> getSingle = <span class="function"><span class="keyword">function</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> result</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> result || (result = fn.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> createDiv = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>)</span><br><span class="line">    div.style.width = <span class="string">'100px'</span></span><br><span class="line">    div.style.height = <span class="string">'100px'</span></span><br><span class="line">    div.style.background = <span class="string">'red'</span></span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(div)</span><br><span class="line">    <span class="keyword">return</span> div</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> createSingDiv = getSingle(createDiv)</span><br><span class="line">createSingleDiv()</span><br><span class="line">createSingleDiv()</span><br><span class="line">createSingleDiv()</span><br></pre></td></tr></table></figure>
+
+<p>创建的DOM节点保存在了result中，result变量因为自身在闭包中，不会被销毁，在将来的请求中，如果result已经被赋值了，那么它将返回这个值。</p>
 
     </div>
 
@@ -389,7 +359,7 @@
     <strong>本文作者： </strong>MrPanda刘畅</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2019/08/15/关于如何搭建自己的hexo博客/" title="关于如何搭建自己的hexo博客">http://yoursite.com/2019/08/15/关于如何搭建自己的hexo博客/</a>
+    <a href="http://yoursite.com/2019/09/21/单例模式/" title="单例模式">http://yoursite.com/2019/09/21/单例模式/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-Hans" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -404,9 +374,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/hexo/" rel="tag"># hexo</a>
-            
-              <a href="/tags/windows/" rel="tag"># windows</a>
+              <a href="/tags/javaScript/" rel="tag"># javaScript</a>
             
           </div>
         
@@ -416,8 +384,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/08/15/我的第一篇博客文章/" rel="next" title="JS实现一个简单的计算器">
-                  <i class="fa fa-chevron-left"></i> JS实现一个简单的计算器
+                <a href="/2019/09/20/JavaScript深入-四-——this机制/" rel="next" title="JavaScript深入(四)——this机制">
+                  <i class="fa fa-chevron-left"></i> JavaScript深入(四)——this机制
                 </a>
               
             </div>
@@ -425,10 +393,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/08/18/c语言快速入门-by-畅喵的瞎扯/" rel="prev" title="c语言快速入门(by 畅喵的瞎扯)">
-                  c语言快速入门(by 畅喵的瞎扯) <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -595,7 +559,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、环境准备"><span class="nav-number">1.</span> <span class="nav-text">一、环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、创建博客"><span class="nav-number">2.</span> <span class="nav-text">二、创建博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、部署博客到Github"><span class="nav-number">3.</span> <span class="nav-text">三、部署博客到Github</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是单例模式"><span class="nav-number">1.</span> <span class="nav-text">什么是单例模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#降低全局污染"><span class="nav-number">2.</span> <span class="nav-text">降低全局污染</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单的惰性单例模式"><span class="nav-number">3.</span> <span class="nav-text">简单的惰性单例模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽出管理单例"><span class="nav-number">4.</span> <span class="nav-text">抽出管理单例</span></a></li></ol></div>
             
 
           </div>
@@ -737,7 +701,7 @@
       repo: 'MrPand111.github.io',
       owner: 'MrPand111',
       admin: ['熊猫'],
-      id: 'c72904f31ab5bb59a8cb6b8fe4bfe2c8',
+      id: '3328223c7e6a5367e1942ed45020255e',
         language: window.navigator.language || window.navigator.userLanguage,
       
       distractionFreeMode: 'true'
