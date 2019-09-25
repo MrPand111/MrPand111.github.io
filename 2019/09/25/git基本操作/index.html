@@ -55,19 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="this的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，实际上this的最终指向的是那个调用它的对象。">
-<meta name="keywords" content="javaScript">
+  <meta name="description" content="一、git创建仓库git init1git init   Git的很多命令都需要再Git的仓库中运行，所以git init是使用git的第一个命令。 在执行完git init之后，Git仓库会生成一个.git目录，该目录包含了资源的所有元数据，其他的项目目录保持不变。  git clone12git clone &amp;lt;repo&amp;gt;git clone &amp;lt;repo&amp;gt; &amp;lt;dire">
+<meta name="keywords" content="git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript深入(四)——this机制">
-<meta property="og:url" content="http://yoursite.com/2019/09/20/JavaScript深入-四-——this机制/index.html">
+<meta property="og:title" content="git基本操作">
+<meta property="og:url" content="http://yoursite.com/2019/09/25/git基本操作/index.html">
 <meta property="og:site_name" content="畅喵の博客">
-<meta property="og:description" content="this的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，实际上this的最终指向的是那个调用它的对象。">
+<meta property="og:description" content="一、git创建仓库git init1git init   Git的很多命令都需要再Git的仓库中运行，所以git init是使用git的第一个命令。 在执行完git init之后，Git仓库会生成一个.git目录，该目录包含了资源的所有元数据，其他的项目目录保持不变。  git clone12git clone &amp;lt;repo&amp;gt;git clone &amp;lt;repo&amp;gt; &amp;lt;dire">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-20T12:48:16.816Z">
+<meta property="og:updated_time" content="2019-09-25T13:08:22.484Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript深入(四)——this机制">
-<meta name="twitter:description" content="this的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，实际上this的最终指向的是那个调用它的对象。">
-  <link rel="canonical" href="http://yoursite.com/2019/09/20/JavaScript深入-四-——this机制/">
+<meta name="twitter:title" content="git基本操作">
+<meta name="twitter:description" content="一、git创建仓库git init1git init   Git的很多命令都需要再Git的仓库中运行，所以git init是使用git的第一个命令。 在执行完git init之后，Git仓库会生成一个.git目录，该目录包含了资源的所有元数据，其他的项目目录保持不变。  git clone12git clone &amp;lt;repo&amp;gt;git clone &amp;lt;repo&amp;gt; &amp;lt;dire">
+  <link rel="canonical" href="http://yoursite.com/2019/09/25/git基本操作/">
 
 
 <script id="page-configurations">
@@ -81,7 +81,7 @@
   };
 </script>
 
-  <title>JavaScript深入(四)——this机制 | 畅喵の博客</title>
+  <title>git基本操作 | 畅喵の博客</title>
   
 
 
@@ -220,7 +220,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/20/JavaScript深入-四-——this机制/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/25/git基本操作/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MrPanda刘畅">
@@ -234,7 +234,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">JavaScript深入(四)——this机制
+          <h1 class="post-title" itemprop="name headline">git基本操作
 
             
           </h1>
@@ -251,12 +251,25 @@
                 
               
 
-              <time title="创建时间：2019-09-20 15:16:33 / 修改时间：20:48:16" itemprop="dateCreated datePublished" datetime="2019-09-20T15:16:33+08:00">2019-09-20</time>
+              <time title="创建时间：2019-09-25 18:47:57 / 修改时间：21:08:22" itemprop="dateCreated datePublished" datetime="2019-09-25T18:47:57+08:00">2019-09-25</time>
             </span>
           
             
 
             
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/其他/" itemprop="url" rel="index"><span itemprop="name">其他</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -278,43 +291,113 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><strong>this的指向在函数定义的时候是确定不了的，只有函数执行的时候才能确定this到底指向谁，实际上this的最终指向的是那个调用它的对象。</strong></p>
-<a id="more"></a>
+        <h2 id="一、git创建仓库"><a href="#一、git创建仓库" class="headerlink" title="一、git创建仓库"></a>一、git创建仓库</h2><h3 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
 
-<h3 id="例子1"><a href="#例子1" class="headerlink" title="例子1"></a>例子1</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> user = <span class="string">"panda"</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.user)  <span class="comment">//undefined</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>)   <span class="comment">//Window</span></span><br><span class="line">&#125;</span><br><span class="line">a()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Git的很多命令都需要再Git的仓库中运行，所以git init是使用git的第一个命令。</li>
+<li>在执行完git init之后，Git仓库会<strong>生成一个.git目录</strong>，该目录包含了资源的所有元数据，其他的项目目录保持不变。</li>
+</ul>
+<h3 id="git-clone"><a href="#git-clone" class="headerlink" title="git clone"></a>git clone</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone &lt;repo&gt;</span><br><span class="line">git clone &lt;repo&gt; &lt;directory&gt;    //到指定目录</span><br></pre></td></tr></table></figure>
 
-<p>this最终指向的是调用它的对象，这里的函数a实际是被Window对象所点出来的。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> user = <span class="string">"panda"</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.user)  <span class="comment">//undefined</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>)   <span class="comment">//Window</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">window</span>.a()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>repo: Git仓库  directory: 本地目录</li>
+</ul>
+<h2 id="二、基本操作"><a href="#二、基本操作" class="headerlink" title="二、基本操作"></a>二、基本操作</h2><h3 id="git-add"><a href="#git-add" class="headerlink" title="git add"></a>git add</h3><ul>
+<li>git add命令可将该文件添加到缓存。</li>
+<li>我们可以使用下面的命令来添加当前项目的所有文件。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
 
-<p>和上面的代码一样，其实alert也是window的一个属性，也是window点出来的。</p>
-<h3 id="例子2"><a href="#例子2" class="headerlink" title="例子2"></a>例子2</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    user: <span class="string">'panda'</span>,</span><br><span class="line">    fn: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.user)  <span class="comment">//panda</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">o.fn()</span><br></pre></td></tr></table></figure>
+<h3 id="git-status"><a href="#git-status" class="headerlink" title="git status"></a>git status</h3><ul>
+<li>查看在上次提交之后是否有修改。</li>
+<li>该命令加上 -s 参数，以获得简短的结果输出。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
 
-<p>这里的this指向的是对象o，因为你调用这个fn是通过o.fn()执行的，那自然指向就是对象o，this的指向在函数创建的时候是决定不了的，在调用的时候才能决定，谁调用的就指向谁。</p>
-<h3 id="例子3"><a href="#例子3" class="headerlink" title="例子3"></a>例子3</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    user: <span class="string">'panda'</span>,</span><br><span class="line">    fn: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.user)  <span class="comment">//panda</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">window</span>.o.fn()</span><br></pre></td></tr></table></figure>
+<h3 id="git-diff"><a href="#git-diff" class="headerlink" title="git diff"></a>git diff</h3><ul>
+<li>查看执行git status的结果的详细信息。</li>
+<li>git diff命令显示已写入缓存与已修改但尚未写入缓存的改动的区别。<ul>
+<li>尚未缓存的改动：git diff</li>
+<li>查看已缓存的改动：git diff –cached</li>
+<li>查看已缓存的与未缓存的所有改动：git diff HEAD</li>
+<li>显示摘要而非整个diff：git diff –stat</li>
+</ul>
+</li>
+</ul>
+<h3 id="git-commit"><a href="#git-commit" class="headerlink" title="git commit"></a>git commit</h3><ul>
+<li>使用git add命令将想要快照的内容写入缓存区，而执行git commit将缓存区内容添加到仓库中。</li>
+<li>Git为你的每一个提交都记录，第一步配置用户名和邮箱地址。</li>
+</ul>
+<figure class="highlight plain"><figcaption><span>config --global user.name 'panda'</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email panda@qq.com</span><br></pre></td></tr></table></figure>
 
-<p>再一个例子</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    a: <span class="number">10</span>,</span><br><span class="line">    b: &#123;</span><br><span class="line">        a: <span class="number">12</span>,</span><br><span class="line">        fn: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.a) <span class="comment">//12</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果觉得git add提交缓存的流程太过繁琐，Git也允许用 -a 选项跳过这一步。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -a</span><br></pre></td></tr></table></figure>
 
-<ol>
-<li>情况1：如果一个函数中有this，但是他没有被上一级的对象调用，那么this指向的就是window（严格模式不符合）。</li>
-<li>情况2：如果一个函数中有this，这个函数又被上一级的对象所调用，那么this指向的就是上一级的对象。</li>
-<li>情况3: 如果一个函数中有this，<strong><font color="red">这个函数中包含多个对象，尽管这个函数是被最外层的对象所调用，this指向的也只是它上一级对象</font></strong>。</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    a: <span class="number">10</span>,</span><br><span class="line">    b: &#123;</span><br><span class="line">        fn: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.a) <span class="comment">//undefined</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">o.b.fn()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改文件内容后，执行以下命令</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;change something&quot;</span><br></pre></td></tr></table></figure>
 
-<p>尽管对象b中没有属性a，这个this指向的也是对象b，因为this只会指向它的上一级对象，不管这个对象中有没有this要的东西。</p>
-<h3 id="特殊情况"><a href="#特殊情况" class="headerlink" title="特殊情况"></a>特殊情况</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> o = &#123;</span><br><span class="line">    a: <span class="number">10</span>,</span><br><span class="line">    b: &#123;</span><br><span class="line">        a: <span class="number">12</span>,</span><br><span class="line">        fn: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.a) <span class="comment">//undefined</span></span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>)   <span class="comment">//window</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> j = o.b.fn</span><br><span class="line">j()</span><br></pre></td></tr></table></figure>
+<h3 id="git-reset-HEAD"><a href="#git-reset-HEAD" class="headerlink" title="git reset HEAD"></a>git reset HEAD</h3><ul>
+<li>git reset HEAD 命令用于取消已缓存的内容。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD readme.md</span><br></pre></td></tr></table></figure>
 
-<p>这里的this指向的是window。<strong>this永远指向的是最后调用它的对象。</strong></p>
-<h3 id="this碰到return"><a href="#this碰到return" class="headerlink" title="this碰到return"></a>this碰到return</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.user = <span class="string">'panda'</span></span><br><span class="line">    <span class="keyword">return</span> &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> fn</span><br><span class="line"><span class="built_in">console</span>.log(a.user) <span class="comment">//undefined</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.user = <span class="string">'panda'</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> bn</span><br><span class="line"><span class="built_in">console</span>.log(b.user) <span class="comment">//panda</span></span><br></pre></td></tr></table></figure>
+<h3 id="git-rm"><a href="#git-rm" class="headerlink" title="git rm"></a>git rm</h3><ul>
+<li>如果只是简单地从工作目录中手工删除文件，运行git status时就会在<strong>Changes not staged for commit</strong>的提示。</li>
+<li>要从Git中移除某个文件，就必须要从已跟踪文件清单中移除，然后提交。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm &lt;file&gt;</span><br></pre></td></tr></table></figure>
 
-<p><strong><font color="red">如果返回值是一个对象，那么this指向的就是那个返回的对象，如果返回值不是一个对象那么this还是指向函数的实例。</font></strong></p>
-<p>null也是对象，但是在这里this还是指向那个函数的实例，因为null比较特殊。</p>
-<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><ol>
-<li>严格版中的默认的this操作不再是window，而是undefined。</li>
-<li>new操作符会改变函数this的指向问题。</li>
-</ol>
+<ul>
+<li>如果删除之前修改过并且已经放到暂存区域的话，则必须要强制删除选项 -f</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm -f &lt;file&gt;</span><br></pre></td></tr></table></figure>
 
+<h2 id="三、Git分支管理"><a href="#三、Git分支管理" class="headerlink" title="三、Git分支管理"></a>三、Git分支管理</h2><h3 id="列出分支"><a href="#列出分支" class="headerlink" title="列出分支"></a>列出分支</h3><ul>
+<li>没有参数时，git branch会列出你在本地的分支</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>执行git init的适合，默认情况下Git就会为你<strong>创建master分支</strong>。手动创建分支：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch branchname</span><br></pre></td></tr></table></figure>
+
+<h3 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h3><ul>
+<li>切换分支</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout (branch)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>可以使用git checkout -b (branchname)来创建新分支并立即切换到该分支下</li>
+</ul>
+<h3 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h3><ul>
+<li>删除本地分支：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch -d (branchname)</span><br><span class="line">git branch -D (branchname)  //强制删除</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>删除远程分支：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin --delete (branchname)</span><br></pre></td></tr></table></figure>
+
+<h3 id="分支合并"><a href="#分支合并" class="headerlink" title="分支合并"></a>分支合并</h3><ul>
+<li>一旦某分支有了独立内容，可以使用一下命令将任何分支合并到当前分支中去</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge (branchname)</span><br></pre></td></tr></table></figure>
+
+<h3 id="push和pull分支"><a href="#push和pull分支" class="headerlink" title="push和pull分支"></a>push和pull分支</h3><ul>
+<li>本地推送分支：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin (branchname)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>pull分支：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin (branchname)</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -353,7 +436,7 @@
     <strong>本文作者： </strong>MrPanda刘畅</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2019/09/20/JavaScript深入-四-——this机制/" title="JavaScript深入(四)——this机制">http://yoursite.com/2019/09/20/JavaScript深入-四-——this机制/</a>
+    <a href="http://yoursite.com/2019/09/25/git基本操作/" title="git基本操作">http://yoursite.com/2019/09/25/git基本操作/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-Hans" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -368,7 +451,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/javaScript/" rel="tag"># javaScript</a>
+              <a href="/tags/git/" rel="tag"># git</a>
             
           </div>
         
@@ -378,8 +461,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/18/JavaScript深入-三-——作用域和执行上下文/" rel="next" title="JavaScript深入(三)——作用域和执行上下文">
-                  <i class="fa fa-chevron-left"></i> JavaScript深入(三)——作用域和执行上下文
+                <a href="/2019/09/21/单例模式/" rel="next" title="单例模式">
+                  <i class="fa fa-chevron-left"></i> 单例模式
                 </a>
               
             </div>
@@ -387,10 +470,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/09/21/单例模式/" rel="prev" title="单例模式">
-                  单例模式 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -561,7 +640,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#例子1"><span class="nav-number">1.</span> <span class="nav-text">例子1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例子2"><span class="nav-number">2.</span> <span class="nav-text">例子2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例子3"><span class="nav-number">3.</span> <span class="nav-text">例子3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊情况"><span class="nav-number">4.</span> <span class="nav-text">特殊情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#this碰到return"><span class="nav-number">5.</span> <span class="nav-text">this碰到return</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补充"><span class="nav-number">6.</span> <span class="nav-text">补充</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、git创建仓库"><span class="nav-number">1.</span> <span class="nav-text">一、git创建仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#git-init"><span class="nav-number">1.1.</span> <span class="nav-text">git init</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-clone"><span class="nav-number">1.2.</span> <span class="nav-text">git clone</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、基本操作"><span class="nav-number">2.</span> <span class="nav-text">二、基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#git-add"><span class="nav-number">2.1.</span> <span class="nav-text">git add</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-status"><span class="nav-number">2.2.</span> <span class="nav-text">git status</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-diff"><span class="nav-number">2.3.</span> <span class="nav-text">git diff</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-commit"><span class="nav-number">2.4.</span> <span class="nav-text">git commit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-reset-HEAD"><span class="nav-number">2.5.</span> <span class="nav-text">git reset HEAD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-rm"><span class="nav-number">2.6.</span> <span class="nav-text">git rm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、Git分支管理"><span class="nav-number">3.</span> <span class="nav-text">三、Git分支管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#列出分支"><span class="nav-number">3.1.</span> <span class="nav-text">列出分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切换分支"><span class="nav-number">3.2.</span> <span class="nav-text">切换分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除分支"><span class="nav-number">3.3.</span> <span class="nav-text">删除分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支合并"><span class="nav-number">3.4.</span> <span class="nav-text">分支合并</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#push和pull分支"><span class="nav-number">3.5.</span> <span class="nav-text">push和pull分支</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -703,7 +782,7 @@
       repo: 'MrPand111.github.io',
       owner: 'MrPand111',
       admin: ['熊猫'],
-      id: '502ec24eef2e833ab59131120d26fa3b',
+      id: 'f00117b9b438fcd98476adb34386e492',
         language: window.navigator.language || window.navigator.userLanguage,
       
       distractionFreeMode: 'true'
