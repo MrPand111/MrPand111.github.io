@@ -55,22 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="给我负责的新人写快速入门，没事儿的话就更新点。 一、搭建c语言运行环境和c语言编辑器 如果你是第一次了解到编程的小白，也许你会对c语言这个名词很陌生，它是一种通用的、面向过程式的计算机程序设计语言。没懂？那你可以简单理解为利用一些字母和数字实现某种逻辑的工具，将人脑需要复杂计算出来的东西通过计算机一步就得出结果，当然这堆字母和数字肯定是没有计算功能的神通，但是通过编译这一方法就可以将你所写下的字母">
-<meta name="keywords" content="c语言">
+  <meta name="description" content="定义 闭包是指那些能够访问自由变量的函数。">
+<meta name="keywords" content="javaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="c语言快速入门(by 畅喵的瞎扯)">
-<meta property="og:url" content="http://yoursite.com/2019/08/18/c语言快速入门-by-畅喵的瞎扯/index.html">
+<meta property="og:title" content="JavaScript深入(五)——闭包">
+<meta property="og:url" content="http://yoursite.com/2019/09/29/JavaScript深入-五-——闭包/index.html">
 <meta property="og:site_name" content="畅喵の博客">
-<meta property="og:description" content="给我负责的新人写快速入门，没事儿的话就更新点。 一、搭建c语言运行环境和c语言编辑器 如果你是第一次了解到编程的小白，也许你会对c语言这个名词很陌生，它是一种通用的、面向过程式的计算机程序设计语言。没懂？那你可以简单理解为利用一些字母和数字实现某种逻辑的工具，将人脑需要复杂计算出来的东西通过计算机一步就得出结果，当然这堆字母和数字肯定是没有计算功能的神通，但是通过编译这一方法就可以将你所写下的字母">
+<meta property="og:description" content="定义 闭包是指那些能够访问自由变量的函数。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/08/18/c语言快速入门-by-畅喵的瞎扯/cb.png">
-<meta property="og:image" content="http://yoursite.com/2019/08/18/c语言快速入门-by-畅喵的瞎扯/helloworld.png">
-<meta property="og:updated_time" content="2019-08-19T08:30:28.616Z">
+<meta property="og:updated_time" content="2019-09-29T04:39:22.941Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="c语言快速入门(by 畅喵的瞎扯)">
-<meta name="twitter:description" content="给我负责的新人写快速入门，没事儿的话就更新点。 一、搭建c语言运行环境和c语言编辑器 如果你是第一次了解到编程的小白，也许你会对c语言这个名词很陌生，它是一种通用的、面向过程式的计算机程序设计语言。没懂？那你可以简单理解为利用一些字母和数字实现某种逻辑的工具，将人脑需要复杂计算出来的东西通过计算机一步就得出结果，当然这堆字母和数字肯定是没有计算功能的神通，但是通过编译这一方法就可以将你所写下的字母">
-<meta name="twitter:image" content="http://yoursite.com/2019/08/18/c语言快速入门-by-畅喵的瞎扯/cb.png">
-  <link rel="canonical" href="http://yoursite.com/2019/08/18/c语言快速入门-by-畅喵的瞎扯/">
+<meta name="twitter:title" content="JavaScript深入(五)——闭包">
+<meta name="twitter:description" content="定义 闭包是指那些能够访问自由变量的函数。">
+  <link rel="canonical" href="http://yoursite.com/2019/09/29/JavaScript深入-五-——闭包/">
 
 
 <script id="page-configurations">
@@ -84,7 +81,7 @@
   };
 </script>
 
-  <title>c语言快速入门(by 畅喵的瞎扯) | 畅喵の博客</title>
+  <title>JavaScript深入(五)——闭包 | 畅喵の博客</title>
   
 
 
@@ -223,7 +220,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/18/c语言快速入门-by-畅喵的瞎扯/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/29/JavaScript深入-五-——闭包/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MrPanda刘畅">
@@ -237,7 +234,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">c语言快速入门(by 畅喵的瞎扯)
+          <h1 class="post-title" itemprop="name headline">JavaScript深入(五)——闭包
 
             
           </h1>
@@ -254,19 +251,11 @@
                 
               
 
-              <time title="创建时间：2019-08-18 17:01:54" itemprop="dateCreated datePublished" datetime="2019-08-18T17:01:54+08:00">2019-08-18</time>
+              <time title="创建时间：2019-09-29 10:07:26 / 修改时间：12:39:22" itemprop="dateCreated datePublished" datetime="2019-09-29T10:07:26+08:00">2019-09-29</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-08-19 16:30:28" itemprop="dateModified" datetime="2019-08-19T16:30:28+08:00">2019-08-19</time>
-              </span>
             
           
             <span class="post-meta-item">
@@ -275,7 +264,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cs课程/" itemprop="url" rel="index"><span itemprop="name">cs课程</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
 
                 
                 
@@ -302,41 +291,72 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>给我负责的新人写快速入门，没事儿的话就更新点。</p>
-<h2 id="一、搭建c语言运行环境和c语言编辑器"><a href="#一、搭建c语言运行环境和c语言编辑器" class="headerlink" title="一、搭建c语言运行环境和c语言编辑器"></a>一、搭建c语言运行环境和c语言编辑器</h2><ol>
-<li>如果你是第一次了解到编程的小白，也许你会对c语言这个名词很陌生，它是一种通用的、<strong>面向过程式</strong>的计算机程序设计语言。没懂？那你可以简单理解为利用一些字母和数字实现某种逻辑的工具，将人脑需要复杂计算出来的东西通过计算机一步就得出结果，当然这堆字母和数字肯定是没有计算功能的神通，但是通过<strong>编译</strong>这一方法就可以将你所写下的字母数字转化成计算机认识的机器语言，而c语言也是众多计算机语言中最接近机器语言的。</li>
-</ol>
+        <h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><blockquote>
+<p>闭包是指那些能够访问自由变量的函数。</p>
+</blockquote>
 <a id="more"></a>
 
-<ol start="2">
-<li>想要自己写一段c语言程序，就需要一个像模像样的编辑器，这里推荐code blocks(学校的课程与考试都是用的cb)，你可以在codeblocks官网上下载(mingw是c语言的运行环境，也要一同下载哦)，如果选择的压缩包版的解压即可，安装版的直接装就好了。下图给出了供参考的下载项。</li>
-</ol>
-<img src="/2019/08/18/c语言快速入门-by-畅喵的瞎扯/cb.png" title="关于cb下载的选择">
+<p>什么是自由变量呢？</p>
+<blockquote>
+<p>自由变量是指在函数中使用的，但既不是函数参数而不是函数的局部变量的变量。</p>
+</blockquote>
+<p>闭包共有两部分组成：</p>
+<blockquote>
+<p>闭包 = 函数 + 函数能够访问的自由变量。</p>
+</blockquote>
+<p>举个例子</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo()</span><br></pre></td></tr></table></figure>
 
-<ol start="3">
-<li>打开code blocks之后可能会提示一些关于environment即环境的问题，这大概率是需要添加c语言的环境变量，这一步自行百度就可以了(一点提示：把c语言源文件夹下的bin添加到我的电脑高级设置中环境变量的path)，如果始终无法解决环境变量的问题，就用w3c或者菜鸟教程的在线编辑器吧，手机中也可以下载c语言的编辑器app，如果仅仅是为了练习代码，甚至用手机记事本都可以。</li>
+<p>foo函数可以访问变量a，但是a既不是foo函数的局部变量，也不是foo函数的参数，所以a就是自由变量。</p>
+<p>那么，<strong>函数foo + foo 函数访问的自由变量a就构成了一个闭包</strong></p>
+<p>《Javascript权威指南》中就讲到：从技术的角度讲，所有的JavaScript函数都是闭包。</p>
+<p>对于闭包的理解：</p>
+<ol>
+<li><p>从理论角度：所有的函数。因为它们都在创建的时候就将上下文的数据保存起来了。哪怕是最简单的全局变量也是如此，因为函数中访问全局变量就相当于是在访问自由变量，这个时候使用最外层的作用域。</p>
+</li>
+<li><p>从实践角度：以下函数才算闭包：</p>
+<ul>
+<li>即使创建它的上下文已经销毁，它仍然存在（比如，内部函数从父函数中返回）</li>
+<li>在代码中引用了自由变量</li>
+</ul>
+</li>
 </ol>
-<h2 id="二、我的第一个c语言程序"><a href="#二、我的第一个c语言程序" class="headerlink" title="二、我的第一个c语言程序"></a>二、我的第一个c语言程序</h2><ol>
-<li>每接触一种新的语言肯定要先敲hello world啦。打开codeblocks之后，点击左上角的【file】 -&gt; 【New】 -&gt; 【File】 选择c/c++ source，然后选择c语言，在创建的页面中填好路径与名称（下面Add file..那个不用选），点击【finish】就可以了，下面给出了hello world的示例代码<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;   </span><br><span class="line">    <span class="comment">/* 这是两</span></span><br><span class="line"><span class="comment">        段注释 */</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"hello world"</span>);   <span class="comment">//另一种注释方式</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scope = <span class="string">"global scope"</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkscope</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> scope = <span class="string">"local scope"</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> scope</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> f</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> foo = checkscope()</span><br><span class="line">foo()</span><br></pre></td></tr></table></figure>
 
-</li>
+<p>执行过程：</p>
+<ol>
+<li>进入全局代码，创建全局执行上下文，全局执行上下文压入上下文栈</li>
+<li>全局执行上下文初始化</li>
+<li>执行checkscope函数，创建checkscope函数执行上下文，checkscope执行上下文被压入上下文栈</li>
+<li>checkscope执行上下文初始化，创建变量对象、作用域链、this等</li>
+<li>checkscope函数执行完毕，checkscope执行上下文从执行上下文栈中弹出</li>
+<li>执行f函数，创建f函数执行上下文，f执行上下文被压入执行上下文栈</li>
+<li>f执行上下文初始化，创建变量对象、作用域链、this等</li>
+<li>f函数执行完毕，f函数上下文从执行上下文栈中弹出</li>
 </ol>
-<p>敲完之后，在菜单栏里找到【build】，选择【build and run】，几秒之后，就可以看到突然蹦出来了一个命令提示框，显示着你刚才敲的hello world</p>
-<img src="/2019/08/18/c语言快速入门-by-畅喵的瞎扯/helloworld.png" title="helloworld的结果">
+<p>当f函数执行时，checkscope函数上下文已经被销毁了，但是f执行上下文维护了一个作用域链</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fContext = &#123;</span><br><span class="line">    Scope: [AO , checkscopeContext.AO , globalContext.VO]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<ol start="2">
-<li><p>现在我们来分析下这几行代码：第一行的代码叫做<strong>头文件</strong>，就是写在一个c语言程序最前面的地方咯。stdio.h是c语言的库，库就好比工具箱，里面有很多实现各种功能的工具。include，正如它的释义“包含”一样， 这一行代码翻译过来就是：“这个程序包含了c语言的库”，所以在接下来引用c语言库里的工具或方法就合乎情理了。</p>
-</li>
-<li><p>第二行是程序的<strong>主函数</strong>，main即凸显出一个主要的感觉，所有的代码都从主函数开始执行，正因为里面的代码和主函数是包含的关系，所以下面用一个大括号把要执行的代码包裹起来，为了视觉效果上更能展示出包含的关系，括号内部的代码要空四个格。</p>
-</li>
-<li><p>代码的内容里是没有中文的(包括<strong>双引号、括号、分号都是英文的</strong>)，但是可以写中文的注释，就是字面意思，对于同一个问题一万个人有一万种代码的写法，为了让别人清楚你的代码干了些什么，有什么要注意的地方，都可以写成注释，/**/就像括号一样，里面的内容都是注释；//的话只能注释一行，从上面的例子就可以看出来</p>
-</li>
-<li><p>hello world是怎么被显示出来的呢？就是靠着库函数printf。库函数相当于头文件中stdio.h这一工具箱里面的工具(现在清楚头文件的作用了吧),正因为你引入了c语言的头文件，才能在这里使用它的库函数。printf中有单词print“打印”，顾名思义，就是把printf中所包含的内容打印显示在命令提示框中。</p>
-</li>
-<li><p>return的中文含义是“返回”，0即为空，结束的意思，连接起来就是“回归虚无”(听上去好修仙的感觉)的意思，这也说明了这个程序走到了终点，代码到这里也就结束了。现在是不是对c语言有了一丝丝了解呢，可以试着去敲一个这样的小程序，输出不同的内容哈。</p>
-</li>
-</ol>
-<p>(持续更新中，敬请期待)</p>
+<p><strong><font color="red">即使checkscopeContext被销毁了，但是JavaScript依然会让checkscopeContext.AO活在内存里，f函数依然可以通过f函数的作用域链找到它。</font></strong></p>
+<h3 id="必刷题"><a href="#必刷题" class="headerlink" title="必刷题"></a>必刷题</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = []</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">    data[i] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(i)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">data[<span class="number">0</span>]()   <span class="comment">//3</span></span><br><span class="line">data[<span class="number">1</span>]()   <span class="comment">//3</span></span><br><span class="line">data[<span class="number">2</span>]()   <span class="comment">//3</span></span><br></pre></td></tr></table></figure>
+
+<p>当执行到data[0]函数之前，此时全局上下文的VO为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">globalContext = &#123;</span><br><span class="line">    VO: &#123;</span><br><span class="line">        data: [...],</span><br><span class="line">        i: <span class="number">3</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当执行data[0]函数的时候，data[0]函数的作用域链为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data[<span class="number">0</span>]Context = &#123;</span><br><span class="line">    Scope: [AO , globalContext.VO]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>data[0]Context的AO并没有i值，所以会从globalContext.VO中查找。i为3，所以打印的结果就是3。</p>
+<h3 id="改成闭包类型"><a href="#改成闭包类型" class="headerlink" title="改成闭包类型"></a>改成闭包类型</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = []</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">    data[i] = (<span class="function"><span class="keyword">function</span>(<span class="params">i</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(i)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)(i)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">data[<span class="number">0</span>]()</span><br><span class="line">data[<span class="number">1</span>]()</span><br><span class="line">data[<span class="number">2</span>]()</span><br></pre></td></tr></table></figure>
+
+<p>当执行到data[0]函数之前，此时全局上下文的VO和前面相同。</p>
+<p>但执行data[0]函数的时候，data[0]函数的作用域链<strong>发生了改变</strong>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data[<span class="number">0</span>]Context = &#123;</span><br><span class="line">    Scope: [AO , 匿名函数Context.AO , globalContext.VO]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>匿名函数执行上下文的AO为：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">匿名函数Context = &#123;</span><br><span class="line">    AO: &#123;</span><br><span class="line">        <span class="built_in">arguments</span>: &#123;</span><br><span class="line">            <span class="number">0</span>: <span class="number">0</span>,</span><br><span class="line">            length: <span class="number">1</span></span><br><span class="line">        &#125;,</span><br><span class="line">        i: <span class="number">0</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>data[0]Context的AO并没有i值，所以会沿着作用域链从匿名函数Context.AO中查找，这时候就会找到i为0。</strong></p>
 
     </div>
 
@@ -376,7 +396,7 @@
     <strong>本文作者： </strong>MrPanda刘畅</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2019/08/18/c语言快速入门-by-畅喵的瞎扯/" title="c语言快速入门(by 畅喵的瞎扯)">http://yoursite.com/2019/08/18/c语言快速入门-by-畅喵的瞎扯/</a>
+    <a href="http://yoursite.com/2019/09/29/JavaScript深入-五-——闭包/" title="JavaScript深入(五)——闭包">http://yoursite.com/2019/09/29/JavaScript深入-五-——闭包/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-Hans" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -391,7 +411,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/c语言/" rel="tag"># c语言</a>
+              <a href="/tags/javaScript/" rel="tag"># javaScript</a>
             
           </div>
         
@@ -401,8 +421,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/08/15/关于如何搭建自己的hexo博客/" rel="next" title="关于如何搭建自己的hexo博客">
-                  <i class="fa fa-chevron-left"></i> 关于如何搭建自己的hexo博客
+                <a href="/2019/09/27/DOM基础/" rel="next" title="DOM基础">
+                  <i class="fa fa-chevron-left"></i> DOM基础
                 </a>
               
             </div>
@@ -410,10 +430,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/08/19/js中数组方法/" rel="prev" title="js中常用的数组和字符串方法">
-                  js中常用的数组和字符串方法 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -584,7 +600,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、搭建c语言运行环境和c语言编辑器"><span class="nav-number">1.</span> <span class="nav-text">一、搭建c语言运行环境和c语言编辑器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、我的第一个c语言程序"><span class="nav-number">2.</span> <span class="nav-text">二、我的第一个c语言程序</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分析"><span class="nav-number">2.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#必刷题"><span class="nav-number">3.</span> <span class="nav-text">必刷题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#改成闭包类型"><span class="nav-number">4.</span> <span class="nav-text">改成闭包类型</span></a></li></ol></div>
             
 
           </div>
@@ -726,7 +742,7 @@
       repo: 'MrPand111.github.io',
       owner: 'MrPand111',
       admin: ['熊猫'],
-      id: '673a9a14de29517c2631b4acd8cc964d',
+      id: 'f762853629476071f0f67407b1c2f326',
         language: window.navigator.language || window.navigator.userLanguage,
       
       distractionFreeMode: 'true'
