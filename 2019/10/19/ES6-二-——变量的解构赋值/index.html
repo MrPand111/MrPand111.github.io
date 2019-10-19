@@ -55,19 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="flex-direction属性 决定主轴的方向（即项目的排列方向） row(默认值)：主轴为水平方向，起点在左端。 row-reverse：主轴为水平方向，起点在右端。 column：主轴为垂直方向，起点在上沿。 column-reverse：主轴为垂直方向，起点在下沿。">
-<meta name="keywords" content="css">
+  <meta name="keywords" content="javaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="flex布局">
-<meta property="og:url" content="http://yoursite.com/2019/09/01/flex布局/index.html">
+<meta property="og:title" content="ES6(二)——变量的解构赋值">
+<meta property="og:url" content="http://yoursite.com/2019/10/19/ES6-二-——变量的解构赋值/index.html">
 <meta property="og:site_name" content="畅喵の博客">
-<meta property="og:description" content="flex-direction属性 决定主轴的方向（即项目的排列方向） row(默认值)：主轴为水平方向，起点在左端。 row-reverse：主轴为水平方向，起点在右端。 column：主轴为垂直方向，起点在上沿。 column-reverse：主轴为垂直方向，起点在下沿。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-02T01:19:59.309Z">
+<meta property="og:image" content="http://yoursite.com/2019/10/19/ES6-二-——变量的解构赋值/变量的解构赋值.png">
+<meta property="og:updated_time" content="2019-10-19T01:43:42.690Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="flex布局">
-<meta name="twitter:description" content="flex-direction属性 决定主轴的方向（即项目的排列方向） row(默认值)：主轴为水平方向，起点在左端。 row-reverse：主轴为水平方向，起点在右端。 column：主轴为垂直方向，起点在上沿。 column-reverse：主轴为垂直方向，起点在下沿。">
-  <link rel="canonical" href="http://yoursite.com/2019/09/01/flex布局/">
+<meta name="twitter:title" content="ES6(二)——变量的解构赋值">
+<meta name="twitter:image" content="http://yoursite.com/2019/10/19/ES6-二-——变量的解构赋值/变量的解构赋值.png">
+  <link rel="canonical" href="http://yoursite.com/2019/10/19/ES6-二-——变量的解构赋值/">
 
 
 <script id="page-configurations">
@@ -81,7 +80,7 @@
   };
 </script>
 
-  <title>flex布局 | 畅喵の博客</title>
+  <title>ES6(二)——变量的解构赋值 | 畅喵の博客</title>
   
 
 
@@ -220,7 +219,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/01/flex布局/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/19/ES6-二-——变量的解构赋值/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MrPanda刘畅">
@@ -234,7 +233,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">flex布局
+          <h1 class="post-title" itemprop="name headline">ES6(二)——变量的解构赋值
 
             
           </h1>
@@ -251,19 +250,11 @@
                 
               
 
-              <time title="创建时间：2019-09-01 15:41:29" itemprop="dateCreated datePublished" datetime="2019-09-01T15:41:29+08:00">2019-09-01</time>
+              <time title="创建时间：2019-10-19 09:38:59 / 修改时间：09:43:42" itemprop="dateCreated datePublished" datetime="2019-10-19T09:38:59+08:00">2019-10-19</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-02 09:19:59" itemprop="dateModified" datetime="2019-09-02T09:19:59+08:00">2019-09-02</time>
-              </span>
             
           
             <span class="post-meta-item">
@@ -272,7 +263,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ES6标准入门系列/" itemprop="url" rel="index"><span itemprop="name">ES6标准入门系列</span></a></span>
 
                 
                 
@@ -299,79 +290,86 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="flex-direction属性"><a href="#flex-direction属性" class="headerlink" title="flex-direction属性"></a>flex-direction属性</h3><ul>
-<li><strong>决定主轴的方向（即项目的排列方向）</strong></li>
-<li>row(默认值)：主轴为水平方向，起点在左端。</li>
-<li>row-reverse：主轴为水平方向，起点在右端。</li>
-<li>column：主轴为垂直方向，起点在上沿。</li>
-<li>column-reverse：主轴为垂直方向，起点在下沿。</li>
-</ul>
+        <img src="/2019/10/19/ES6-二-——变量的解构赋值/变量的解构赋值.png" title="变量的解构赋值">
+
 <a id="more"></a>
 
-<h3 id="flex-wrap属性"><a href="#flex-wrap属性" class="headerlink" title="flex-wrap属性"></a>flex-wrap属性</h3><ul>
-<li><strong>默认情况下，项目都排在轴线上，flex-wrap属性定义，如果一条轴线排不下，如何换行。</strong></li>
-<li>nowrap（默认）：不换行。</li>
-<li>wrap：换行，第一行在上方。</li>
-<li>wrap-reverse：换行，第一行在下方。</li>
-</ul>
-<h3 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h3><ul>
-<li><strong>是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。</strong></li>
-</ul>
-<h3 id="justify-content属性"><a href="#justify-content属性" class="headerlink" title="justify-content属性"></a>justify-content属性</h3><ul>
-<li><strong>定义了项目在主轴上的对齐方式。</strong></li>
-<li>flex-start(默认值)：左对齐。</li>
-<li>flex-end：右对齐。</li>
-<li>center：居中。</li>
-<li>space-between：两端对齐，项目之间的间隔都相等。</li>
-<li>space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</li>
-</ul>
-<h3 id="align-items属性"><a href="#align-items属性" class="headerlink" title="align-items属性"></a>align-items属性</h3><ul>
-<li><strong>定义项目在交叉轴上如何对齐</strong></li>
-<li>flex-start：交叉轴的起点对齐。</li>
-<li>flex-end：交叉轴的终点对齐。</li>
-<li>center：交叉轴的中点对齐。</li>
-<li>baseline：项目的第一行文字的基线对齐。</li>
-<li>stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</li>
-</ul>
-<h3 id="align-content属性"><a href="#align-content属性" class="headerlink" title="align-content属性"></a>align-content属性</h3><ul>
-<li><strong>定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。</strong></li>
-<li>flex-start：与交叉轴的起点对齐。</li>
-<li>flex-end：与交叉轴的终点对齐。</li>
-<li>center：与交叉轴的中点对齐。</li>
-<li>space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。</li>
-<li>space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。</li>
-<li>stretch（默认）：轴线占满整个交叉轴。</li>
-</ul>
-<h3 id="选择单个元素"><a href="#选择单个元素" class="headerlink" title="选择单个元素"></a>选择单个元素</h3><ul>
-<li><p>html</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">article</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><h3 id="解构用于对象"><a href="#解构用于对象" class="headerlink" title="解构用于对象"></a>解构用于对象</h3><p>变量必须与属性同名才能取到正确的值<br>let { bar,foo } = { foo:”aaa”,bar:”bbb” }<br>                    foo    //“aaa”<br>                    bar    //“bbb”</p>
+<h3 id="变量名与属性名不一致"><a href="#变量名与属性名不一致" class="headerlink" title="变量名与属性名不一致"></a>变量名与属性名不一致</h3><p>var { foo:baz } = { foo:’aaa’ , bar:’bbb’ }<br>baz    //“aaa”</p>
+<h3 id="匹配模式和变量"><a href="#匹配模式和变量" class="headerlink" title="匹配模式和变量"></a>匹配模式和变量</h3><p>//foo是匹配模式，baz才是变量<br>let { foo:baz } = { foo:”aaa” , bar: “bbb” }<br>baz    //“aaa”<br>foo    //error:foo is not defined</p>
+<h3 id="嵌套赋值"><a href="#嵌套赋值" class="headerlink" title="嵌套赋值"></a>嵌套赋值</h3><p>let obj = {}<br>let arr = []<br>({ foo:obj.prop , bar: arr[0] } = { foo:123 , bar: true })<br>obj    //{prop:123}<br>arr    //[true]</p>
+<h3 id="指定默认值"><a href="#指定默认值" class="headerlink" title="指定默认值"></a>指定默认值</h3><p>var { x,y=5 }    = { x:1 }<br>x    //1<br>y    //5</p>
+<h3 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h3><ul>
+<li><p>对已声明变量解构赋值</p>
 </li>
-<li><p>css</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">article</span><span class="selector-pseudo">:first-child</span>&#123;</span><br><span class="line">    <span class="attribute">align-self</span>: flex-start;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">article</span><span class="selector-pseudo">:nth-child(2)</span>&#123;</span><br><span class="line">    <span class="attribute">align-self</span>:center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<li><p>大括号在行首</p>
+<p>JavaScript引擎会将{x}理解成一个代码块，从而发生语法错误</p>
 </li>
 </ul>
-<h3 id="flex-grow属性"><a href="#flex-grow属性" class="headerlink" title="flex-grow属性"></a>flex-grow属性</h3><ul>
-<li><strong>定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。</strong></li>
-<li>如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（如果有的话）。如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。</li>
+<h3 id="现有对象的方法赋值到变量上"><a href="#现有对象的方法赋值到变量上" class="headerlink" title="现有对象的方法赋值到变量上"></a>现有对象的方法赋值到变量上</h3><p>let  { log,sin,cos } = Math</p>
+<h3 id="对数组进行对象属性的解构"><a href="#对数组进行对象属性的解构" class="headerlink" title="对数组进行对象属性的解构"></a>对数组进行对象属性的解构</h3><p>let { 0:first , [arr.length - 1]: last } = arr</p>
+<h2 id="数值和布尔值"><a href="#数值和布尔值" class="headerlink" title="数值和布尔值"></a>数值和布尔值</h2><h3 id="先转为对象"><a href="#先转为对象" class="headerlink" title="先转为对象"></a>先转为对象</h3><p>解构赋值的规则是，只要等号右边不是对象或数组，就先将其转化为对象。<br>let { toString:s } = 123<br>s === Number.prototype.toString    //true<br>let { toString:s } = true<br>s === Boolean.prototype.toString    //true</p>
+<h2 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h2><h3 id="函数参数也可以解构赋值"><a href="#函数参数也可以解构赋值" class="headerlink" title="函数参数也可以解构赋值"></a>函数参数也可以解构赋值</h3><h3 id="指定默认值-1"><a href="#指定默认值-1" class="headerlink" title="指定默认值"></a>指定默认值</h3><h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><h3 id="转换成了一个类似数组的对象"><a href="#转换成了一个类似数组的对象" class="headerlink" title="转换成了一个类似数组的对象"></a>转换成了一个类似数组的对象</h3><p>const [a,b,c,d,e] = ‘hello’<br>a    //“h”<br>b    //“e”<br>c    //“l”<br>d    //“l”<br>e    //“o”</p>
+<h3 id="length属性"><a href="#length属性" class="headerlink" title="length属性"></a>length属性</h3><p>let {length:len} = ‘hello’<br>len    //5</p>
+<h2 id="圆括号问题"><a href="#圆括号问题" class="headerlink" title="圆括号问题"></a>圆括号问题</h2><h3 id="不能使用圆括号"><a href="#不能使用圆括号" class="headerlink" title="不能使用圆括号"></a>不能使用圆括号</h3><ul>
+<li><p>变量声明语句</p>
+<p>let {x:(c)}    = {}<br>let [(a)] = [1]</p>
+</li>
+<li><p>函数参数</p>
+<p>function f([(z)]) { return z }</p>
+</li>
+<li><p>赋值语句的模式</p>
+<p>({ p:a }) = { p:52 }</p>
+</li>
 </ul>
-<h3 id="flex-shrink属性"><a href="#flex-shrink属性" class="headerlink" title="flex-shrink属性"></a>flex-shrink属性</h3><ul>
-<li><strong>定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</strong></li>
-<li>如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。</li>
+<h3 id="可以使用圆括号"><a href="#可以使用圆括号" class="headerlink" title="可以使用圆括号"></a>可以使用圆括号</h3><ul>
+<li><p>赋值语句的非模式</p>
+<p>[(b)] = [3]</p>
+</li>
 </ul>
-<h3 id="flex-basis属性"><a href="#flex-basis属性" class="headerlink" title="flex-basis属性"></a>flex-basis属性</h3><ul>
-<li><strong>定义了在分配多于空间之前，项目占据的主轴空间。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。</strong></li>
-<li>它可以设为跟width或height属性一样的值，则项目将占据固定空间。</li>
+<h2 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h2><h3 id="交换变量的值"><a href="#交换变量的值" class="headerlink" title="交换变量的值"></a>交换变量的值</h3><p>let x = 1<br>let y = 2<br>[x,y] = [y,x]</p>
+<h3 id="从函数返回多个值"><a href="#从函数返回多个值" class="headerlink" title="从函数返回多个值"></a>从函数返回多个值</h3><p>function example() {<br>    return [1,2,3]<br>}</p>
+<p>let [a,b,c] = example()</p>
+<h3 id="函数参数的定义"><a href="#函数参数的定义" class="headerlink" title="函数参数的定义"></a>函数参数的定义</h3><p>function f([x,y,z]) {..}<br>f([1,2,3])</p>
+<h3 id="提取JSON数据"><a href="#提取JSON数据" class="headerlink" title="提取JSON数据"></a>提取JSON数据</h3><p>let jsonData = {<br>    id: 42,<br>    status: “OK”,<br>    data: [111,000]<br>}</p>
+<p>let { id,status,data:number } = jsonData</p>
+<h3 id="函数参数的默认值"><a href="#函数参数的默认值" class="headerlink" title="函数参数的默认值"></a>函数参数的默认值</h3><h3 id="遍历Map结构"><a href="#遍历Map结构" class="headerlink" title="遍历Map结构"></a>遍历Map结构</h3><p>var map = new Map()<br>map.set(‘first’,’hello’)<br>map.set(“second”,”world”)</p>
+<p>for(let [key,value] of map ) {<br>    console.log(key + “ is “  + value )<br>}</p>
+<p>//first is hello<br>//second is world</p>
+<h3 id="输入模块的指定方法"><a href="#输入模块的指定方法" class="headerlink" title="输入模块的指定方法"></a>输入模块的指定方法</h3><p>const { SourceMapConsumer, SourceNode } = require(“source-map”)</p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><h3 id="模式匹配"><a href="#模式匹配" class="headerlink" title="模式匹配"></a>模式匹配</h3><ul>
+<li><p>模式相同，变量就会被赋予到对应的值</p>
+<p>let [a,b,c] = [1,2,3]<br>let [foo,[[bar],baz]] = [1,[[2],3]]</p>
+<pre><code>foo    //1
+bar    //2
+baz    //3</code></pre><p>let [ , , third] = [“foo”,”bar”,”baz”]</p>
+<pre><code>third    //&quot;baz&quot;</code></pre><p>let [x,y,…z] = [‘a’]</p>
+<pre><code>x    //&quot;a&quot;
+y    //undefined
+z    //[]</code></pre></li>
+<li><p>解构不成功变量的值就等于undefined</p>
+<p>let [foo] = []<br>foo    //undefined</p>
+</li>
+<li><p>不完全解构</p>
+<p>let [x,y] = [1,2,3]<br>x    //1<br>y    //2</p>
+</li>
+<li><p>具有Iterator接口的数据结构</p>
+<p>如果等号的右边不是数组（不可遍历的结构），那么将会报错。<br>转化为对象以后不具有Iterator接口：number、boolean、NaN、undefined、null<br>本身就不具备Iterator接口：object<br>Set结构也可以使用数组的解构赋值：let [x,y,z] = new Set([‘a’,’b’,’c’])</p>
+</li>
 </ul>
-<h3 id="flex属性"><a href="#flex属性" class="headerlink" title="flex属性"></a>flex属性</h3><ul>
-<li><strong>是flex-grow，flex-shrink和flex-basis的简写，默认值为0 1 auto。后两个属性可选。</strong></li>
-</ul>
-<h3 id="order属性"><a href="#order属性" class="headerlink" title="order属性"></a>order属性</h3><ul>
-<li><strong>定义项目的排列顺序。数值越小，排列越靠前，默认为0</strong></li>
-</ul>
-<h3 id="定位元素在弹性布局中的表现"><a href="#定位元素在弹性布局中的表现" class="headerlink" title="定位元素在弹性布局中的表现"></a>定位元素在弹性布局中的表现</h3><ul>
-<li>绝对定位没有了空间位，flex布局会失效。</li>
-<li>相对定位保留了空间位，flex布局仍有效果。</li>
+<h3 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h3><ul>
+<li><p>允许指定默认值</p>
+<p>let [x=1] = [undefined]</p>
+<pre><code>x    //1</code></pre><p>如果数组成员是null则默认值不会生效:let [x=1] = [null]        x// null 因为null不严格等于undefined</p>
+</li>
+<li><p>表达式则惰性求值</p>
+<p>function f() {</p>
+<pre><code>console.log(&apos;aaa&apos;)</code></pre><p>}</p>
+<p>let [x=f()] = [1]</p>
+</li>
+<li><p>默认值引用解构赋值的其他已声明变量</p>
+<p>let [x=y,y=1] = []<br>//ReferenceError</p>
+</li>
 </ul>
 
     </div>
@@ -412,7 +410,7 @@
     <strong>本文作者： </strong>MrPanda刘畅</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2019/09/01/flex布局/" title="flex布局">http://yoursite.com/2019/09/01/flex布局/</a>
+    <a href="http://yoursite.com/2019/10/19/ES6-二-——变量的解构赋值/" title="ES6(二)——变量的解构赋值">http://yoursite.com/2019/10/19/ES6-二-——变量的解构赋值/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-Hans" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -427,7 +425,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/css/" rel="tag"># css</a>
+              <a href="/tags/javaScript/" rel="tag"># javaScript</a>
             
           </div>
         
@@ -437,8 +435,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/08/22/转载：JS中的块级作用域，var、let、const三者的区别/" rel="next" title="转载：JS中的块级作用域，var、let、const三者的区别">
-                  <i class="fa fa-chevron-left"></i> 转载：JS中的块级作用域，var、let、const三者的区别
+                <a href="/2019/10/09/ES6-一-——let和const命令/" rel="next" title="ES6(一)——let和const命令">
+                  <i class="fa fa-chevron-left"></i> ES6(一)——let和const命令
                 </a>
               
             </div>
@@ -446,10 +444,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/09/12/JavaScript深入-一-——原型链/" rel="prev" title="JavaScript深入(一)——原型链">
-                  JavaScript深入(一)——原型链 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -624,7 +618,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-direction属性"><span class="nav-number">1.</span> <span class="nav-text">flex-direction属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-wrap属性"><span class="nav-number">2.</span> <span class="nav-text">flex-wrap属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-flow"><span class="nav-number">3.</span> <span class="nav-text">flex-flow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#justify-content属性"><span class="nav-number">4.</span> <span class="nav-text">justify-content属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#align-items属性"><span class="nav-number">5.</span> <span class="nav-text">align-items属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#align-content属性"><span class="nav-number">6.</span> <span class="nav-text">align-content属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择单个元素"><span class="nav-number">7.</span> <span class="nav-text">选择单个元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-grow属性"><span class="nav-number">8.</span> <span class="nav-text">flex-grow属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-shrink属性"><span class="nav-number">9.</span> <span class="nav-text">flex-shrink属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex-basis属性"><span class="nav-number">10.</span> <span class="nav-text">flex-basis属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#flex属性"><span class="nav-number">11.</span> <span class="nav-text">flex属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#order属性"><span class="nav-number">12.</span> <span class="nav-text">order属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定位元素在弹性布局中的表现"><span class="nav-number">13.</span> <span class="nav-text">定位元素在弹性布局中的表现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#对象"><span class="nav-number">1.</span> <span class="nav-text">对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解构用于对象"><span class="nav-number">1.1.</span> <span class="nav-text">解构用于对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量名与属性名不一致"><span class="nav-number">1.2.</span> <span class="nav-text">变量名与属性名不一致</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匹配模式和变量"><span class="nav-number">1.3.</span> <span class="nav-text">匹配模式和变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套赋值"><span class="nav-number">1.4.</span> <span class="nav-text">嵌套赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定默认值"><span class="nav-number">1.5.</span> <span class="nav-text">指定默认值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#报错"><span class="nav-number">1.6.</span> <span class="nav-text">报错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#现有对象的方法赋值到变量上"><span class="nav-number">1.7.</span> <span class="nav-text">现有对象的方法赋值到变量上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对数组进行对象属性的解构"><span class="nav-number">1.8.</span> <span class="nav-text">对数组进行对象属性的解构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数值和布尔值"><span class="nav-number">2.</span> <span class="nav-text">数值和布尔值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#先转为对象"><span class="nav-number">2.1.</span> <span class="nav-text">先转为对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数参数"><span class="nav-number">3.</span> <span class="nav-text">函数参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数参数也可以解构赋值"><span class="nav-number">3.1.</span> <span class="nav-text">函数参数也可以解构赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#指定默认值-1"><span class="nav-number">3.2.</span> <span class="nav-text">指定默认值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串"><span class="nav-number">4.</span> <span class="nav-text">字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#转换成了一个类似数组的对象"><span class="nav-number">4.1.</span> <span class="nav-text">转换成了一个类似数组的对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#length属性"><span class="nav-number">4.2.</span> <span class="nav-text">length属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#圆括号问题"><span class="nav-number">5.</span> <span class="nav-text">圆括号问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#不能使用圆括号"><span class="nav-number">5.1.</span> <span class="nav-text">不能使用圆括号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可以使用圆括号"><span class="nav-number">5.2.</span> <span class="nav-text">可以使用圆括号</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用途"><span class="nav-number">6.</span> <span class="nav-text">用途</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#交换变量的值"><span class="nav-number">6.1.</span> <span class="nav-text">交换变量的值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从函数返回多个值"><span class="nav-number">6.2.</span> <span class="nav-text">从函数返回多个值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数参数的定义"><span class="nav-number">6.3.</span> <span class="nav-text">函数参数的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提取JSON数据"><span class="nav-number">6.4.</span> <span class="nav-text">提取JSON数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数参数的默认值"><span class="nav-number">6.5.</span> <span class="nav-text">函数参数的默认值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历Map结构"><span class="nav-number">6.6.</span> <span class="nav-text">遍历Map结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入模块的指定方法"><span class="nav-number">6.7.</span> <span class="nav-text">输入模块的指定方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组"><span class="nav-number">7.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模式匹配"><span class="nav-number">7.1.</span> <span class="nav-text">模式匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#默认值"><span class="nav-number">7.2.</span> <span class="nav-text">默认值</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -766,7 +760,7 @@
       repo: 'MrPand111.github.io',
       owner: 'MrPand111',
       admin: ['熊猫'],
-      id: 'c2ea588d5909fe540314e03dc0db6fbf',
+      id: 'f7c9fb3d32ce8671e9129a576d83650b',
         language: window.navigator.language || window.navigator.userLanguage,
       
       distractionFreeMode: 'true'
