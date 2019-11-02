@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="generator" content="Hexo 3.9.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    save_scroll: false,
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+  <meta name="keywords" content="javaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6(三)——字符串的扩展">
+<meta property="og:url" content="http://yoursite.com/2019/11/02/ES6-三-——字符串的扩展/index.html">
+<meta property="og:site_name" content="畅喵の博客">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/11/02/ES6-三-——字符串的扩展/字符串的扩展.png">
+<meta property="og:updated_time" content="2019-11-02T05:23:44.077Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ES6(三)——字符串的扩展">
+<meta name="twitter:image" content="http://yoursite.com/2019/11/02/ES6-三-——字符串的扩展/字符串的扩展.png">
+  <link rel="canonical" href="http://yoursite.com/2019/11/02/ES6-三-——字符串的扩展/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>ES6(三)——字符串的扩展 | 畅喵の博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <div class="container sidebar-position-left">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">畅喵の博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">请叫我熊猫大人！</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content page-post-detail">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/02/ES6-三-——字符串的扩展/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MrPanda刘畅">
+      <meta itemprop="description" content="华中农业大学的计科菜鸡，大前端研习ing">
+      <meta itemprop="image" content="/images/me.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="畅喵の博客">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">ES6(三)——字符串的扩展
+
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-02 13:21:05 / 修改时间：13:23:44" itemprop="dateCreated datePublished" datetime="2019-11-02T13:21:05+08:00">2019-11-02</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ES6标准入门系列/" itemprop="url" rel="index"><span itemprop="name">ES6标准入门系列</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <img src="/2019/11/02/ES6-三-——字符串的扩展/字符串的扩展.png" title="字符串的扩展">
+
+<a id="more"></a>
+
+<h2 id="Unicode表示法"><a href="#Unicode表示法" class="headerlink" title="Unicode表示法"></a>Unicode表示法</h2><p>JS允许采用\uxxxx形式表示一个字符，其中xxxx表示字符的Unicode码点。<br>这种表示法只限于码点在\u000~\uFFFF之间的字符。<br>ES6中只要将码点放入大括号就能正确解读该字符。</p>
+<h3 id="‘-z’-‘z’"><a href="#‘-z’-‘z’" class="headerlink" title="‘\z’ === ‘z’"></a>‘\z’ === ‘z’</h3><h3 id="‘-172’-‘z’"><a href="#‘-172’-‘z’" class="headerlink" title="‘\172’ === ‘z’"></a>‘\172’ === ‘z’</h3><h3 id="‘-x7A’-‘z’"><a href="#‘-x7A’-‘z’" class="headerlink" title="‘\x7A’ === ‘z’"></a>‘\x7A’ === ‘z’</h3><h3 id="‘-u007A’-‘z’"><a href="#‘-u007A’-‘z’" class="headerlink" title="‘\u007A’ === ‘z’"></a>‘\u007A’ === ‘z’</h3><h3 id="‘-u-7A-’-‘z’"><a href="#‘-u-7A-’-‘z’" class="headerlink" title="‘\u{7A}’ === ‘z’"></a>‘\u{7A}’ === ‘z’</h3><h2 id="codePointAt"><a href="#codePointAt" class="headerlink" title="codePointAt()"></a>codePointAt()</h2><p>JS内部字符以utf-16格式储存，每个字符固定为2个字节。<br>codePointAt方法的参数是字符在字符串中的位置（从0开始）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s = <span class="string">'𠮷a'</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> ch <span class="keyword">of</span> s) &#123;</span><br><span class="line">	<span class="built_in">console</span>.log(ch.codePointAt(<span class="number">0</span>))</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 20bb7</span></span><br><span class="line"><span class="comment">// 61</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="能够正确处理4个字节储存的字符，返回一个字符串"><a href="#能够正确处理4个字节储存的字符，返回一个字符串" class="headerlink" title="能够正确处理4个字节储存的字符，返回一个字符串"></a>能够正确处理4个字节储存的字符，返回一个字符串</h3><h3 id="返回的码点是十进制值，toString转化成十六进制"><a href="#返回的码点是十进制值，toString转化成十六进制" class="headerlink" title="返回的码点是十进制值，toString转化成十六进制"></a>返回的码点是十进制值，toString转化成十六进制</h3><h3 id="正确位置序号：for…of循环"><a href="#正确位置序号：for…of循环" class="headerlink" title="正确位置序号：for…of循环"></a>正确位置序号：for…of循环</h3><h2 id="String-fromCodePoint"><a href="#String-fromCodePoint" class="headerlink" title="String.fromCodePoint()"></a>String.fromCodePoint()</h2><p>该方法定义在String对象上</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.fromCodePoint(<span class="number">0x20bb7</span>)</span><br><span class="line"><span class="comment">// "𠮷"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="用于从码点返回对应字符"><a href="#用于从码点返回对应字符" class="headerlink" title="用于从码点返回对应字符"></a>用于从码点返回对应字符</h3><h2 id="repeat"><a href="#repeat" class="headerlink" title="repeat()"></a>repeat()</h2><h3 id="返回一个新字符串，表示将原字符串重复n次"><a href="#返回一个新字符串，表示将原字符串重复n次" class="headerlink" title="返回一个新字符串，表示将原字符串重复n次"></a>返回一个新字符串，表示将原字符串重复n次</h3><h3 id="参数是小数会被取整"><a href="#参数是小数会被取整" class="headerlink" title="参数是小数会被取整"></a>参数是小数会被取整</h3><h3 id="参数是负数或Infinity会报错"><a href="#参数是负数或Infinity会报错" class="headerlink" title="参数是负数或Infinity会报错"></a>参数是负数或Infinity会报错</h3><h3 id="参数0到-1之间的小数等于0"><a href="#参数0到-1之间的小数等于0" class="headerlink" title="参数0到-1之间的小数等于0"></a>参数0到-1之间的小数等于0</h3><h3 id="参数NaN等同于0"><a href="#参数NaN等同于0" class="headerlink" title="参数NaN等同于0"></a>参数NaN等同于0</h3><h3 id="参数是字符串，先转换成数字"><a href="#参数是字符串，先转换成数字" class="headerlink" title="参数是字符串，先转换成数字"></a>参数是字符串，先转换成数字</h3><h2 id="遍历器接口"><a href="#遍历器接口" class="headerlink" title="遍历器接口"></a>遍历器接口</h2><h3 id="使得字符串可以for…of循环"><a href="#使得字符串可以for…of循环" class="headerlink" title="使得字符串可以for…of循环"></a>使得字符串可以for…of循环</h3><h3 id="可以识别大于0xFFFF的码点"><a href="#可以识别大于0xFFFF的码点" class="headerlink" title="可以识别大于0xFFFF的码点"></a>可以识别大于0xFFFF的码点</h3><h2 id="类indexOf方法"><a href="#类indexOf方法" class="headerlink" title="类indexOf方法"></a>类indexOf方法</h2><p>三个方法都返回布尔值。<br>都支持第二个参数，表示开始搜索的位置。</p>
+<h3 id="includes"><a href="#includes" class="headerlink" title="includes()"></a>includes()</h3><p>表示是否找到了字符串</p>
+<h3 id="startsWith"><a href="#startsWith" class="headerlink" title="startsWith()"></a>startsWith()</h3><p>表示参数字符串是否在源字符串的头部。</p>
+<h3 id="endsWith"><a href="#endsWith" class="headerlink" title="endsWith()"></a>endsWith()</h3><p>表示参数字符串是否在源字符串的尾部。</p>
+<h2 id="normalize"><a href="#normalize" class="headerlink" title="normalize()"></a>normalize()</h2><h3 id="JS将合成字符视为两个字符，导致两种方法不等价"><a href="#JS将合成字符视为两个字符，导致两种方法不等价" class="headerlink" title="JS将合成字符视为两个字符，导致两种方法不等价"></a>JS将合成字符视为两个字符，导致两种方法不等价</h3><h3 id="将字符的不同表示方式统一为同样的形式"><a href="#将字符的不同表示方式统一为同样的形式" class="headerlink" title="将字符的不同表示方式统一为同样的形式"></a>将字符的不同表示方式统一为同样的形式</h3><h2 id="at"><a href="#at" class="headerlink" title="at()"></a>at()</h2><h3 id="方法类似charAt"><a href="#方法类似charAt" class="headerlink" title="方法类似charAt()"></a>方法类似charAt()</h3><h3 id="可以识别大于0xFFFF的字符，返回正确的字符"><a href="#可以识别大于0xFFFF的字符，返回正确的字符" class="headerlink" title="可以识别大于0xFFFF的字符，返回正确的字符"></a>可以识别大于0xFFFF的字符，返回正确的字符</h3><h2 id="String-raw"><a href="#String-raw" class="headerlink" title="String.raw()"></a>String.raw()</h2><h3 id="模板字符串的处理函数"><a href="#模板字符串的处理函数" class="headerlink" title="模板字符串的处理函数"></a>模板字符串的处理函数</h3><h3 id="返回一个反斜线都被转义的字符串"><a href="#返回一个反斜线都被转义的字符串" class="headerlink" title="返回一个反斜线都被转义的字符串"></a>返回一个反斜线都被转义的字符串</h3><h2 id="字符串补全"><a href="#字符串补全" class="headerlink" title="字符串补全"></a>字符串补全</h2><h3 id="padStart"><a href="#padStart" class="headerlink" title="padStart()"></a>padStart()</h3><ul>
+<li>头部补全</li>
+</ul>
+<h3 id="padEnd"><a href="#padEnd" class="headerlink" title="padEnd()"></a>padEnd()</h3><ul>
+<li>尾部补全</li>
+</ul>
+<h2 id="模板编译"><a href="#模板编译" class="headerlink" title="模板编译"></a>模板编译</h2><h2 id="标签模板"><a href="#标签模板" class="headerlink" title="标签模板"></a>标签模板</h2><h2 id="模板字符串"><a href="#模板字符串" class="headerlink" title="模板字符串"></a>模板字符串</h2><h3 id="反引号（-）标识"><a href="#反引号（-）标识" class="headerlink" title="反引号（`）标识"></a>反引号（`）标识</h3><h3 id="表示多行字符串，空格和缩进会被保留在输出中"><a href="#表示多行字符串，空格和缩进会被保留在输出中" class="headerlink" title="表示多行字符串，空格和缩进会被保留在输出中"></a>表示多行字符串，空格和缩进会被保留在输出中</h3><h3 id="嵌入变量写在-中"><a href="#嵌入变量写在-中" class="headerlink" title="嵌入变量写在${}中"></a>嵌入变量写在${}中</h3><ul>
+<li><p>进行运算</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span></span><br><span class="line"><span class="keyword">var</span> y = <span class="number">2</span></span><br><span class="line"><span class="string">`<span class="subst">$&#123;x&#125;</span> + <span class="subst">$&#123;y&#125;</span> = <span class="subst">$&#123;x+y&#125;</span>`</span></span><br><span class="line"><span class="comment">//"1 + 2 = 3"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>引用对象属性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">x</span>:<span class="number">1</span> , <span class="attr">y</span>:<span class="number">2</span> &#125;</span><br><span class="line"><span class="string">`<span class="subst">$&#123;obj.x + obj.y&#125;</span>`</span></span><br><span class="line"><span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>调用函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"> <span class="keyword">return</span> <span class="string">"Hello World"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="string">`foo <span class="subst">$&#123;fn()&#125;</span> bar`</span></span><br><span class="line"><span class="comment">// foo Hello World bar</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>变量没有声明，将报错</p>
+</li>
+<li><p>字符串原样输出</p>
+</li>
+</ul>
+<h3 id="可以嵌套"><a href="#可以嵌套" class="headerlink" title="可以嵌套"></a>可以嵌套</h3><h3 id="可以引用模板字符串本身"><a href="#可以引用模板字符串本身" class="headerlink" title="可以引用模板字符串本身"></a>可以引用模板字符串本身</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">'return '</span> + <span class="string">'`Hello $&#123;name&#125;`'</span></span><br><span class="line"><span class="keyword">let</span> func = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'name'</span>,str)</span><br><span class="line">func(<span class="string">'Panda'</span>)</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+        
+      
+        <div id="reward-container">
+  <div>原创技术分享，您的支持将鼓励我继续创作</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/wechatpay.png" alt="MrPanda刘畅 微信支付">
+        <p>微信支付</p>
+      </div>
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/alipay.png" alt="MrPanda刘畅 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+      
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>MrPanda刘畅</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2019/11/02/ES6-三-——字符串的扩展/" title="ES6(三)——字符串的扩展">http://yoursite.com/2019/11/02/ES6-三-——字符串的扩展/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-Hans" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+</div>
+
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/javaScript/" rel="tag"># javaScript</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/11/02/js中的数据存储/" rel="next" title="js中的数据存储">
+                  <i class="fa fa-chevron-left"></i> js中的数据存储
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+    
+    <div class="comments" id="gitalk-container"></div>
+  
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+      src="/images/me.png"
+      alt="MrPanda刘畅">
+  <p class="site-author-name" itemprop="name">MrPanda刘畅</p>
+  <div class="site-description motion-element" itemprop="description">华中农业大学的计科菜鸡，大前端研习ing</div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/MrPand111" title="GitHub &rarr; https://github.com/MrPand111" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:2316371523@qq.com" title="E-Mail &rarr; mailto:2316371523@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    
+  
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-Hans" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+
+      <div id="music163player">
+        <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=230 height=76 src="//music.163.com/outchain/player?type=2&id=786262&auto=1&height=66">
+        </iframe>
+      </div>
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Unicode表示法"><span class="nav-number">1.</span> <span class="nav-text">Unicode表示法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#‘-z’-‘z’"><span class="nav-number">1.1.</span> <span class="nav-text">‘\z’ === ‘z’</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#‘-172’-‘z’"><span class="nav-number">1.2.</span> <span class="nav-text">‘\172’ === ‘z’</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#‘-x7A’-‘z’"><span class="nav-number">1.3.</span> <span class="nav-text">‘\x7A’ === ‘z’</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#‘-u007A’-‘z’"><span class="nav-number">1.4.</span> <span class="nav-text">‘\u007A’ === ‘z’</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#‘-u-7A-’-‘z’"><span class="nav-number">1.5.</span> <span class="nav-text">‘\u{7A}’ === ‘z’</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#codePointAt"><span class="nav-number">2.</span> <span class="nav-text">codePointAt()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#能够正确处理4个字节储存的字符，返回一个字符串"><span class="nav-number">2.1.</span> <span class="nav-text">能够正确处理4个字节储存的字符，返回一个字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#返回的码点是十进制值，toString转化成十六进制"><span class="nav-number">2.2.</span> <span class="nav-text">返回的码点是十进制值，toString转化成十六进制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正确位置序号：for…of循环"><span class="nav-number">2.3.</span> <span class="nav-text">正确位置序号：for…of循环</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String-fromCodePoint"><span class="nav-number">3.</span> <span class="nav-text">String.fromCodePoint()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用于从码点返回对应字符"><span class="nav-number">3.1.</span> <span class="nav-text">用于从码点返回对应字符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#repeat"><span class="nav-number">4.</span> <span class="nav-text">repeat()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#返回一个新字符串，表示将原字符串重复n次"><span class="nav-number">4.1.</span> <span class="nav-text">返回一个新字符串，表示将原字符串重复n次</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数是小数会被取整"><span class="nav-number">4.2.</span> <span class="nav-text">参数是小数会被取整</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数是负数或Infinity会报错"><span class="nav-number">4.3.</span> <span class="nav-text">参数是负数或Infinity会报错</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数0到-1之间的小数等于0"><span class="nav-number">4.4.</span> <span class="nav-text">参数0到-1之间的小数等于0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数NaN等同于0"><span class="nav-number">4.5.</span> <span class="nav-text">参数NaN等同于0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参数是字符串，先转换成数字"><span class="nav-number">4.6.</span> <span class="nav-text">参数是字符串，先转换成数字</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遍历器接口"><span class="nav-number">5.</span> <span class="nav-text">遍历器接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使得字符串可以for…of循环"><span class="nav-number">5.1.</span> <span class="nav-text">使得字符串可以for…of循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可以识别大于0xFFFF的码点"><span class="nav-number">5.2.</span> <span class="nav-text">可以识别大于0xFFFF的码点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类indexOf方法"><span class="nav-number">6.</span> <span class="nav-text">类indexOf方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#includes"><span class="nav-number">6.1.</span> <span class="nav-text">includes()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#startsWith"><span class="nav-number">6.2.</span> <span class="nav-text">startsWith()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#endsWith"><span class="nav-number">6.3.</span> <span class="nav-text">endsWith()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#normalize"><span class="nav-number">7.</span> <span class="nav-text">normalize()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JS将合成字符视为两个字符，导致两种方法不等价"><span class="nav-number">7.1.</span> <span class="nav-text">JS将合成字符视为两个字符，导致两种方法不等价</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将字符的不同表示方式统一为同样的形式"><span class="nav-number">7.2.</span> <span class="nav-text">将字符的不同表示方式统一为同样的形式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#at"><span class="nav-number">8.</span> <span class="nav-text">at()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法类似charAt"><span class="nav-number">8.1.</span> <span class="nav-text">方法类似charAt()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可以识别大于0xFFFF的字符，返回正确的字符"><span class="nav-number">8.2.</span> <span class="nav-text">可以识别大于0xFFFF的字符，返回正确的字符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String-raw"><span class="nav-number">9.</span> <span class="nav-text">String.raw()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模板字符串的处理函数"><span class="nav-number">9.1.</span> <span class="nav-text">模板字符串的处理函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#返回一个反斜线都被转义的字符串"><span class="nav-number">9.2.</span> <span class="nav-text">返回一个反斜线都被转义的字符串</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串补全"><span class="nav-number">10.</span> <span class="nav-text">字符串补全</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#padStart"><span class="nav-number">10.1.</span> <span class="nav-text">padStart()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#padEnd"><span class="nav-number">10.2.</span> <span class="nav-text">padEnd()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板编译"><span class="nav-number">11.</span> <span class="nav-text">模板编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签模板"><span class="nav-number">12.</span> <span class="nav-text">标签模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板字符串"><span class="nav-number">13.</span> <span class="nav-text">模板字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#反引号（-）标识"><span class="nav-number">13.1.</span> <span class="nav-text">反引号（`）标识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表示多行字符串，空格和缩进会被保留在输出中"><span class="nav-number">13.2.</span> <span class="nav-text">表示多行字符串，空格和缩进会被保留在输出中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌入变量写在-中"><span class="nav-number">13.3.</span> <span class="nav-text">嵌入变量写在${}中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可以嵌套"><span class="nav-number">13.4.</span> <span class="nav-text">可以嵌套</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可以引用模板字符串本身"><span class="nav-number">13.5.</span> <span class="nav-text">可以引用模板字符串本身</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">MrPanda刘畅</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+      </div>
+
+    
+
+  </div>
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+<script src="/js/utils.js?v=7.3.0"></script>
+  <script src="/js/motion.js?v=7.3.0"></script>
+
+<script src="/js/schemes/pisces.js?v=7.3.0"></script>
+
+
+
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+
+  
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+  
+  <script src="/js/scrollspy.js?v=7.3.0"></script>
+<script src="/js/post-details.js?v=7.3.0"></script>
+
+
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '68f07d0b5d97276494dc',
+      clientSecret: '06b4d3e88920969d06de7874d933882deedb059d',
+      repo: 'MrPand111.github.io',
+      owner: 'MrPand111',
+      admin: ['熊猫'],
+      id: '2aedf36fe49c71f7e520bd2cf33c4710',
+        language: window.navigator.language || window.navigator.userLanguage,
+      
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+</script>
+
+
+  
+<script type="text/javascript"
+color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>

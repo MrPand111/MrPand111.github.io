@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="new运算符创建一个用户定义的对象类型的实例或具有构造函数的内置对象类型之一  举例： 123456789101112131415161718function Otaku(name,age) &amp;#123;    this.name = name    this.age = age    this.habit = &apos;Games&apos;&amp;#125;Otaku.prototype.strength = 60">
+  <meta name="description" content="new运算符创建一个用户定义的对象类型的实例或具有构造函数的内置对象类型之一">
 <meta name="keywords" content="javaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript深入(七)——new的模拟实现">
 <meta property="og:url" content="http://yoursite.com/2019/10/24/JavaScript深入-七-——new的模拟实现/index.html">
 <meta property="og:site_name" content="畅喵の博客">
-<meta property="og:description" content="new运算符创建一个用户定义的对象类型的实例或具有构造函数的内置对象类型之一  举例： 123456789101112131415161718function Otaku(name,age) &amp;#123;    this.name = name    this.age = age    this.habit = &apos;Games&apos;&amp;#125;Otaku.prototype.strength = 60">
+<meta property="og:description" content="new运算符创建一个用户定义的对象类型的实例或具有构造函数的内置对象类型之一">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-24T11:40:29.555Z">
+<meta property="og:updated_time" content="2019-11-02T05:17:45.457Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript深入(七)——new的模拟实现">
-<meta name="twitter:description" content="new运算符创建一个用户定义的对象类型的实例或具有构造函数的内置对象类型之一  举例： 123456789101112131415161718function Otaku(name,age) &amp;#123;    this.name = name    this.age = age    this.habit = &apos;Games&apos;&amp;#125;Otaku.prototype.strength = 60">
+<meta name="twitter:description" content="new运算符创建一个用户定义的对象类型的实例或具有构造函数的内置对象类型之一">
   <link rel="canonical" href="http://yoursite.com/2019/10/24/JavaScript深入-七-——new的模拟实现/">
 
 
@@ -251,11 +251,19 @@
                 
               
 
-              <time title="创建时间：2019-10-24 17:32:41 / 修改时间：19:40:29" itemprop="dateCreated datePublished" datetime="2019-10-24T17:32:41+08:00">2019-10-24</time>
+              <time title="创建时间：2019-10-24 17:32:41" itemprop="dateCreated datePublished" datetime="2019-10-24T17:32:41+08:00">2019-10-24</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-02 13:17:45" itemprop="dateModified" datetime="2019-11-02T13:17:45+08:00">2019-11-02</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -294,6 +302,8 @@
         <blockquote>
 <p>new运算符创建一个用户定义的对象类型的实例或具有构造函数的内置对象类型之一</p>
 </blockquote>
+<a id="more"></a>
+
 <p>举例：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Otaku</span>(<span class="params">name,age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">    <span class="keyword">this</span>.age = age</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.habit = <span class="string">'Games'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Otaku.prototype.strength = <span class="number">60</span></span><br><span class="line">Otaku.prototype.sayYourName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'I am'</span> + <span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Otaku(<span class="string">'Panda'</span>,<span class="string">'20'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(person.name)    <span class="comment">//Panda</span></span><br><span class="line"><span class="built_in">console</span>.log(person.habit)   <span class="comment">//Games</span></span><br><span class="line"><span class="built_in">console</span>.log(person.strength)    <span class="comment">//60</span></span><br><span class="line"></span><br><span class="line">person.sayYourName()    <span class="comment">//I am Kevin</span></span><br></pre></td></tr></table></figure>
 
@@ -394,8 +404,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/10/21/随笔：我为什么要写这篇随笔/" rel="next" title="随笔：我为什么要写这篇随笔">
-                  <i class="fa fa-chevron-left"></i> 随笔：我为什么要写这篇随笔
+                <a href="/2019/10/19/ES6-二-——变量的解构赋值/" rel="next" title="ES6(二)——变量的解构赋值">
+                  <i class="fa fa-chevron-left"></i> ES6(二)——变量的解构赋值
                 </a>
               
             </div>
@@ -403,6 +413,10 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/11/02/js中的数据存储/" rel="prev" title="js中的数据存储">
+                  js中的数据存储 <i class="fa fa-chevron-right"></i>
+                </a>
               
             </div>
           </div>
@@ -487,11 +501,7 @@
         
           
         
-          
-        
-          
-        
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -522,11 +532,7 @@
         
           
         
-          
-        
-          
-        
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
