@@ -217,6 +217,227 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/07/代理模式和Proxy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MrPanda刘畅">
+      <meta itemprop="description" content="华中农业大学的计科菜鸡，大前端研习ing">
+      <meta itemprop="image" content="/images/me.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="畅喵の博客">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/11/07/代理模式和Proxy/" class="post-title-link" itemprop="url">代理模式和Proxy</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-07 08:43:50 / 修改时间：09:38:30" itemprop="dateCreated datePublished" datetime="2019-11-07T08:43:50+08:00">2019-11-07</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <h3 id="代理模式"><a href="#代理模式" class="headerlink" title="代理模式"></a>代理模式</h3><ol>
+<li><p>保护代理：代理B可以帮A过滤掉一些请求</p>
+</li>
+<li><p>虚拟代理：把一些开销大的对象，延迟到真正需要它时才创建</p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 简单理解代理模式：快递公司把包裹送到菜鸟驿站，菜鸟驿站作为代理收到包裹后再送给客户。下面我们就来模拟整个过程</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个包裹类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Package</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(company) &#123;</span><br><span class="line">        <span class="keyword">this</span>.company = company</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个顺丰快递</span></span><br><span class="line"><span class="keyword">let</span> Post = &#123;</span><br><span class="line">    company: <span class="string">'顺丰快递'</span>,</span><br><span class="line">    sendPackage(target) &#123;</span><br><span class="line">        <span class="comment">// 通知目标接收包裹</span></span><br><span class="line">        target.receivePackage(<span class="keyword">this</span>.company)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个菜鸟驿站</span></span><br><span class="line"><span class="keyword">let</span> CaiNiao = &#123;</span><br><span class="line">    <span class="comment">// 菜鸟驿站收到来自快递公司的包裹后要通知客户</span></span><br><span class="line">    receivePackage(<span class="keyword">from</span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'菜鸟驿站提醒您查收包裹'</span>)</span><br><span class="line">        Customer.waitWeenkends(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> package = <span class="keyword">new</span> Package(<span class="keyword">from</span>)</span><br><span class="line">            Customer.receivePackage(package)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个顾客</span></span><br><span class="line"><span class="keyword">let</span> Customer = &#123;</span><br><span class="line">    receivePackage(package) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`收到来自<span class="subst">$&#123;package.company&#125;</span>的包裹`</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 顾客等到周末才会去取快递</span></span><br><span class="line">    waitWeenkends(fn) &#123;</span><br><span class="line">        setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;fn()&#125;,<span class="number">1000</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//快递公司只需要关注把快递送达菜鸟驿站即可</span></span><br><span class="line">Post.sendPackage(CaiNiao)</span><br><span class="line"><span class="comment">// 菜鸟驿站提醒您查收包裹</span></span><br><span class="line"><span class="comment">// 收到来自顺丰快递的包裹</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h3><ol>
+<li><p>Proxy用于修改某些操作的默认行为，所以属于一种“元编程”，即对编程语言进行编程。</p>
+</li>
+<li><p>Proxy可以理解成再目标对象前架设一个“拦截”层，外界对该对象的访问都必须先通过这层拦截，因此提供了一种机制可以对外界的访问进行过滤和改写。</p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// get(target,proKey,receive) 拦截对象的读取属性操作</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">name</span>: <span class="string">'Panda'</span>&#125;</span><br><span class="line"><span class="keyword">var</span> obj1 = <span class="built_in">Object</span>.defineProperties(&#123;&#125;, &#123;</span><br><span class="line">    name: &#123;</span><br><span class="line">        value: <span class="string">'Panda'</span>,</span><br><span class="line">        <span class="comment">//如果一个属性不可配置且不可写，则Proxy不能修改该属性</span></span><br><span class="line">        writable: <span class="literal">false</span>,</span><br><span class="line">        configurable: <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Proxy</span>(obj, &#123;</span><br><span class="line">    <span class="keyword">get</span>: function(target,key,receive) &#123;</span><br><span class="line">        <span class="keyword">return</span> key === <span class="string">'name'</span> ? <span class="string">'Hello'</span> + target[key] : target[key]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">p.name  <span class="comment">//HelloPanda</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// get拦截实现数组读取负值</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createArray</span>(<span class="params">...elements</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> handler = &#123;</span><br><span class="line">        <span class="keyword">get</span>(target,propKey,receiver) &#123;</span><br><span class="line">            <span class="keyword">let</span> index = <span class="built_in">Number</span>(propKey)</span><br><span class="line">            <span class="keyword">if</span>(index&lt;<span class="number">0</span>) &#123;</span><br><span class="line">                propKey = <span class="built_in">String</span>(target.length + index)</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">Reflect</span>.get(target,propKey,receiver)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> target = []</span><br><span class="line">    target.push(...elements)</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Proxy</span>(target,handler)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr = createArray(<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(arr[<span class="number">-1</span>])    <span class="comment">// c</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// set(obj,prop,value,receive) 拦截某个属性的赋值操作</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">age</span>: <span class="number">18</span>&#125;</span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Proxy</span>(obj, &#123;</span><br><span class="line">    <span class="keyword">set</span>: function(target,key,value) &#123;</span><br><span class="line">        <span class="keyword">if</span>(key === <span class="string">'age'</span>) &#123;</span><br><span class="line">            target[key] = <span class="built_in">Math</span>.min(value,<span class="number">100</span>)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            target[key] = value</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">p.age = <span class="number">101</span></span><br><span class="line">p.age   <span class="comment">//100</span></span><br><span class="line">obj.age <span class="comment">//100</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Proxy不能进行深度代理</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">age</span>:<span class="number">18</span>,<span class="attr">borth</span>: &#123;<span class="attr">month</span>: <span class="number">6</span>&#125; &#125;</span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Proxy</span>(obj, &#123;</span><br><span class="line">    <span class="keyword">set</span>: function(target,key,value) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'exec proxy set'</span>)</span><br><span class="line">        target[key] = value</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line">p.borth.month = <span class="number">7</span>   <span class="comment">//exec proxy set</span></span><br><span class="line">p.name = <span class="string">'Panda'</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.name)   <span class="comment">//Panda</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// has(target,key)  拦截key in proxy的操作，返回一个布尔值</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// deleteProperty(target,proKey)    拦截delete proxy[propKey]的操作，返回一个布尔值</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// ownKeys(target) 拦截对象自身属性的读取操作，返回一个数组</span></span><br><span class="line"><span class="comment">// 拦截以下操作:</span></span><br><span class="line"><span class="comment">//      Object.getOwnPropertyNames() 返回所有属性</span></span><br><span class="line"><span class="comment">//      Object.getOwnPropertySymbols()</span></span><br><span class="line"><span class="comment">//      Object.keys(proxy)  返回可枚举属性</span></span><br><span class="line"><span class="comment">//      for...in 循环</span></span><br><span class="line"><span class="keyword">var</span> obj = <span class="built_in">Object</span>.create(<span class="literal">null</span>)</span><br><span class="line"><span class="built_in">Object</span>.defineProperties(obj, &#123;</span><br><span class="line">    <span class="string">'_id'</span>: &#123;</span><br><span class="line">        value: <span class="number">1</span>,</span><br><span class="line">        configurable: <span class="literal">true</span>,</span><br><span class="line">        writable: <span class="literal">true</span>,</span><br><span class="line">        enumerable: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">'name'</span>: &#123;</span><br><span class="line">        value: <span class="string">'Panda'</span>,</span><br><span class="line">        configurable: <span class="literal">true</span>,</span><br><span class="line">        writable: <span class="literal">true</span>,</span><br><span class="line">        enumerable: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyNames(obj) <span class="comment">//'_id' 'name'</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> obj) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(key)</span><br><span class="line">    <span class="comment">// _id</span></span><br><span class="line">    <span class="comment">// name</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> <span class="built_in">Proxy</span>(obj, &#123;</span><br><span class="line">    ownKeys: <span class="function"><span class="keyword">function</span>(<span class="params">target</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Object</span>.getOwnPropertyNames(target).filter(<span class="function"><span class="params">x</span> =&gt;</span> x[<span class="number">0</span>]!=<span class="string">'_'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">Object</span>.getOwnPropertyNames(p)   <span class="comment">//'name'</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> p) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(key)    <span class="comment">//name</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// getOwnPropertyDescriptor(target,propKey) </span></span><br><span class="line"><span class="comment">// 拦截Object.getOwnPropertyDescriptor(proxy, propKey)，返回属性的描述对象</span></span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/02/前端面试题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MrPanda刘畅">
+      <meta itemprop="description" content="华中农业大学的计科菜鸡，大前端研习ing">
+      <meta itemprop="image" content="/images/me.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="畅喵の博客">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/11/02/前端面试题/" class="post-title-link" itemprop="url">前端面试题(文字版)</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-02 15:16:39" itemprop="dateCreated datePublished" datetime="2019-11-02T15:16:39+08:00">2019-11-02</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-09 17:46:48" itemprop="dateModified" datetime="2019-11-09T17:46:48+08:00">2019-11-09</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><ol>
+<li>HTML语义化优点？<ul>
+<li>易于用户阅读，样式丢失的时候能让页面呈现清晰的结构。</li>
+<li>有利于SEO，搜索引擎根据标签来确定上下文和各个关键字的权重。</li>
+<li>方便其他设备解析。</li>
+<li>有利于开发维护，与CSS3关系更和谐。</li>
+</ul>
+</li>
+</ol>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/11/02/前端面试题/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/02/ES6-三-——字符串的扩展/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1042,219 +1263,6 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/25/git基本操作/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MrPanda刘畅">
-      <meta itemprop="description" content="华中农业大学的计科菜鸡，大前端研习ing">
-      <meta itemprop="image" content="/images/me.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="畅喵の博客">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/09/25/git基本操作/" class="post-title-link" itemprop="url">git基本操作</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-25 18:47:57" itemprop="dateCreated datePublished" datetime="2019-09-25T18:47:57+08:00">2019-09-25</time>
-            </span>
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-26 14:15:36" itemprop="dateModified" datetime="2019-09-26T14:15:36+08:00">2019-09-26</time>
-              </span>
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/其他/" itemprop="url" rel="index"><span itemprop="name">其他</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="一、git创建仓库"><a href="#一、git创建仓库" class="headerlink" title="一、git创建仓库"></a>一、git创建仓库</h2><h3 id="git-init"><a href="#git-init" class="headerlink" title="git init"></a>git init</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>Git的很多命令都需要再Git的仓库中运行，所以git init是使用git的第一个命令。</li>
-<li>在执行完git init之后，Git仓库会<strong>生成一个.git目录</strong>，该目录包含了资源的所有元数据，其他的项目目录保持不变。</li>
-</ul>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/09/25/git基本操作/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/21/单例模式/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MrPanda刘畅">
-      <meta itemprop="description" content="华中农业大学的计科菜鸡，大前端研习ing">
-      <meta itemprop="image" content="/images/me.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="畅喵の博客">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/09/21/单例模式/" class="post-title-link" itemprop="url">单例模式</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-09-21 13:10:55 / 修改时间：14:04:04" itemprop="dateCreated datePublished" datetime="2019-09-21T13:10:55+08:00">2019-09-21</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>单例模式：保证一个类仅有一个实例，并提供一个访问它的全局访问点</p>
-</blockquote>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/09/21/单例模式/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </section>
 
   
@@ -1295,7 +1303,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1351,7 +1359,9 @@
         
           
         
-        <span class="site-state-item-count">8</span>
+          
+        
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>

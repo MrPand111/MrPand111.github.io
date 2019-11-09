@@ -55,19 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="数据代理 数据代理：通过一个对象代理对另一个对象中属性的操作（读/写）。 vue数据代理：通过vm对象来处理data中所有属性的操作。 好处：更方便的操作data中的数据。">
-<meta name="keywords" content="javaScript,vue">
+  <meta name="description" content="HTML HTML语义化优点？ 易于用户阅读，样式丢失的时候能让页面呈现清晰的结构。 有利于SEO，搜索引擎根据标签来确定上下文和各个关键字的权重。 方便其他设备解析。 有利于开发维护，与CSS3关系更和谐。">
+<meta name="keywords" content="html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue源码分析">
-<meta property="og:url" content="http://yoursite.com/2019/09/14/vue源码分析/index.html">
+<meta property="og:title" content="前端面试题(文字版)">
+<meta property="og:url" content="http://yoursite.com/2019/11/02/前端面试题/index.html">
 <meta property="og:site_name" content="畅喵の博客">
-<meta property="og:description" content="数据代理 数据代理：通过一个对象代理对另一个对象中属性的操作（读/写）。 vue数据代理：通过vm对象来处理data中所有属性的操作。 好处：更方便的操作data中的数据。">
+<meta property="og:description" content="HTML HTML语义化优点？ 易于用户阅读，样式丢失的时候能让页面呈现清晰的结构。 有利于SEO，搜索引擎根据标签来确定上下文和各个关键字的权重。 方便其他设备解析。 有利于开发维护，与CSS3关系更和谐。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-18T12:32:44.434Z">
+<meta property="og:updated_time" content="2019-11-09T09:46:48.439Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue源码分析">
-<meta name="twitter:description" content="数据代理 数据代理：通过一个对象代理对另一个对象中属性的操作（读/写）。 vue数据代理：通过vm对象来处理data中所有属性的操作。 好处：更方便的操作data中的数据。">
-  <link rel="canonical" href="http://yoursite.com/2019/09/14/vue源码分析/">
+<meta name="twitter:title" content="前端面试题(文字版)">
+<meta name="twitter:description" content="HTML HTML语义化优点？ 易于用户阅读，样式丢失的时候能让页面呈现清晰的结构。 有利于SEO，搜索引擎根据标签来确定上下文和各个关键字的权重。 方便其他设备解析。 有利于开发维护，与CSS3关系更和谐。">
+  <link rel="canonical" href="http://yoursite.com/2019/11/02/前端面试题/">
 
 
 <script id="page-configurations">
@@ -81,7 +81,7 @@
   };
 </script>
 
-  <title>vue源码分析 | 畅喵の博客</title>
+  <title>前端面试题(文字版) | 畅喵の博客</title>
   
 
 
@@ -220,7 +220,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/14/vue源码分析/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/02/前端面试题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MrPanda刘畅">
@@ -234,7 +234,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">vue源码分析
+          <h1 class="post-title" itemprop="name headline">前端面试题(文字版)
 
             
           </h1>
@@ -251,7 +251,7 @@
                 
               
 
-              <time title="创建时间：2019-09-14 15:55:37" itemprop="dateCreated datePublished" datetime="2019-09-14T15:55:37+08:00">2019-09-14</time>
+              <time title="创建时间：2019-11-02 15:16:39" itemprop="dateCreated datePublished" datetime="2019-11-02T15:16:39+08:00">2019-11-02</time>
             </span>
           
             
@@ -262,9 +262,22 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-18 20:32:44" itemprop="dateModified" datetime="2019-09-18T20:32:44+08:00">2019-09-18</time>
+                <time title="修改时间：2019-11-09 17:46:48" itemprop="dateModified" datetime="2019-11-09T17:46:48+08:00">2019-11-09</time>
               </span>
             
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -286,37 +299,114 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="数据代理"><a href="#数据代理" class="headerlink" title="数据代理"></a>数据代理</h2><ol>
-<li>数据代理：通过一个对象代理对另一个对象中属性的操作（读/写）。</li>
-<li>vue数据代理：通过vm对象来处理data中所有属性的操作。</li>
-<li>好处：更方便的操作data中的数据。</li>
+        <h2 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a>HTML</h2><ol>
+<li>HTML语义化优点？<ul>
+<li>易于用户阅读，样式丢失的时候能让页面呈现清晰的结构。</li>
+<li>有利于SEO，搜索引擎根据标签来确定上下文和各个关键字的权重。</li>
+<li>方便其他设备解析。</li>
+<li>有利于开发维护，与CSS3关系更和谐。</li>
+</ul>
+</li>
 </ol>
 <a id="more"></a>
 
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    el: <span class="string">'#test'</span>,</span><br><span class="line">    data: &#123;</span><br><span class="line">        name: <span class="string">'Panda'</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(vm.name)    <span class="comment">//panda  vm代理对data数据的读操作</span></span><br><span class="line">vm.name = <span class="string">'cat'</span> <span class="comment">//vm代理对data数据的写操作</span></span><br><span class="line"><span class="built_in">console</span>.log(vm._data.name)  <span class="comment">//cat</span></span><br></pre></td></tr></table></figure>
-
+<h2 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h2><ol>
+<li><p>rem与em的区别</p>
+<ul>
+<li>rem：相对于根元素html的font-size。假如html为font-size:12px，那么，在其当中的div设置为2rem，就相当于div的24px。</li>
+<li>em：相对于父元素计算。假如某个p元素为font-size:12px，在它内部有个span标签，设置font-size为2em，span字体大小为24px。</li>
+</ul>
+</li>
+<li><p>什么是BFC?如何产生BFC?BFC作用？</p>
+<ul>
+<li>BFC格式化上下文，它是一个独立的渲染区域，让处于BFC内部的元素和外部的元素相互隔离，使内外部元素的定位不会相互影响。</li>
+<li>display:inline-block; position:absolute/fixed;</li>
+<li>解决上外边距重叠；重叠的两个box都开启bfc；</li>
+<li>解决浮动引起高度塌陷，容器盒子开启bfc；</li>
+<li>解决文字环绕图片；左边图片div，右边文字容器p，p开启bfc。</li>
+</ul>
+</li>
+</ol>
+<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><ol>
+<li>下面代码输出什么？<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(name)</span><br><span class="line">    <span class="built_in">console</span>.log(age)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'hahaha'</span>)</span><br><span class="line">    <span class="keyword">var</span> name = <span class="string">"Panda"</span></span><br><span class="line">    <span class="keyword">let</span> age = <span class="number">21</span></span><br><span class="line">&#125;</span><br><span class="line">sayHi()</span><br><span class="line"><span class="comment">//undefined</span></span><br><span class="line"><span class="comment">//ReferenceError</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><p>用var声明了name变量。意味着创建阶段会被提升（JavaScript会在创建变量阶段为其分配内存空间），默认值为undefined，直到我们实际执行到使用该变量的行，还没有赋值，所以仍然是undefined</p>
+</li>
+<li><p>let声明的变量age，在声明之前是不可访问的，称为“暂时死区”，会抛出ReferenceError</p>
+</li>
+<li><p><strong><font color="red">let也存在变量提升！！</font></strong></p>
+</li>
+<li><p>变量的赋值可以分为三个阶段：</p>
+<ul>
+<li>创建变量，在内存中开辟空间</li>
+<li>初始化变量，将变量初始化为undefined</li>
+<li>真正赋值</li>
+</ul>
+</li>
+<li><p>关于let、var、function：</p>
+<ul>
+<li>let的【创建】过程被提升了，但是初始化没有提升</li>
+<li>var的【创建】和【初始化】都被提升了</li>
+<li>function的【创建】【初始化】和【赋值】都被提升了</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li>下面代码的输出是什么？<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++) &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(i),i)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++) &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(i),<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3 3 3</span></span><br><span class="line"><span class="comment">// 0 1 2</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li><p>第一个循环中的变量i是使用var关键字声明的，因此该值是全局的。当调用setTimeout函数时，循环已经走完，i已经被赋值为3.</p>
+</li>
+<li><p>第二个循环中，使用let关键字声明变量i具有块级作用域。每次迭代i将被创建为一个新值，并且每个值都会存在于循环内部的块级作用域。</p>
+</li>
+</ul>
+<ol start="3">
+<li>下面代码的输出是什么？<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> shape = &#123;</span><br><span class="line">    radius: <span class="number">10</span>,</span><br><span class="line">    diameter() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.radius * <span class="number">2</span></span><br><span class="line">    &#125;,</span><br><span class="line">    perimeter: <span class="function"><span class="params">()</span> =&gt;</span> <span class="number">2</span> * <span class="built_in">Math</span>.PI * <span class="keyword">this</span>.radius</span><br><span class="line">&#125;</span><br><span class="line">shape.diameter()</span><br><span class="line">shape.perimeter()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 20</span></span><br><span class="line"><span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>对于箭头函数，this指向是它所在上下文（定义时的位置）的环境，与普通函数不同！这意味着当我们调用perimeter时，它不是指向shape对象，而是指其定义时的环境（window）。没有该属性返回undefined。</li>
+</ul>
 <ol start="4">
-<li>基本实现流程：<ul>
-<li>通过Object.defineProperty()给vm添加与data对象的属性对应的属性描述符。</li>
-<li>所有添加的属性都包含getter/setter</li>
-<li>getter/setter内部去操作data中对应的属性数据。</li>
-</ul>
+<li>下面的代码输出是什么？<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+<span class="literal">true</span>;</span><br><span class="line">!<span class="string">"Panda"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// false</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">_proxyData: <span class="function"><span class="keyword">function</span>(<span class="params">key, setter, getter</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//保存vm</span></span><br><span class="line">    <span class="keyword">var</span> me = <span class="keyword">this</span>;</span><br><span class="line">    setter = setter || </span><br><span class="line">    <span class="built_in">Object</span>.defineProperty(me, key, &#123;</span><br><span class="line">        configurable: <span class="literal">false</span>,    <span class="comment">//不能重新定义</span></span><br><span class="line">        enumerable: <span class="literal">true</span>,   <span class="comment">//可以枚举遍历</span></span><br><span class="line">        <span class="comment">//当通过vm.xxx读取属性值时调用，从data中获取对应的属性值返回    代理读操作</span></span><br><span class="line">        <span class="keyword">get</span>: function proxyGetter() &#123;</span><br><span class="line">            <span class="keyword">return</span> me._data[key];</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">//当通过vm.xxx = value时，value被保存到data中对应的属性上   代理写操作</span></span><br><span class="line">        <span class="keyword">set</span>: function proxySetter(newVal) &#123;</span><br><span class="line">            me._data[key] = newVal;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="模板解析"><a href="#模板解析" class="headerlink" title="模板解析"></a>模板解析</h2><h3 id="模板解析的基本流程"><a href="#模板解析的基本流程" class="headerlink" title="模板解析的基本流程"></a>模板解析的基本流程</h3><ol>
-<li>将el的所有子节点取出，添加到一个新建的文档fragment对象中。</li>
-<li>对fragment中的所有层次子节点递归进行编译解析处理。<ul>
-<li>对表达式文本节点进行解析</li>
-<li>对元素节点的指令属性进行解析<ul>
-<li>事件指令解析</li>
-</ul>
+<ul>
+<li><p>一元加号会尝试将boolean类型转换为数字类型。true被转换为1。false会被转换为0。</p>
+</li>
+<li><p>对于非空字符串是一个真值，取反会返回false。</p>
 </li>
 </ul>
+<ol start="5">
+<li>事件传播的三个阶段是什么？</li>
+</ol>
+<ul>
+<li>捕获 -&gt; 目标 -&gt; 冒泡</li>
+</ul>
+<ol start="6">
+<li>所有对象都有原型对吗？</li>
+</ol>
+<ul>
+<li>除<strong>基础对象</strong>外，所有对象都有原型。基础对象可以访问某些方法和属性，例如.toString。这就是您可以使用内置JavaScript方法的原因！所有这些方法都可以在原型上找到。虽然JavaScript无法直接在您的对象上找到它，但它会沿着原型链向下寻找并在那里找到它，这使您可以访问它。</li>
+</ul>
+<ol start="7">
+<li>下面代码的输出是什么？<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a,b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b</span><br><span class="line">&#125;</span><br><span class="line">sum(<span class="number">1</span>,<span class="string">"2"</span>)  <span class="comment">//"12"</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-
+<ul>
+<li>JavaScript是一种<strong>动态类型语言</strong>，在此例中数字1进行了隐式类型转换，以使函数有意义并返回值。</li>
+</ul>
+<ol start="8">
+<li>下面代码的输出是什么？<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getAge</span>(<span class="params">...args</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">typeof</span> args)</span><br><span class="line">&#125;</span><br><span class="line">getAge(<span class="number">21</span>)  <span class="comment">//"object"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>扩展运算符（…args）返回一个带参数的数组。数组是一个对象，因此typeof返回object。</li>
+</ul>
+<h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2>
     </div>
 
     
@@ -355,7 +445,7 @@
     <strong>本文作者： </strong>MrPanda刘畅</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2019/09/14/vue源码分析/" title="vue源码分析">http://yoursite.com/2019/09/14/vue源码分析/</a>
+    <a href="http://yoursite.com/2019/11/02/前端面试题/" title="前端面试题(文字版)">http://yoursite.com/2019/11/02/前端面试题/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-Hans" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -370,9 +460,7 @@
           
           <div class="post-tags">
             
-              <a href="/tags/javaScript/" rel="tag"># javaScript</a>
-            
-              <a href="/tags/vue/" rel="tag"># vue</a>
+              <a href="/tags/html/" rel="tag"># html</a>
             
           </div>
         
@@ -382,8 +470,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/12/JavaScript深入-二-——getter与setter的使用/" rel="next" title="JavaScript深入(二)——getter与setter的使用">
-                  <i class="fa fa-chevron-left"></i> JavaScript深入(二)——getter与setter的使用
+                <a href="/2019/11/02/ES6-三-——字符串的扩展/" rel="next" title="ES6(三)——字符串的扩展">
+                  <i class="fa fa-chevron-left"></i> ES6(三)——字符串的扩展
                 </a>
               
             </div>
@@ -392,8 +480,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2019/09/18/JavaScript深入-三-——作用域和执行上下文/" rel="prev" title="JavaScript深入(三)——作用域和执行上下文">
-                  JavaScript深入(三)——作用域和执行上下文 <i class="fa fa-chevron-right"></i>
+                <a href="/2019/11/07/代理模式和Proxy/" rel="prev" title="代理模式和Proxy">
+                  代理模式和Proxy <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -567,7 +655,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据代理"><span class="nav-number">1.</span> <span class="nav-text">数据代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板解析"><span class="nav-number">2.</span> <span class="nav-text">模板解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模板解析的基本流程"><span class="nav-number">2.1.</span> <span class="nav-text">模板解析的基本流程</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML"><span class="nav-number">1.</span> <span class="nav-text">HTML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS"><span class="nav-number">2.</span> <span class="nav-text">CSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript"><span class="nav-number">3.</span> <span class="nav-text">JavaScript</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP"><span class="nav-number">4.</span> <span class="nav-text">HTTP</span></a></li></ol></div>
             
 
           </div>
@@ -709,7 +797,7 @@
       repo: 'MrPand111.github.io',
       owner: 'MrPand111',
       admin: ['熊猫'],
-      id: '9e34bb5ef76c861f89038ab4d92f90ef',
+      id: '687207e74d03ea5e77e6eb5e89feaf24',
         language: window.navigator.language || window.navigator.userLanguage,
       
       distractionFreeMode: 'true'
