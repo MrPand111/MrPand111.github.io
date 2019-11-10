@@ -63,7 +63,7 @@
 <meta property="og:site_name" content="畅喵の博客">
 <meta property="og:description" content="HTML HTML语义化优点？ 易于用户阅读，样式丢失的时候能让页面呈现清晰的结构。 有利于SEO，搜索引擎根据标签来确定上下文和各个关键字的权重。 方便其他设备解析。 有利于开发维护，与CSS3关系更和谐。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-09T09:46:48.439Z">
+<meta property="og:updated_time" content="2019-11-10T03:24:30.925Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试题(文字版)">
 <meta name="twitter:description" content="HTML HTML语义化优点？ 易于用户阅读，样式丢失的时候能让页面呈现清晰的结构。 有利于SEO，搜索引擎根据标签来确定上下文和各个关键字的权重。 方便其他设备解析。 有利于开发维护，与CSS3关系更和谐。">
@@ -262,7 +262,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-09 17:46:48" itemprop="dateModified" datetime="2019-11-09T17:46:48+08:00">2019-11-09</time>
+                <time title="修改时间：2019-11-10 11:24:30" itemprop="dateModified" datetime="2019-11-10T11:24:30+08:00">2019-11-10</time>
               </span>
             
           
@@ -328,9 +328,7 @@
 </li>
 </ol>
 <h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><ol>
-<li>下面代码输出什么？<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(name)</span><br><span class="line">    <span class="built_in">console</span>.log(age)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'hahaha'</span>)</span><br><span class="line">    <span class="keyword">var</span> name = <span class="string">"Panda"</span></span><br><span class="line">    <span class="keyword">let</span> age = <span class="number">21</span></span><br><span class="line">&#125;</span><br><span class="line">sayHi()</span><br><span class="line"><span class="comment">//undefined</span></span><br><span class="line"><span class="comment">//ReferenceError</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<li><p>下面代码输出什么？</p>
 <ul>
 <li><p>用var声明了name变量。意味着创建阶段会被提升（JavaScript会在创建变量阶段为其分配内存空间），默认值为undefined，直到我们实际执行到使用该变量的行，还没有赋值，所以仍然是undefined</p>
 </li>
@@ -349,20 +347,23 @@
 <ul>
 <li>let的【创建】过程被提升了，但是初始化没有提升</li>
 <li>var的【创建】和【初始化】都被提升了</li>
-<li>function的【创建】【初始化】和【赋值】都被提升了</li>
+<li>function的【创建】【初始化】和【赋值】都被提升了<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(name)</span><br><span class="line">    <span class="built_in">console</span>.log(age)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'hahaha'</span>)</span><br><span class="line">    <span class="keyword">var</span> name = <span class="string">"Panda"</span></span><br><span class="line">    <span class="keyword">let</span> age = <span class="number">21</span></span><br><span class="line">&#125;</span><br><span class="line">sayHi()</span><br><span class="line"><span class="comment">//undefined</span></span><br><span class="line"><span class="comment">//ReferenceError</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </li>
 </ul>
-<ol start="2">
-<li>下面代码的输出是什么？<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++) &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(i),i)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++) &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(i),<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3 3 3</span></span><br><span class="line"><span class="comment">// 0 1 2</span></span><br></pre></td></tr></table></figure>
 </li>
-</ol>
+<li><p>下面代码的输出是什么？</p>
 <ul>
 <li><p>第一个循环中的变量i是使用var关键字声明的，因此该值是全局的。当调用setTimeout函数时，循环已经走完，i已经被赋值为3.</p>
 </li>
 <li><p>第二个循环中，使用let关键字声明变量i具有块级作用域。每次迭代i将被创建为一个新值，并且每个值都会存在于循环内部的块级作用域。</p>
 </li>
 </ul>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++) &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(i),i)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++) &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(i),<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3 3 3</span></span><br><span class="line"><span class="comment">// 0 1 2</span></span><br></pre></td></tr></table></figure>
+
 <ol start="3">
 <li>下面代码的输出是什么？<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> shape = &#123;</span><br><span class="line">    radius: <span class="number">10</span>,</span><br><span class="line">    diameter() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.radius * <span class="number">2</span></span><br><span class="line">    &#125;,</span><br><span class="line">    perimeter: <span class="function"><span class="params">()</span> =&gt;</span> <span class="number">2</span> * <span class="built_in">Math</span>.PI * <span class="keyword">this</span>.radius</span><br><span class="line">&#125;</span><br><span class="line">shape.diameter()</span><br><span class="line">shape.perimeter()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 20</span></span><br><span class="line"><span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -381,11 +382,12 @@
 </li>
 </ul>
 <ol start="5">
-<li>事件传播的三个阶段是什么？</li>
-</ol>
+<li><p>事件传播的三个阶段是什么？</p>
 <ul>
 <li>捕获 -&gt; 目标 -&gt; 冒泡</li>
 </ul>
+</li>
+</ol>
 <ol start="6">
 <li>所有对象都有原型对吗？</li>
 </ol>
@@ -405,6 +407,13 @@
 </ol>
 <ul>
 <li>扩展运算符（…args）返回一个带参数的数组。数组是一个对象，因此typeof返回object。</li>
+</ul>
+<ol start="9">
+<li>下面代码的输出是什么？<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123; <span class="attr">a</span>:<span class="string">"one"</span> , <span class="attr">b</span>:<span class="string">"two"</span> , <span class="attr">a</span>:<span class="string">"three"</span> &#125;</span><br><span class="line"><span class="built_in">console</span>.log(obj)    <span class="comment">//&#123; a:"three" , b:"two" &#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>如果对象有两个具有相同名称的键，则将替前面的键。它仍将处于第一个位置，但具有最后指定的值。</li>
 </ul>
 <h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2>
     </div>
