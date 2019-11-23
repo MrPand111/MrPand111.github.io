@@ -55,19 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="作用域 作用域是指程序源代码中定义变量的区域。 作用域规定了如何查找变量，也就是确定当前执行代码对变量的访问权限。 JavaScript采用词法作用域，也就是静态作用域。">
-<meta name="keywords" content="javaScript">
+  <meta name="keywords" content="javaScript,css,html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript深入(三)——作用域和执行上下文">
-<meta property="og:url" content="http://yoursite.com/2019/09/18/JavaScript深入-三-——作用域和执行上下文/index.html">
+<meta property="og:title" content="《高性能网站建设指南》">
+<meta property="og:url" content="http://yoursite.com/2019/11/23/《高性能网站建设指南》/index.html">
 <meta property="og:site_name" content="畅喵の博客">
-<meta property="og:description" content="作用域 作用域是指程序源代码中定义变量的区域。 作用域规定了如何查找变量，也就是确定当前执行代码对变量的访问权限。 JavaScript采用词法作用域，也就是静态作用域。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-09T13:52:49.444Z">
+<meta property="og:image" content="http://yoursite.com/2019/11/23/《高性能网站建设指南》/高性能网站建设指南.png">
+<meta property="og:updated_time" content="2019-11-23T07:16:42.677Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript深入(三)——作用域和执行上下文">
-<meta name="twitter:description" content="作用域 作用域是指程序源代码中定义变量的区域。 作用域规定了如何查找变量，也就是确定当前执行代码对变量的访问权限。 JavaScript采用词法作用域，也就是静态作用域。">
-  <link rel="canonical" href="http://yoursite.com/2019/09/18/JavaScript深入-三-——作用域和执行上下文/">
+<meta name="twitter:title" content="《高性能网站建设指南》">
+<meta name="twitter:image" content="http://yoursite.com/2019/11/23/《高性能网站建设指南》/高性能网站建设指南.png">
+  <link rel="canonical" href="http://yoursite.com/2019/11/23/《高性能网站建设指南》/">
 
 
 <script id="page-configurations">
@@ -81,7 +80,7 @@
   };
 </script>
 
-  <title>JavaScript深入(三)——作用域和执行上下文 | 畅喵の博客</title>
+  <title>《高性能网站建设指南》 | 畅喵の博客</title>
   
 
 
@@ -220,7 +219,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/18/JavaScript深入-三-——作用域和执行上下文/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/23/《高性能网站建设指南》/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MrPanda刘畅">
@@ -234,7 +233,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">JavaScript深入(三)——作用域和执行上下文
+          <h1 class="post-title" itemprop="name headline">《高性能网站建设指南》
 
             
           </h1>
@@ -251,19 +250,11 @@
                 
               
 
-              <time title="创建时间：2019-09-18 20:33:41" itemprop="dateCreated datePublished" datetime="2019-09-18T20:33:41+08:00">2019-09-18</time>
+              <time title="创建时间：2019-11-23 13:55:49 / 修改时间：15:16:42" itemprop="dateCreated datePublished" datetime="2019-11-23T13:55:49+08:00">2019-11-23</time>
             </span>
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-10-09 21:52:49" itemprop="dateModified" datetime="2019-10-09T21:52:49+08:00">2019-10-09</time>
-              </span>
             
           
             <span class="post-meta-item">
@@ -272,7 +263,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JS深入系列/" itemprop="url" rel="index"><span itemprop="name">JS深入系列</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
 
                 
                 
@@ -299,42 +290,103 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h3><ul>
-<li>作用域是指程序源代码中定义变量的区域。</li>
-<li>作用域规定了如何查找变量，也就是确定当前执行代码对变量的访问权限。</li>
-<li>JavaScript采用词法作用域，也就是<font color="red"><strong>静态作用域</strong></font>。</li>
-</ul>
+        <img src="/2019/11/23/《高性能网站建设指南》/高性能网站建设指南.png" title="高性能网站建设指南">
+
 <a id="more"></a>
 
-
-<h3 id="静态作用域"><a href="#静态作用域" class="headerlink" title="静态作用域"></a>静态作用域</h3><ul>
-<li>因为JavaScript采用的是词法作用域，函数的作用域在<strong>函数定义的时候就决定了</strong>。</li>
-<li>相对的是动态作用域，函数的作用域是在<strong>函数调用的时候才决定的</strong>。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> value = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(value)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> value = <span class="number">2</span></span><br><span class="line">    foo()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bar()</span><br></pre></td></tr></table></figure>
-
+<h2 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h2><h3 id="什么是http？"><a href="#什么是http？" class="headerlink" title="什么是http？"></a>什么是http？</h3><ul>
+<li><p>http是一个简单的请求-响应协议，它通常运行在TCP之上。它指定了客户端可能发送给服务器什么样的消息以及得到什么样的响应。请求和响应消息的头以ASICII码形式给出。</p>
 </li>
-</ul>
-<p>执行foo函数，先从foo函数内部查找是否有局部变量value，如果没有，就根据书写的位置，查找上面一层的代码，也就是value等于1，所以结果会打印1。</p>
-<h3 id="顺序执行？"><a href="#顺序执行？" class="headerlink" title="顺序执行？"></a>顺序执行？</h3><p>例一</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'foo1'</span>)</span><br><span class="line">&#125;</span><br><span class="line">foo()   <span class="comment">//foo1</span></span><br><span class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'foo2'</span>)</span><br><span class="line">&#125;</span><br><span class="line">foo()   <span class="comment">//foo2</span></span><br></pre></td></tr></table></figure>
-
-<p>例二</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'foo1'</span>)</span><br><span class="line">&#125;</span><br><span class="line">foo()   <span class="comment">//foo2</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'foo2'</span>)</span><br><span class="line">&#125;</span><br><span class="line">foo()   <span class="comment">//foo2</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="可执行代码"><a href="#可执行代码" class="headerlink" title="可执行代码"></a>可执行代码</h3><p><strong>全局代码</strong>、<strong>函数代码</strong>、<strong>eval代码</strong></p>
-<h3 id="执行上下文"><a href="#执行上下文" class="headerlink" title="执行上下文"></a>执行上下文</h3><ol>
-<li><p>JavaScript引擎创建了执行上下文栈来管理执行上下文为了模拟执行上下文栈的行为，定义执行上下文栈是一个数组： ECStack = []</p>
+<li><p>HTTP是基于客户/服务器模式，且面向连接的。典型的HTTP事物处理有如下的过程：</p>
+<ol>
+<li><p>客户与服务器建立连接</p>
 </li>
-<li><p>当JavaScript开始要解释执行代码的时候，最先遇到的就是全局代码，所以初始化的时候首先就会向执行上下文栈压入一个全局执行上下文，我们用globalContext表示它，并且只有当整个应用程序结束的时候，ECStack才会被清空，所以ECStack最底部永远有个globalContext：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ECStack = [</span><br><span class="line">    globalContext</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<li><p>客户向服务器提出请求</p>
 </li>
-<li><p>现在JavaScript遇到下面这段代码了：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun3</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'fun3'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    fun3()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun1</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    fun2()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fun1()</span><br></pre></td></tr></table></figure>
-
+<li><p>服务器接受请求，并根据请求返回相应的文件作为应答</p>
+</li>
+<li><p>客户与服务器关闭连接</p>
 </li>
 </ol>
-<p>当执行一个函数的时候，就会创建一个执行上下文，并且压入执行上下文栈，当函数执行完毕的时候，就会将函数的执行上下文从栈中弹出。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//fun1()</span></span><br><span class="line">ECStack.push(&lt;fun1&gt; functionContext)</span><br><span class="line"></span><br><span class="line"><span class="comment">// fun1调用fun2，还要创建fun2的执行上下文</span></span><br><span class="line">ECStack.push(&lt;fun2&gt; functionContext)</span><br><span class="line"></span><br><span class="line"><span class="comment">//fun2调用fun3</span></span><br><span class="line">ECStack.push(&lt;fun3&gt; functionContext)</span><br><span class="line"></span><br><span class="line"><span class="comment">//fun3执行完毕</span></span><br><span class="line">ECStack.pop()</span><br><span class="line"></span><br><span class="line"><span class="comment">//fun2执行完毕</span></span><br><span class="line">ECStack.pop()</span><br><span class="line"></span><br><span class="line"><span class="comment">//fun1执行完毕</span></span><br><span class="line">ECStack.pop()</span><br></pre></td></tr></table></figure>
-
+</li>
+</ul>
+<h3 id="http请求消息"><a href="#http请求消息" class="headerlink" title="http请求消息"></a>http请求消息</h3><p>一个http请求代表客户端浏览器向服务器发送的数据。一个完整的http请求，包含一个请求行，若干个消息头（请求头），换行，实体内容</p>
+<ul>
+<li><p>请求行：描述客户端的请求方式、请求资源的名称、http协议的版本号。例如：GET/BOOK/JAVA.HTML HTTP/1.1</p>
+</li>
+<li><p>请求头包含：</p>
+<ul>
+<li><p>Accept：用于告诉服务器，客户端支持的数据类型</p>
+</li>
+<li><p>Accept-Charset：用于告诉服务器，客户端采用的编码格式</p>
+</li>
+<li><p>Accept-Encoding：用于告诉服务器，客户端支持的数据压缩格式</p>
+</li>
+<li><p>Accept-Language：客户端语言环境</p>
+</li>
+<li><p>Host：客户端通过这个服务器，想访问的主机名</p>
+</li>
+<li><p>If-Modified-Since：客户端通过这个头告诉服务器，资源的缓存时间</p>
+</li>
+<li><p>Referer：客户端通过这个头告诉服务器，客户端是从哪个资源来访问服务器的（防盗链）</p>
+</li>
+<li><p>User-Agent：客户端通过这个头告诉服务器，客户端的软件环境（操作系统、浏览器版本等）</p>
+</li>
+<li><p>Cookie：客户端通过这个头，将Cookie信息带给服务器</p>
+</li>
+<li><p>Connection：告诉服务器，请求完成后，是否保持连接</p>
+</li>
+<li><p>Date：告诉服务器，当前请求时间</p>
+</li>
+</ul>
+</li>
+<li><p>实体内容：</p>
+<ul>
+<li>就是指浏览器端通过htt协议发送给服务器的实体数据。例如：name=dylan&amp;id=110(get请求通过url传给服务器的数据，post请求时通过表单发送给服务器的值)</li>
+</ul>
+</li>
+<li><p>响应头包含：</p>
+<ul>
+<li><p>Location：这个头配合302状态码，用于告诉客户端找谁</p>
+</li>
+<li><p>Server：服务器通过这个头，告诉浏览器服务器的类型</p>
+</li>
+<li><p>Content-Encoding：告诉浏览器，服务器的数据压缩格式</p>
+</li>
+<li><p>Content-Length：告诉浏览器，返回数据的长度</p>
+</li>
+<li><p>Content-Type：告诉浏览器，返回数据的类型</p>
+</li>
+<li><p>Last-Modified：告诉浏览器当前资源缓存时间</p>
+</li>
+<li><p>Refresh：告诉浏览器，隔多长时间刷新</p>
+</li>
+<li><p>Content-Disposition: 告诉浏览器以下载的方式打开数据（例如图片）</p>
+</li>
+<li><p>Transfer-Encoding：告诉浏览器，传送数据的编码格式</p>
+</li>
+<li><p>Etag：缓存相关的头（做到实时更新）</p>
+</li>
+<li><p>Expries：告诉浏览器返回的资源缓存多长时间</p>
+</li>
+<li><p>Cache-Control：控制浏览器不要缓存数据</p>
+</li>
+<li><p>Pragma：控制浏览器不要缓存数据</p>
+</li>
+<li><p>Connection：响应完成后，是否断开连接</p>
+</li>
+<li><p>Date：告诉浏览器，服务器响应时间</p>
+</li>
+</ul>
+</li>
+<li><p>状态行 例如：HTTP/1.1 200 OK</p>
+</li>
+<li><p>实体内容</p>
+<ul>
+<li>响应包含浏览器能够解析的静态内容，例如：html，纯文字，图片等等信息</li>
+</ul>
+</li>
+</ul>
 
     </div>
 
@@ -374,7 +426,7 @@
     <strong>本文作者： </strong>MrPanda刘畅</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2019/09/18/JavaScript深入-三-——作用域和执行上下文/" title="JavaScript深入(三)——作用域和执行上下文">http://yoursite.com/2019/09/18/JavaScript深入-三-——作用域和执行上下文/</a>
+    <a href="http://yoursite.com/2019/11/23/《高性能网站建设指南》/" title="《高性能网站建设指南》">http://yoursite.com/2019/11/23/《高性能网站建设指南》/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-Hans" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -391,6 +443,10 @@
             
               <a href="/tags/javaScript/" rel="tag"># javaScript</a>
             
+              <a href="/tags/css/" rel="tag"># css</a>
+            
+              <a href="/tags/html/" rel="tag"># html</a>
+            
           </div>
         
 
@@ -399,8 +455,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/14/vue源码分析/" rel="next" title="vue源码分析">
-                  <i class="fa fa-chevron-left"></i> vue源码分析
+                <a href="/2019/11/14/JS设计模式-一-——面向对象的JS/" rel="next" title="JS设计模式(一)——面向对象的JS">
+                  <i class="fa fa-chevron-left"></i> JS设计模式(一)——面向对象的JS
                 </a>
               
             </div>
@@ -408,10 +464,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/09/20/JavaScript深入-四-——this机制/" rel="prev" title="JavaScript深入(四)——this机制">
-                  JavaScript深入(四)——this机制 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -586,7 +638,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域"><span class="nav-number">1.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态作用域"><span class="nav-number">2.</span> <span class="nav-text">静态作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#顺序执行？"><span class="nav-number">3.</span> <span class="nav-text">顺序执行？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可执行代码"><span class="nav-number">4.</span> <span class="nav-text">可执行代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#执行上下文"><span class="nav-number">5.</span> <span class="nav-text">执行上下文</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#补充内容"><span class="nav-number">1.</span> <span class="nav-text">补充内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是http？"><span class="nav-number">1.1.</span> <span class="nav-text">什么是http？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http请求消息"><span class="nav-number">1.2.</span> <span class="nav-text">http请求消息</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -728,7 +780,7 @@
       repo: 'MrPand111.github.io',
       owner: 'MrPand111',
       admin: ['熊猫'],
-      id: '54ff3501da859567620820714ba73fbd',
+      id: 'b646c7093157e5f967cdc00c258b139b',
         language: window.navigator.language || window.navigator.userLanguage,
       
       distractionFreeMode: 'true'
