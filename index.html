@@ -217,6 +217,173 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/03/JS设计模式-三-——闭包和高阶函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MrPanda刘畅">
+      <meta itemprop="description" content="华中农业大学的计科菜鸡，大前端研习ing">
+      <meta itemprop="image" content="/images/me.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="畅喵の博客">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2019/12/03/JS设计模式-三-——闭包和高阶函数/" class="post-title-link" itemprop="url">JS设计模式(三)——闭包和高阶函数</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-12-03 14:31:13" itemprop="dateCreated datePublished" datetime="2019-12-03T14:31:13+08:00">2019-12-03</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-08 11:21:58" itemprop="dateModified" datetime="2019-12-08T11:21:58+08:00">2019-12-08</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JS设计模式系列/" itemprop="url" rel="index"><span itemprop="name">JS设计模式系列</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <p>在JavaScript版本的设计模式中，许多模式都可以用闭包和高阶函数来实现。</p>
+<h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><h3 id="变量的作用域"><a href="#变量的作用域" class="headerlink" title="变量的作用域"></a>变量的作用域</h3><ul>
+<li><p>变量的作用域，就是指变量的有效范围。</p>
+</li>
+<li><p>在JavaScript中，函数可以用来创造函数作用域。此时的函数像一层半透明的玻璃，在函数里面可以看到外面的变量，而在函数外面则无法看到函数里面的变量。</p>
+</li>
+</ul>
+<h3 id="变量的生存周期"><a href="#变量的生存周期" class="headerlink" title="变量的生存周期"></a>变量的生存周期</h3><ul>
+<li><p>对于全局变量来说，全局变量的生存周期当然是永久的，除非我们主动销毁这个全局变量。</p>
+</li>
+<li><p>而对于在函数内用var关键字声明的局部变量来说，当退出函数时，这些局部变量即失去它们的价值，它们都会随着函数调用的结束而销毁。</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        a++</span><br><span class="line">        alert(a)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> f = func()</span><br><span class="line">f() <span class="comment">// 2</span></span><br><span class="line">f() <span class="comment">// 3</span></span><br><span class="line">f() <span class="comment">// 4</span></span><br><span class="line">f() <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>当执行var f = func()时，f返回了一个匿名函数的引用，它可以访问到func被调用时产生的环境，而局部变量a一直处在这个环境里。既然局部变量所在的环境还能被外界访问，这个局部变量就有了不被销毁的理由。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 循环div绑定onclick事件</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;len = nodes.length; i &lt; len; i++) &#123;</span><br><span class="line">    (<span class="function"><span class="keyword">function</span>(<span class="params">i</span>) </span>&#123;</span><br><span class="line">        nodes[i].onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(i)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="闭包的更多作用"><a href="#闭包的更多作用" class="headerlink" title="闭包的更多作用"></a>闭包的更多作用</h3><ol>
+<li>封装变量：闭包可以帮助把一些不需要暴露在全局的变量封装成“私有变量”。</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 计算乘积的函数</span></span><br><span class="line"><span class="keyword">var</span> mult = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> cache = &#123;&#125;</span><br><span class="line">    <span class="keyword">var</span> calculate = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;l=<span class="built_in">arguments</span>.length;i&lt;l;i++) &#123;</span><br><span class="line">            a = a * <span class="built_in">arguments</span>[i]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> args = <span class="built_in">Array</span>.prototype.join.call(<span class="built_in">arguments</span>,<span class="string">','</span>)</span><br><span class="line">        <span class="keyword">if</span>(args <span class="keyword">in</span> cache) &#123;</span><br><span class="line">            <span class="keyword">return</span> cache[args]</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cache[args] = calculate.apply(<span class="literal">null</span>,<span class="built_in">arguments</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>延续局部变量的寿命</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// img对象经常用于进行数据上报</span></span><br><span class="line"><span class="comment">// 把img变量用闭包封装起来，便能解决请求丢失的问题</span></span><br><span class="line"><span class="keyword">var</span> report  = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> imgs = []</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">src</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> img = <span class="keyword">new</span> Image()</span><br><span class="line">        imps.push(img)</span><br><span class="line">        img.src = src</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+
+<h3 id="闭包和面向对象设计"><a href="#闭包和面向对象设计" class="headerlink" title="闭包和面向对象设计"></a>闭包和面向对象设计</h3><p>对象以方法的形式包含了过程，而闭包则是在过程中以环境的形式包含了数据。</p>
+<h3 id="用闭包实现命令模式"><a href="#用闭包实现命令模式" class="headerlink" title="用闭包实现命令模式"></a>用闭包实现命令模式</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"excute"</span>&gt;</span>点我<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"undo"</span>&gt;</span>点我<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> Tv = &#123;</span></span><br><span class="line"><span class="javascript">        open: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">'打开电视机'</span>)</span></span><br><span class="line">        &#125;,</span><br><span class="line"><span class="javascript">        close:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">'关上电视机'</span>)</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> createCommand = <span class="function"><span class="keyword">function</span>(<span class="params">receiver</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> excute = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> receiver.open()  <span class="comment">// 执行命令，打开电视机</span></span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> undo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">return</span> receiver.close()</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"><span class="javascript">        <span class="keyword">return</span> &#123;</span></span><br><span class="line">            excute: excute,</span><br><span class="line">            undo: undo</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> setCommand = <span class="function"><span class="keyword">function</span>(<span class="params">command</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.getElementById(<span class="string">'execute'</span>).onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            command.excute()    <span class="comment">// 打开电视机</span></span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.getElementById(<span class="string">'undo'</span>).onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            command.undo()  <span class="comment">// 关闭电视机</span></span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    setCommand(createCommand(Tv))</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="闭包和内存管理"><a href="#闭包和内存管理" class="headerlink" title="闭包和内存管理"></a>闭包和内存管理</h3><ul>
+<li>使用闭包的一部分原因是我们选择主动把一些变量封闭在闭包中，因为可能在以后还需要使用这些变量，把这些变量放在闭包和全局作用域，对内存方面的影响是一致的，这里并不能说成是内存泄露。如果在将来需要回收这些变量，我们可以手动把这些变量设为null。</li>
+</ul>
+<h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h2><p>高阶函数是指至少满足下列条件之一的函数：</p>
+<ul>
+<li><p>函数可以作为参数被传递</p>
+</li>
+<li><p>函数可以作为返回值输出</p>
+</li>
+</ul>
+<h3 id="函数作为参数传递"><a href="#函数作为参数传递" class="headerlink" title="函数作为参数传递"></a>函数作为参数传递</h3><ol>
+<li>回调函数</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建100个div节点</span></span><br><span class="line"><span class="keyword">var</span> appendDiv = <span class="function"><span class="keyword">function</span>(<span class="params">callback</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">100</span>;i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>)</span><br><span class="line">        div.innerHTML = i</span><br><span class="line">        <span class="built_in">document</span>.body.appendChild(div)</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">typeof</span> callback === <span class="string">'function'</span>) &#123;</span><br><span class="line">            callback(div)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 隐藏节点作为回调函数，在节点创建完成后执行</span></span><br><span class="line">appendDiv(<span class="function"><span class="keyword">function</span>(<span class="params">node</span>) </span>&#123;</span><br><span class="line">    node.style.display = <span class="string">'none'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>函数作为返回值输出</li>
+</ol>
+<p>让函数继续返回一个可执行的函数，意味着运算过程是可延续的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> getSingle = <span class="function"><span class="keyword">function</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> ret <span class="comment">// 利用闭包保存ret一值在作用域中</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(ret)</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">arguments</span>)  <span class="comment">//callee:f()</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>)   <span class="comment">// window</span></span><br><span class="line">        <span class="keyword">return</span> ret || (ret = fn.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> getScript = getSingle(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">document</span>.createElement(<span class="string">'script'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> script1 = getScript()</span><br><span class="line"><span class="keyword">var</span> script2 = getScript()</span><br><span class="line">alert(script1 === script2)  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="高阶函数实现AOP"><a href="#高阶函数实现AOP" class="headerlink" title="高阶函数实现AOP"></a>高阶函数实现AOP</h3><p>AOP（面向切面编程）的主要作用是把一些跟核心业务逻辑模块无关的功能抽离出来。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.before = <span class="function"><span class="keyword">function</span>(<span class="params">beforefn</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _self = <span class="keyword">this</span>    <span class="comment">// 保存原函数的引用</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; <span class="comment">// 返回包含了原函数和新函数的“代理函数”</span></span><br><span class="line">        beforefn.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>)  <span class="comment">// 执行新函数，修正this</span></span><br><span class="line">        <span class="keyword">return</span> _self.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>)  <span class="comment">// 执行原函数</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Function</span>.prototype.after = <span class="function"><span class="keyword">function</span>(<span class="params">afterfn</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _self = <span class="keyword">this</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> ret = _self.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>)</span><br><span class="line">        afterfn.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>)</span><br><span class="line">        <span class="keyword">return</span> ret</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> func = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line">func = func.before(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;).after(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">&#125;)</span><br><span class="line">func()</span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="高阶函数的其他应用"><a href="#高阶函数的其他应用" class="headerlink" title="高阶函数的其他应用"></a>高阶函数的其他应用</h3><ol>
+<li>currying</li>
+</ol>
+<p>currying又称部分求值。一个currying的函数首先会接受一些参数，接受了这些参数之后，该函数并不会立即求值，而是继续返回另外一个函数，刚才传入的参数在函数形成的闭包中被保存起来。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> currying = <span class="function"><span class="keyword">function</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> args = []</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 如果没有参数就是执行函数</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">arguments</span>.length===<span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> fn.apply(<span class="keyword">this</span>,args)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;    <span class="comment">// 有参数就继续存到闭包的数组中</span></span><br><span class="line">            [].push.apply(args,<span class="built_in">arguments</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">arguments</span>.callee <span class="comment">// 返回这个匿名函数</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> cost = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> money = <span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;l=<span class="built_in">arguments</span>.length;i&lt;l;i++) &#123;</span><br><span class="line">            money += <span class="built_in">arguments</span>[i]</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> money</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br><span class="line"><span class="keyword">var</span> cost = currying(cost)   <span class="comment">// 转化成currying函数</span></span><br><span class="line">cost(<span class="number">100</span>)</span><br><span class="line">cost(<span class="number">200</span>)</span><br><span class="line">cost(<span class="number">300</span>)</span><br><span class="line">alert(cost())   <span class="comment">// 600</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>uncurrying</li>
+</ol>
+<p>call和apply可以让对象去借用一个不属于它的方法。通过uncurrying可以把Array.prototype中泛化的this提取出来。下面的例子中，就把Array.prototype.push.call变成了一个通用的push函数。这样一来，push函数的作用就跟Array.prototype.push一样了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.uncurrying = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span> <span class="comment">//push函数 </span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">arguments</span>)  <span class="comment">// put函数的arguments</span></span><br><span class="line">        <span class="keyword">var</span> obj = <span class="built_in">Array</span>.prototype.shift.call(<span class="built_in">arguments</span>);</span><br><span class="line">        <span class="keyword">return</span> self.apply(obj,<span class="built_in">arguments</span>)    <span class="comment">// self应该Array.prototype.push obj是下面立即执行函数的的123  arguments是4</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> put = <span class="built_in">Array</span>.prototype.push.uncurrying();    <span class="comment">// 如果下面的IIFE是这样的格式；前面一个语句要加分号</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// IILE可以用+ ！ void 声明</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    put(<span class="built_in">arguments</span>,<span class="number">4</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>)</span><br><span class="line">&#125;)(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/30/配置Webpack/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1148,105 +1315,6 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/19/ES6-二-——变量的解构赋值/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MrPanda刘畅">
-      <meta itemprop="description" content="华中农业大学的计科菜鸡，大前端研习ing">
-      <meta itemprop="image" content="/images/me.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="畅喵の博客">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/10/19/ES6-二-——变量的解构赋值/" class="post-title-link" itemprop="url">ES6(二)——变量的解构赋值</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-19 09:38:59 / 修改时间：09:43:42" itemprop="dateCreated datePublished" datetime="2019-10-19T09:38:59+08:00">2019-10-19</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ES6标准入门系列/" itemprop="url" rel="index"><span itemprop="name">ES6标准入门系列</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <img src="/2019/10/19/ES6-二-——变量的解构赋值/变量的解构赋值.png" title="变量的解构赋值">
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/10/19/ES6-二-——变量的解构赋值/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </section>
 
   
@@ -1287,7 +1355,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">28</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
