@@ -55,18 +55,18 @@
   };
 </script>
 
-  <meta name="description" content="在JavaScript版本的设计模式中，许多模式都可以用闭包和高阶函数来实现。 闭包变量的作用域 变量的作用域，就是指变量的有效范围。  在JavaScript中，函数可以用来创造函数作用域。此时的函数像一层半透明的玻璃，在函数里面可以看到外面的变量，而在函数外面则无法看到函数里面的变量。   变量的生存周期 对于全局变量来说，全局变量的生存周期当然是永久的，除非我们主动销毁这个全局变量。  而对">
+  <meta name="description" content="在JavaScript版本的设计模式中，许多模式都可以用闭包和高阶函数来实现。">
 <meta name="keywords" content="javaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS设计模式(三)——闭包和高阶函数">
 <meta property="og:url" content="http://yoursite.com/2019/12/03/JS设计模式-三-——闭包和高阶函数/index.html">
 <meta property="og:site_name" content="畅喵の博客">
-<meta property="og:description" content="在JavaScript版本的设计模式中，许多模式都可以用闭包和高阶函数来实现。 闭包变量的作用域 变量的作用域，就是指变量的有效范围。  在JavaScript中，函数可以用来创造函数作用域。此时的函数像一层半透明的玻璃，在函数里面可以看到外面的变量，而在函数外面则无法看到函数里面的变量。   变量的生存周期 对于全局变量来说，全局变量的生存周期当然是永久的，除非我们主动销毁这个全局变量。  而对">
+<meta property="og:description" content="在JavaScript版本的设计模式中，许多模式都可以用闭包和高阶函数来实现。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-08T03:21:58.125Z">
+<meta property="og:updated_time" content="2019-12-08T12:34:36.391Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS设计模式(三)——闭包和高阶函数">
-<meta name="twitter:description" content="在JavaScript版本的设计模式中，许多模式都可以用闭包和高阶函数来实现。 闭包变量的作用域 变量的作用域，就是指变量的有效范围。  在JavaScript中，函数可以用来创造函数作用域。此时的函数像一层半透明的玻璃，在函数里面可以看到外面的变量，而在函数外面则无法看到函数里面的变量。   变量的生存周期 对于全局变量来说，全局变量的生存周期当然是永久的，除非我们主动销毁这个全局变量。  而对">
+<meta name="twitter:description" content="在JavaScript版本的设计模式中，许多模式都可以用闭包和高阶函数来实现。">
   <link rel="canonical" href="http://yoursite.com/2019/12/03/JS设计模式-三-——闭包和高阶函数/">
 
 
@@ -262,7 +262,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-12-08 11:21:58" itemprop="dateModified" datetime="2019-12-08T11:21:58+08:00">2019-12-08</time>
+                <time title="修改时间：2019-12-08 20:34:36" itemprop="dateModified" datetime="2019-12-08T20:34:36+08:00">2019-12-08</time>
               </span>
             
           
@@ -300,6 +300,8 @@
 
       
         <p>在JavaScript版本的设计模式中，许多模式都可以用闭包和高阶函数来实现。</p>
+<a id="more"></a>
+
 <h2 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h2><h3 id="变量的作用域"><a href="#变量的作用域" class="headerlink" title="变量的作用域"></a>变量的作用域</h3><ul>
 <li><p>变量的作用域，就是指变量的有效范围。</p>
 </li>
@@ -367,6 +369,38 @@
 </ol>
 <p>call和apply可以让对象去借用一个不属于它的方法。通过uncurrying可以把Array.prototype中泛化的this提取出来。下面的例子中，就把Array.prototype.push.call变成了一个通用的push函数。这样一来，push函数的作用就跟Array.prototype.push一样了。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.uncurrying = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span> <span class="comment">//push函数 </span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">arguments</span>)  <span class="comment">// put函数的arguments</span></span><br><span class="line">        <span class="keyword">var</span> obj = <span class="built_in">Array</span>.prototype.shift.call(<span class="built_in">arguments</span>);</span><br><span class="line">        <span class="keyword">return</span> self.apply(obj,<span class="built_in">arguments</span>)    <span class="comment">// self应该Array.prototype.push obj是下面立即执行函数的的123  arguments是4</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> put = <span class="built_in">Array</span>.prototype.push.uncurrying();    <span class="comment">// 如果下面的IIFE是这样的格式；前面一个语句要加分号</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// IILE可以用+ ！ void 声明</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    put(<span class="built_in">arguments</span>,<span class="number">4</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">arguments</span>)</span><br><span class="line">&#125;)(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>函数节流</li>
+</ol>
+<p>在很少情况下，函数的触发不是由用户直接控制的。在这些场景下，函数有可能被非常频繁的调用，而造成大的性能问题。</p>
+<ul>
+<li><p>函数被频繁调用的场景</p>
+<ul>
+<li>window.onresize事件</li>
+<li>mouseover事件</li>
+<li>上传进度</li>
+</ul>
+</li>
+<li><p>函数节流原理</p>
+<ul>
+<li>上面三个场景共同问题是函数被触发的频率太高</li>
+<li>可以通过seTimeout来完成</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> throttle = <span class="function"><span class="keyword">function</span>(<span class="params">fn,interval</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> __self = fn,    <span class="comment">// 保存需要被延迟执行的函数引用</span></span><br><span class="line">        timer,  <span class="comment">// 定时器</span></span><br><span class="line">        firstTime = <span class="literal">true</span>    <span class="comment">// 是否第一次调用</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> args = <span class="built_in">arguments</span>,</span><br><span class="line">            __me = <span class="keyword">this</span></span><br><span class="line">        <span class="keyword">if</span>(firstTime) &#123;     <span class="comment">// 如果第一次调用，不需要延迟执行</span></span><br><span class="line">            __self.aaply(__me,args)</span><br><span class="line">            <span class="keyword">return</span> firstTime = <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(timer) &#123;     <span class="comment">//  如果是第一次调用，不需要延迟</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">        timer = setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">            clearTimeout(timer)</span><br><span class="line">            timer = <span class="literal">null</span></span><br><span class="line">            __self.apply(__me,args)</span><br><span class="line">        &#125;,interval || <span class="number">500</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">window</span>.onresize = throttle(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;,<span class="number">500</span>)</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>分时函数</li>
+</ol>
+<p>在短时间内往页面中大量添加DOM节点显然也会让浏览器吃不消，我们看到的结果往往就是浏览器的卡顿甚至假死。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> timeChunk = <span class="function"><span class="keyword">function</span>(<span class="params">ary,fn,count</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> obj,t</span><br><span class="line">    <span class="keyword">var</span> len = ary.length</span><br><span class="line">    <span class="keyword">var</span> start = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="built_in">Math</span>.min(count||<span class="number">1</span>,ary.length);i++) &#123;</span><br><span class="line">            <span class="keyword">var</span> obj = ary.shift()</span><br><span class="line">            fn(obj)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        t = setInterval(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">if</span>(ary.length === <span class="number">0</span>) &#123;  <span class="comment">// 如果全部节点都已经被创建好</span></span><br><span class="line">                <span class="keyword">return</span> clearInterval(t)</span><br><span class="line">            &#125;</span><br><span class="line">            start()</span><br><span class="line">        &#125;,<span class="number">200</span>)  <span class="comment">// 分批执行的时间间隔</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>惰性加载函数</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> addEvent = <span class="function"><span class="keyword">function</span>(<span class="params">elem,type,handler</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">window</span>.addEventListener) &#123;</span><br><span class="line">        addEvent = <span class="function"><span class="keyword">function</span>(<span class="params">elem,type,handler</span>) </span>&#123;</span><br><span class="line">            elem.addEventListener(type,handler,<span class="literal">false</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(<span class="built_in">window</span>.attachEvent) &#123;</span><br><span class="line">        addEvent = <span class="function"><span class="keyword">function</span>(<span class="params">elem,type,handler</span>) </span>&#123;</span><br><span class="line">            elem.attachEvent(<span class="string">'on'</span>+type,handler)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    addEvent(elem,type,handler)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -440,6 +474,10 @@
 
             <div class="post-nav-prev post-nav-item">
               
+                <a href="/2019/12/11/MVC和MVVM区别及原理/" rel="prev" title="MVC和MVVM区别及原理">
+                  MVC和MVVM区别及原理 <i class="fa fa-chevron-right"></i>
+                </a>
+              
             </div>
           </div>
         
@@ -498,7 +536,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
