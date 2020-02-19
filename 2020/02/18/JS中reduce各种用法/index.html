@@ -55,19 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="单例模式：保证一个类仅有一个实例，并提供一个访问它的全局访问点">
+  <meta name="description" content="累加/累乘123456const Accumulation = (...vals) =&amp;gt; vals.reduce((t,v) =&amp;gt; t+v, 0);const Multiplication = (...vals) =&amp;gt; vals.reduce((t,v) =&amp;gt; t*v, 1);Accumulation(1,2,3,4,5);    //15Multiplication(1,">
 <meta name="keywords" content="javaScript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="单例模式">
-<meta property="og:url" content="http://yoursite.com/2019/09/21/单例模式/index.html">
+<meta property="og:title" content="JS中reduce各种用法">
+<meta property="og:url" content="http://yoursite.com/2020/02/18/JS中reduce各种用法/index.html">
 <meta property="og:site_name" content="畅喵の博客">
-<meta property="og:description" content="单例模式：保证一个类仅有一个实例，并提供一个访问它的全局访问点">
+<meta property="og:description" content="累加/累乘123456const Accumulation = (...vals) =&amp;gt; vals.reduce((t,v) =&amp;gt; t+v, 0);const Multiplication = (...vals) =&amp;gt; vals.reduce((t,v) =&amp;gt; t*v, 1);Accumulation(1,2,3,4,5);    //15Multiplication(1,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-21T06:04:04.346Z">
+<meta property="og:updated_time" content="2020-02-19T01:22:56.482Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="单例模式">
-<meta name="twitter:description" content="单例模式：保证一个类仅有一个实例，并提供一个访问它的全局访问点">
-  <link rel="canonical" href="http://yoursite.com/2019/09/21/单例模式/">
+<meta name="twitter:title" content="JS中reduce各种用法">
+<meta name="twitter:description" content="累加/累乘123456const Accumulation = (...vals) =&amp;gt; vals.reduce((t,v) =&amp;gt; t+v, 0);const Multiplication = (...vals) =&amp;gt; vals.reduce((t,v) =&amp;gt; t*v, 1);Accumulation(1,2,3,4,5);    //15Multiplication(1,">
+  <link rel="canonical" href="http://yoursite.com/2020/02/18/JS中reduce各种用法/">
 
 
 <script id="page-configurations">
@@ -81,7 +81,7 @@
   };
 </script>
 
-  <title>单例模式 | 畅喵の博客</title>
+  <title>JS中reduce各种用法 | 畅喵の博客</title>
   
 
 
@@ -220,7 +220,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/21/单例模式/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/18/JS中reduce各种用法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MrPanda刘畅">
@@ -234,7 +234,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">单例模式
+          <h1 class="post-title" itemprop="name headline">JS中reduce各种用法
 
             
           </h1>
@@ -251,11 +251,19 @@
                 
               
 
-              <time title="创建时间：2019-09-21 13:10:55 / 修改时间：14:04:04" itemprop="dateCreated datePublished" datetime="2019-09-21T13:10:55+08:00">2019-09-21</time>
+              <time title="创建时间：2020-02-18 09:05:12" itemprop="dateCreated datePublished" datetime="2020-02-18T09:05:12+08:00">2020-02-18</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-19 09:22:56" itemprop="dateModified" datetime="2020-02-19T09:22:56+08:00">2020-02-19</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -291,36 +299,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <blockquote>
-<p>单例模式：保证一个类仅有一个实例，并提供一个访问它的全局访问点</p>
-</blockquote>
+        <h2 id="累加-累乘"><a href="#累加-累乘" class="headerlink" title="累加/累乘"></a>累加/累乘</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Accumulation = <span class="function">(<span class="params">...vals</span>) =&gt;</span> vals.reduce(<span class="function">(<span class="params">t,v</span>) =&gt;</span> t+v, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Multiplication = <span class="function">(<span class="params">...vals</span>) =&gt;</span> vals.reduce(<span class="function">(<span class="params">t,v</span>) =&gt;</span> t*v, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">Accumulation(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>);    <span class="comment">//15</span></span><br><span class="line">Multiplication(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>);  <span class="comment">//120</span></span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
 
-<h3 id="什么是单例模式"><a href="#什么是单例模式" class="headerlink" title="什么是单例模式"></a>什么是单例模式</h3><p>例子：在页面中点击登录按钮，弹出了一个登录浮窗，这个登录浮窗是唯一的，无论我们单击多少次，浮窗只会创建一次。<strong>单例模式的核心是确保只有一个实例，并提供全局访问</strong>。</p>
-<h3 id="降低全局污染"><a href="#降低全局污染" class="headerlink" title="降低全局污染"></a>降低全局污染</h3><ol>
-<li><p>使用命名空间<br> <strong>适当使用命名空间，并不会杜绝全局变量，但是可以减少全局变量的数量。</strong></p>
-</li>
-<li><p>使用闭包封装私有变量</p>
-</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> payen = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _name = <span class="string">'panda'</span>,</span><br><span class="line">        _age = <span class="number">19</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        getinfo: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> _name + <span class="string">' '</span> + _age </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+<h2 id="代替reverse"><a href="#代替reverse" class="headerlink" title="代替reverse"></a>代替reverse</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Reverse = <span class="function">(<span class="params">arr = []</span>) =&gt;</span> arr.reduceRight(<span class="function">(<span class="params">t,v</span>) =&gt;</span> (t.push(v),t), []);</span><br><span class="line"></span><br><span class="line">Reverse([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]);   <span class="comment">//[5,4,3,2,1]</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>变量被封装在了闭包内，只暴露一些接口用于外部通信，从而避免了对全局的命令污染。</strong></p>
-<h3 id="简单的惰性单例模式"><a href="#简单的惰性单例模式" class="headerlink" title="简单的惰性单例模式"></a>简单的惰性单例模式</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> createDiv = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> div</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!div) &#123;</span><br><span class="line">            div = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>)</span><br><span class="line">            div.style.width = <span class="string">'100px'</span></span><br><span class="line">            div.style.height = <span class="string">'100px'</span></span><br><span class="line">            div.style.background = <span class="string">'red'</span></span><br><span class="line">            <span class="built_in">document</span>.body.appendChild(div)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)()</span><br><span class="line"></span><br><span class="line">createDiv()</span><br><span class="line">createDiv()</span><br><span class="line">createDiv()</span><br></pre></td></tr></table></figure>
+<h2 id="数组分割"><a href="#数组分割" class="headerlink" title="数组分割"></a>数组分割</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Chunk</span>(<span class="params">arr = [], size = <span class="number">1</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> arr.length ? arr.reduce(<span class="function">(<span class="params">t, v</span>) =&gt;</span> (t[t.length - <span class="number">1</span>].length === size ? t.push([v]) : t[t.length - <span class="number">1</span>].push(v), t), [[]]) : [];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Chunk([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>],<span class="number">2</span>); <span class="comment">//[[1,2],[3,4]]</span></span><br></pre></td></tr></table></figure>
 
-<ol>
-<li>使用单例模式让它只创建一个div</li>
-<li>问题：<ul>
-<li>违反了单一职责原则，创建对象和管理单例放在了一个函数中createDiv</li>
-<li>如果我们还想创建一个其他的对象，那就只能copy了</li>
-</ul>
-</li>
-<li>综上，我们需要：<strong>把不变的部分隔离出来，把可变的封装起来，这给予了我们扩展程序的能力，符合开发-封闭原则</strong></li>
-</ol>
-<h3 id="抽出管理单例"><a href="#抽出管理单例" class="headerlink" title="抽出管理单例"></a>抽出管理单例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> getSingle = <span class="function"><span class="keyword">function</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> result</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> result || (result = fn.apply(<span class="keyword">this</span>, <span class="built_in">arguments</span>))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> createDiv = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>)</span><br><span class="line">    div.style.width = <span class="string">'100px'</span></span><br><span class="line">    div.style.height = <span class="string">'100px'</span></span><br><span class="line">    div.style.background = <span class="string">'red'</span></span><br><span class="line">    <span class="built_in">document</span>.body.appendChild(div)</span><br><span class="line">    <span class="keyword">return</span> div</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> createSingDiv = getSingle(createDiv)</span><br><span class="line">createSingleDiv()</span><br><span class="line">createSingleDiv()</span><br><span class="line">createSingleDiv()</span><br></pre></td></tr></table></figure>
+<h2 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Uniq</span>(<span class="params">arr = []</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> arr.reduce(<span class="function">(<span class="params">t,v</span>) =&gt;</span> t.includes(v) ? t : [],[]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>创建的DOM节点保存在了result中，result变量因为自身在闭包中，不会被销毁，在将来的请求中，如果result已经被赋值了，那么它将返回这个值。</p>
+<h2 id="数组最大-最小值"><a href="#数组最大-最小值" class="headerlink" title="数组最大/最小值"></a>数组最大/最小值</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Max = <span class="function">(<span class="params">arr = []</span>) =&gt;</span> arr.reduce(<span class="function">(<span class="params">t,v</span>) =&gt;</span> t&gt;v?t:v);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Min = <span class="function">(<span class="params">arr = []</span>) =&gt;</span> arr.reduce(<span class="function">(<span class="params">t,v</span>) =&gt;</span> t&lt;v?t:v);</span><br><span class="line"></span><br><span class="line">Max([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]);   <span class="comment">//3</span></span><br><span class="line">Min([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]);   <span class="comment">//1</span></span><br></pre></td></tr></table></figure>
 
+<h2 id="数组成员个数统计"><a href="#数组成员个数统计" class="headerlink" title="数组成员个数统计"></a>数组成员个数统计</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Count</span>(<span class="params">arr = []</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> arr.reduce(<span class="function">(<span class="params">t,v</span>) =&gt;</span> (t[v] = (t[v] || <span class="number">0</span>)+<span class="number">1</span>,t),&#123;&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Count([<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>]); <span class="comment">// &#123;0:1, 1:2, 2:2&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="数组成员所含关键字统计"><a href="#数组成员所含关键字统计" class="headerlink" title="数组成员所含关键字统计"></a>数组成员所含关键字统计</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Keyword</span>(<span class="params">arr = [], keys = []</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> keys.reduce(<span class="function">(<span class="params">t,v</span>) =&gt;</span> (arr.some(<span class="function"><span class="params">w</span> =&gt;</span> w.includes(v)) &amp;&amp; t.push(v), t),[]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> text = [</span><br><span class="line">    <span class="string">"今天天气真好，我想出去钓鱼"</span>,</span><br><span class="line">    <span class="string">"我一边看电视，一边写作业"</span>,</span><br><span class="line">    <span class="string">"小明喜欢同桌的小红，又喜欢后桌的小君，真TM花心"</span>,</span><br><span class="line">    <span class="string">"最近上班喜欢摸鱼的人实在太多了，代码不好好写，在想入非非"</span></span><br><span class="line">];</span><br><span class="line"><span class="keyword">const</span> keyword = [<span class="string">"偷懒"</span>, <span class="string">"喜欢"</span>, <span class="string">"睡觉"</span>, <span class="string">"摸鱼"</span>, <span class="string">"真好"</span>, <span class="string">"一边"</span>, <span class="string">"明天"</span>];</span><br><span class="line">Keyword(text, keyword); <span class="comment">// ["喜欢", "摸鱼", "真好", "一边"]</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="字符串翻转"><a href="#字符串翻转" class="headerlink" title="字符串翻转"></a>字符串翻转</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">ReverseStr</span>(<span class="params">str = <span class="string">""</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> str.split(<span class="string">""</span>).reduceRight(<span class="function">(<span class="params">t,v</span>) =&gt;</span> t + v);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReverseStr(<span class="string">"hello"</span>);    <span class="comment">//"olleh"</span></span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -359,7 +354,7 @@
     <strong>本文作者： </strong>MrPanda刘畅</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2019/09/21/单例模式/" title="单例模式">http://yoursite.com/2019/09/21/单例模式/</a>
+    <a href="http://yoursite.com/2020/02/18/JS中reduce各种用法/" title="JS中reduce各种用法">http://yoursite.com/2020/02/18/JS中reduce各种用法/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-Hans" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -384,8 +379,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/09/20/JavaScript深入-四-——this机制/" rel="next" title="JavaScript深入(四)——this机制">
-                  <i class="fa fa-chevron-left"></i> JavaScript深入(四)——this机制
+                <a href="/2020/02/07/关于搭建阿里云服务器的踩坑记录/" rel="next" title="关于搭建阿里云服务器的踩坑记录">
+                  <i class="fa fa-chevron-left"></i> 关于搭建阿里云服务器的踩坑记录
                 </a>
               
             </div>
@@ -393,10 +388,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/09/25/git基本操作/" rel="prev" title="git基本操作">
-                  git基本操作 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -585,7 +576,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是单例模式"><span class="nav-number">1.</span> <span class="nav-text">什么是单例模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#降低全局污染"><span class="nav-number">2.</span> <span class="nav-text">降低全局污染</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单的惰性单例模式"><span class="nav-number">3.</span> <span class="nav-text">简单的惰性单例模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽出管理单例"><span class="nav-number">4.</span> <span class="nav-text">抽出管理单例</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#累加-累乘"><span class="nav-number">1.</span> <span class="nav-text">累加/累乘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代替reverse"><span class="nav-number">2.</span> <span class="nav-text">代替reverse</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组分割"><span class="nav-number">3.</span> <span class="nav-text">数组分割</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组去重"><span class="nav-number">4.</span> <span class="nav-text">数组去重</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组最大-最小值"><span class="nav-number">5.</span> <span class="nav-text">数组最大/最小值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组成员个数统计"><span class="nav-number">6.</span> <span class="nav-text">数组成员个数统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组成员所含关键字统计"><span class="nav-number">7.</span> <span class="nav-text">数组成员所含关键字统计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字符串翻转"><span class="nav-number">8.</span> <span class="nav-text">字符串翻转</span></a></li></ol></div>
             
 
           </div>
@@ -727,7 +718,7 @@
       repo: 'MrPand111.github.io',
       owner: 'MrPand111',
       admin: ['熊猫'],
-      id: '3328223c7e6a5367e1942ed45020255e',
+      id: '97ce104da27b744f3720a73bd85b2243',
         language: window.navigator.language || window.navigator.userLanguage,
       
       distractionFreeMode: 'true'
