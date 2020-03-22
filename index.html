@@ -217,6 +217,143 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/19/vue-router源码分析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="MrPanda刘畅">
+      <meta itemprop="description" content="华中农业大学的计科菜鸡，大前端研习ing">
+      <meta itemprop="image" content="/images/me.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="畅喵の博客">
+    </span>
+      <header class="post-header">
+
+        
+          <h1 class="post-title" itemprop="name headline">
+              
+              <a href="/2020/03/19/vue-router源码分析/" class="post-title-link" itemprop="url">vue-router源码分析</a>
+            
+          </h1>
+        
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-03-19 23:45:29" itemprop="dateCreated datePublished" datetime="2020-03-19T23:45:29+08:00">2020-03-19</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-20 16:55:57" itemprop="dateModified" datetime="2020-03-20T16:55:57+08:00">2020-03-20</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vue原理/" itemprop="url" rel="index"><span itemprop="name">vue原理</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+            <blockquote>
+<p>vue-router通过hash与History interface两种方式实现前端路由。通过学习<a href="https://zhuanlan.zhihu.com/p/27588422，留下一些笔记" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/27588422，留下一些笔记</a></p>
+</blockquote>
+<h2 id="一、模式参数"><a href="#一、模式参数" class="headerlink" title="一、模式参数"></a>一、模式参数</h2><p>参数mode只是一个标记，初始化之前会对mode做一些校验，通过switch实例化HashHistory、HTML5History、AbstractHistory（不在浏览器环境下强制此模式）</p>
+<p>VueRouter类中的onReady()、push()等方法<strong>只是一个代理，实际调用的是具体history对象的对应方法</strong></p>
+<h2 id="二、HashHistory"><a href="#二、HashHistory" class="headerlink" title="二、HashHistory"></a>二、HashHistory</h2><p>hash（”#”）符号的本来作用是加在url中指使网页中的位置：#符号本身以及它后面的字符称之为hash，（[<a href="http://www.example.com/index.html#print]）可通过window.location.hash属性读取。具有以下特点：" target="_blank" rel="noopener">http://www.example.com/index.html#print]）可通过window.location.hash属性读取。具有以下特点：</a></p>
+<ul>
+<li><p>hash虽然出现在url中，<strong>但不会被包括在http请求中</strong>。它是用来指导浏览器动作的</p>
+</li>
+<li><p>可以为hash的改变添加监听事件：每一次改变都会在浏览器的访问历史中增加一个记录</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"hashchange"</span>, funcRef, <span class="literal">false</span>)</span><br></pre></td></tr></table></figure>
+
+<p>利用以上特点，实现前端路由“更新视图但不重新请求页面”</p>
+<h2 id="三、HTML5History"><a href="#三、HTML5History" class="headerlink" title="三、HTML5History"></a>三、HTML5History</h2><p>History interface是浏览器历史记录栈提供的接口，通过back()，forward()，go()等方法，以读取浏览器历史记录栈的信息，进行各种跳转操作</p>
+<p>从HTML5开始提供了两个新方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.history.pushState(stateObject, title, url)</span><br><span class="line"><span class="built_in">window</span>.history.replaceState(stateObject, title, url)</span><br><span class="line"></span><br><span class="line"><span class="comment">// stateObject: 当浏览器跳转到新的状态时，将处罚popState事件，该事件将携带这个stateObject参数的副本</span></span><br><span class="line"><span class="comment">// title: 所添加记录的标题</span></span><br><span class="line"><span class="comment">// url: 所添加记录的url</span></span><br></pre></td></tr></table></figure>
+
+<p>这两个方法有个共同的特点：当调用他们修改浏览器历史记录栈后，虽然当前url改变了，但浏览器不会立即发送请求该url，这就为单页应用前端路由“更新视图但不重新请求页面”提供了基础</p>
+<h2 id="四、HashHistory"><a href="#四、HashHistory" class="headerlink" title="四、HashHistory"></a>四、HashHistory</h2><h3 id="HashHistory-push"><a href="#HashHistory-push" class="headerlink" title="HashHistory.push()"></a>HashHistory.push()</h3><p>将新路由添加到浏览器访问历史的栈顶</p>
+<p>解析:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> $router.push()</span><br><span class="line"></span><br><span class="line"><span class="number">2</span> HashHistory.push()</span><br><span class="line"></span><br><span class="line"><span class="number">3</span> History.transitionTo()    <span class="comment">// 监测更新，调用updateRoute方法</span></span><br><span class="line"></span><br><span class="line"><span class="number">4</span> History.updateRoute()    <span class="comment">// 更新路由</span></span><br><span class="line"></span><br><span class="line"><span class="number">5</span> &#123;app._route = route&#125;  <span class="comment">// 替换当前路由</span></span><br><span class="line"></span><br><span class="line"><span class="number">6</span> vm.render()   <span class="comment">// 更新视图</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="HashHistory-replace"><a href="#HashHistory-replace" class="headerlink" title="HashHistory.replace()"></a>HashHistory.replace()</h3><p>替换调当前的路由</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">replaceHash</span>(<span class="params">path</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> i = <span class="built_in">window</span>.location.href.indexOf(<span class="string">'#'</span>);</span><br><span class="line">    <span class="built_in">window</span>.location.replace(</span><br><span class="line">        <span class="built_in">window</span>.location.href.slice(<span class="number">0</span>,i &gt;= <span class="number">0</span> ? i : <span class="number">0</span>) + <span class="string">'#'</span> + path</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="五、history模式的优点"><a href="#五、history模式的优点" class="headerlink" title="五、history模式的优点"></a>五、history模式的优点</h2><ul>
+<li><p>pushState设置的新url可以是和当前url同源的任意url；而hash只可修改#后面的部分</p>
+</li>
+<li><p>pushState通过stateObject可以添加任意类型的数据到记录中；hash只可添加短字符串</p>
+</li>
+<li><p>pushState可额外设置title</p>
+</li>
+<li><p>history遇到没有对应的路由会返回404错误</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+          <div class="post-eof"></div>
+        
+      </footer>
+  </div>
+  
+  
+  
+  </article>
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/09/html中meta的使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1163,105 +1300,6 @@
   </article>
 
     
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/30/配置Webpack/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="MrPanda刘畅">
-      <meta itemprop="description" content="华中农业大学的计科菜鸡，大前端研习ing">
-      <meta itemprop="image" content="/images/me.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="畅喵の博客">
-    </span>
-      <header class="post-header">
-
-        
-          <h1 class="post-title" itemprop="name headline">
-              
-              <a href="/2019/11/30/配置Webpack/" class="post-title-link" itemprop="url">配置Webpack</a>
-            
-          </h1>
-        
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              
-                
-              
-
-              <time title="创建时间：2019-11-30 10:49:05 / 修改时间：10:52:07" itemprop="dateCreated datePublished" datetime="2019-11-30T10:49:05+08:00">2019-11-30</time>
-            </span>
-          
-            
-
-            
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>学习Webpack主要是看dell lee的视频，后续也会看一些文档和博客，分析下webpack打包后源码</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/11/30/配置Webpack/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-          <div class="post-eof"></div>
-        
-      </footer>
-  </div>
-  
-  
-  
-  </article>
-
-    
   </section>
 
   
@@ -1333,7 +1371,9 @@
         
           
         
-        <span class="site-state-item-count">8</span>
+          
+        
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>

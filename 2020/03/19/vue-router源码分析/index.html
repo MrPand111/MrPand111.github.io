@@ -55,19 +55,19 @@
   };
 </script>
 
-  <meta name="description" content="new运算符创建一个用户定义的对象类型的实例或具有构造函数的内置对象类型之一">
-<meta name="keywords" content="javaScript">
+  <meta name="description" content="vue-router通过hash与History interface两种方式实现前端路由。通过学习https://zhuanlan.zhihu.com/p/27588422，留下一些笔记  一、模式参数参数mode只是一个标记，初始化之前会对mode做一些校验，通过switch实例化HashHistory、HTML5History、AbstractHistory（不在浏览器环境下强制此模式） V">
+<meta name="keywords" content="javaScript,vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript深入(七)——new的模拟实现">
-<meta property="og:url" content="http://yoursite.com/2019/10/24/JavaScript深入-七-——new的模拟实现/index.html">
+<meta property="og:title" content="vue-router源码分析">
+<meta property="og:url" content="http://yoursite.com/2020/03/19/vue-router源码分析/index.html">
 <meta property="og:site_name" content="畅喵の博客">
-<meta property="og:description" content="new运算符创建一个用户定义的对象类型的实例或具有构造函数的内置对象类型之一">
+<meta property="og:description" content="vue-router通过hash与History interface两种方式实现前端路由。通过学习https://zhuanlan.zhihu.com/p/27588422，留下一些笔记  一、模式参数参数mode只是一个标记，初始化之前会对mode做一些校验，通过switch实例化HashHistory、HTML5History、AbstractHistory（不在浏览器环境下强制此模式） V">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-02T05:17:45.457Z">
+<meta property="og:updated_time" content="2020-03-20T08:55:57.106Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript深入(七)——new的模拟实现">
-<meta name="twitter:description" content="new运算符创建一个用户定义的对象类型的实例或具有构造函数的内置对象类型之一">
-  <link rel="canonical" href="http://yoursite.com/2019/10/24/JavaScript深入-七-——new的模拟实现/">
+<meta name="twitter:title" content="vue-router源码分析">
+<meta name="twitter:description" content="vue-router通过hash与History interface两种方式实现前端路由。通过学习https://zhuanlan.zhihu.com/p/27588422，留下一些笔记  一、模式参数参数mode只是一个标记，初始化之前会对mode做一些校验，通过switch实例化HashHistory、HTML5History、AbstractHistory（不在浏览器环境下强制此模式） V">
+  <link rel="canonical" href="http://yoursite.com/2020/03/19/vue-router源码分析/">
 
 
 <script id="page-configurations">
@@ -81,7 +81,7 @@
   };
 </script>
 
-  <title>JavaScript深入(七)——new的模拟实现 | 畅喵の博客</title>
+  <title>vue-router源码分析 | 畅喵の博客</title>
   
 
 
@@ -220,7 +220,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/24/JavaScript深入-七-——new的模拟实现/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/19/vue-router源码分析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="MrPanda刘畅">
@@ -234,7 +234,7 @@
       <header class="post-header">
 
         
-          <h1 class="post-title" itemprop="name headline">JavaScript深入(七)——new的模拟实现
+          <h1 class="post-title" itemprop="name headline">vue-router源码分析
 
             
           </h1>
@@ -251,7 +251,7 @@
                 
               
 
-              <time title="创建时间：2019-10-24 17:32:41" itemprop="dateCreated datePublished" datetime="2019-10-24T17:32:41+08:00">2019-10-24</time>
+              <time title="创建时间：2020-03-19 23:45:29" itemprop="dateCreated datePublished" datetime="2020-03-19T23:45:29+08:00">2020-03-19</time>
             </span>
           
             
@@ -262,7 +262,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-02 13:17:45" itemprop="dateModified" datetime="2019-11-02T13:17:45+08:00">2019-11-02</time>
+                <time title="修改时间：2020-03-20 16:55:57" itemprop="dateModified" datetime="2020-03-20T16:55:57+08:00">2020-03-20</time>
               </span>
             
           
@@ -272,7 +272,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/JS深入系列/" itemprop="url" rel="index"><span itemprop="name">JS深入系列</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vue原理/" itemprop="url" rel="index"><span itemprop="name">vue原理</span></a></span>
 
                 
                 
@@ -300,46 +300,42 @@
 
       
         <blockquote>
-<p>new运算符创建一个用户定义的对象类型的实例或具有构造函数的内置对象类型之一</p>
+<p>vue-router通过hash与History interface两种方式实现前端路由。通过学习<a href="https://zhuanlan.zhihu.com/p/27588422，留下一些笔记" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/27588422，留下一些笔记</a></p>
 </blockquote>
-<a id="more"></a>
-
-<p>举例：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Otaku</span>(<span class="params">name,age</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">    <span class="keyword">this</span>.age = age</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.habit = <span class="string">'Games'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Otaku.prototype.strength = <span class="number">60</span></span><br><span class="line">Otaku.prototype.sayYourName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'I am'</span> + <span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> Otaku(<span class="string">'Panda'</span>,<span class="string">'20'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(person.name)    <span class="comment">//Panda</span></span><br><span class="line"><span class="built_in">console</span>.log(person.habit)   <span class="comment">//Games</span></span><br><span class="line"><span class="built_in">console</span>.log(person.strength)    <span class="comment">//60</span></span><br><span class="line"></span><br><span class="line">person.sayYourName()    <span class="comment">//I am Kevin</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="初步实现"><a href="#初步实现" class="headerlink" title="初步实现"></a>初步实现</h3><ul>
-<li>预分析：<ol>
-<li>因为new的结果是一个<strong>新对象</strong>，所以在模拟实现的时候，我们也要建立一个<strong>新对象</strong>，假设这个对象叫obj，因为obj会具有Otaku构造函数函数里的属性,我们可以使用Otaku.apply(obj,arguments)来给obj添加新的属性。</li>
-<li><strong>实例的_proto_属性会指向构造函数的prototype</strong>，也正是因为建立起这样的关系，实例可以访问原型的属性。</li>
-</ol>
-</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">objectFactory</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>()</span><br><span class="line">    Constructor = [].shift.call(<span class="built_in">arguments</span>)</span><br><span class="line">    obj._proto_ = Constructor.prototype</span><br><span class="line">    Constructor.apply(obj,<span class="built_in">arguments</span>)</span><br><span class="line">    <span class="keyword">return</span> obj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h2 id="一、模式参数"><a href="#一、模式参数" class="headerlink" title="一、模式参数"></a>一、模式参数</h2><p>参数mode只是一个标记，初始化之前会对mode做一些校验，通过switch实例化HashHistory、HTML5History、AbstractHistory（不在浏览器环境下强制此模式）</p>
+<p>VueRouter类中的onReady()、push()等方法<strong>只是一个代理，实际调用的是具体history对象的对应方法</strong></p>
+<h2 id="二、HashHistory"><a href="#二、HashHistory" class="headerlink" title="二、HashHistory"></a>二、HashHistory</h2><p>hash（”#”）符号的本来作用是加在url中指使网页中的位置：#符号本身以及它后面的字符称之为hash，（[<a href="http://www.example.com/index.html#print]）可通过window.location.hash属性读取。具有以下特点：" target="_blank" rel="noopener">http://www.example.com/index.html#print]）可通过window.location.hash属性读取。具有以下特点：</a></p>
 <ul>
-<li>事后分析：<ol>
-<li>在new Object()的方式新建了一个对象obj</li>
-<li><strong><font color="red">取出第一个参数，就是我们要传入的构造函数。此外因为shift会修改原数组，所以arguments会被去除第一个参数</font></strong></li>
-<li>将obj的原型指向构造函数，这样obj就可以访问到构造函数原型中的属性</li>
-<li>使用apply，改变构造函数this的指向到新建的对象，这样obj就可以访问到构造函数的属性</li>
-<li>返回obj</li>
-</ol>
+<li><p>hash虽然出现在url中，<strong>但不会被包括在http请求中</strong>。它是用来指导浏览器动作的</p>
+</li>
+<li><p>可以为hash的改变添加监听事件：每一次改变都会在浏览器的访问历史中增加一个记录</p>
 </li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = objectFactory(Otaku,<span class="string">'Panda'</span>,<span class="string">'20'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person.name)    <span class="comment">//Panda</span></span><br><span class="line"><span class="built_in">console</span>.log(person.habit)   <span class="comment">//Games</span></span><br><span class="line"><span class="built_in">console</span>.log(person.strength) <span class="comment">//60</span></span><br><span class="line"></span><br><span class="line">person.sayYourName()    <span class="comment">//I am Panda</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">"hashchange"</span>, funcRef, <span class="literal">false</span>)</span><br></pre></td></tr></table></figure>
 
-<h3 id="第二版代码"><a href="#第二版代码" class="headerlink" title="第二版代码"></a>第二版代码</h3><ul>
-<li><p>两种情况：</p>
-<ol>
-<li>构造函数有返回值：实例中只能访问返回的对象中的属性。</li>
-<li>构造函数返回一个基本类型：会返回值，但是相当于没有返回值进行处理。</li>
-</ol>
+<p>利用以上特点，实现前端路由“更新视图但不重新请求页面”</p>
+<h2 id="三、HTML5History"><a href="#三、HTML5History" class="headerlink" title="三、HTML5History"></a>三、HTML5History</h2><p>History interface是浏览器历史记录栈提供的接口，通过back()，forward()，go()等方法，以读取浏览器历史记录栈的信息，进行各种跳转操作</p>
+<p>从HTML5开始提供了两个新方法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.history.pushState(stateObject, title, url)</span><br><span class="line"><span class="built_in">window</span>.history.replaceState(stateObject, title, url)</span><br><span class="line"></span><br><span class="line"><span class="comment">// stateObject: 当浏览器跳转到新的状态时，将处罚popState事件，该事件将携带这个stateObject参数的副本</span></span><br><span class="line"><span class="comment">// title: 所添加记录的标题</span></span><br><span class="line"><span class="comment">// url: 所添加记录的url</span></span><br></pre></td></tr></table></figure>
+
+<p>这两个方法有个共同的特点：当调用他们修改浏览器历史记录栈后，虽然当前url改变了，但浏览器不会立即发送请求该url，这就为单页应用前端路由“更新视图但不重新请求页面”提供了基础</p>
+<h2 id="四、HashHistory"><a href="#四、HashHistory" class="headerlink" title="四、HashHistory"></a>四、HashHistory</h2><h3 id="HashHistory-push"><a href="#HashHistory-push" class="headerlink" title="HashHistory.push()"></a>HashHistory.push()</h3><p>将新路由添加到浏览器访问历史的栈顶</p>
+<p>解析:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> $router.push()</span><br><span class="line"></span><br><span class="line"><span class="number">2</span> HashHistory.push()</span><br><span class="line"></span><br><span class="line"><span class="number">3</span> History.transitionTo()    <span class="comment">// 监测更新，调用updateRoute方法</span></span><br><span class="line"></span><br><span class="line"><span class="number">4</span> History.updateRoute()    <span class="comment">// 更新路由</span></span><br><span class="line"></span><br><span class="line"><span class="number">5</span> &#123;app._route = route&#125;  <span class="comment">// 替换当前路由</span></span><br><span class="line"></span><br><span class="line"><span class="number">6</span> vm.render()   <span class="comment">// 更新视图</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="HashHistory-replace"><a href="#HashHistory-replace" class="headerlink" title="HashHistory.replace()"></a>HashHistory.replace()</h3><p>替换调当前的路由</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">replaceHash</span>(<span class="params">path</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> i = <span class="built_in">window</span>.location.href.indexOf(<span class="string">'#'</span>);</span><br><span class="line">    <span class="built_in">window</span>.location.replace(</span><br><span class="line">        <span class="built_in">window</span>.location.href.slice(<span class="number">0</span>,i &gt;= <span class="number">0</span> ? i : <span class="number">0</span>) + <span class="string">'#'</span> + path</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="五、history模式的优点"><a href="#五、history模式的优点" class="headerlink" title="五、history模式的优点"></a>五、history模式的优点</h2><ul>
+<li><p>pushState设置的新url可以是和当前url同源的任意url；而hash只可修改#后面的部分</p>
 </li>
-<li><p>还需要判断返回的值是不是一个对象，如果是一个对象，我们就返回这个对象，如果没有，我们该返回什么就返回什么。</p>
+<li><p>pushState通过stateObject可以添加任意类型的数据到记录中；hash只可添加短字符串</p>
+</li>
+<li><p>pushState可额外设置title</p>
+</li>
+<li><p>history遇到没有对应的路由会返回404错误</p>
 </li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">objectFactory</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>()</span><br><span class="line">    Constructor = [].shift.call(<span class="built_in">arguments</span>)</span><br><span class="line">    obj._proto_ = Construtor.prototype</span><br><span class="line">    <span class="keyword">var</span> ret = Constructor.apply(obj,<span class="built_in">arguments</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">typeof</span> ret === <span class="string">'object'</span> ? ret : obj</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
     </div>
 
@@ -379,7 +375,7 @@
     <strong>本文作者： </strong>MrPanda刘畅</li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2019/10/24/JavaScript深入-七-——new的模拟实现/" title="JavaScript深入(七)——new的模拟实现">http://yoursite.com/2019/10/24/JavaScript深入-七-——new的模拟实现/</a>
+    <a href="http://yoursite.com/2020/03/19/vue-router源码分析/" title="vue-router源码分析">http://yoursite.com/2020/03/19/vue-router源码分析/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-Hans" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -396,6 +392,8 @@
             
               <a href="/tags/javaScript/" rel="tag"># javaScript</a>
             
+              <a href="/tags/vue/" rel="tag"># vue</a>
+            
           </div>
         
 
@@ -404,8 +402,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2019/10/19/ES6-二-——变量的解构赋值/" rel="next" title="ES6(二)——变量的解构赋值">
-                  <i class="fa fa-chevron-left"></i> ES6(二)——变量的解构赋值
+                <a href="/2020/03/09/html中meta的使用/" rel="next" title="html中meta的使用">
+                  <i class="fa fa-chevron-left"></i> html中meta的使用
                 </a>
               
             </div>
@@ -413,10 +411,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2019/11/02/js中的数据存储/" rel="prev" title="js中的数据存储">
-                  js中的数据存储 <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -609,7 +603,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#初步实现"><span class="nav-number">1.</span> <span class="nav-text">初步实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二版代码"><span class="nav-number">2.</span> <span class="nav-text">第二版代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、模式参数"><span class="nav-number">1.</span> <span class="nav-text">一、模式参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、HashHistory"><span class="nav-number">2.</span> <span class="nav-text">二、HashHistory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、HTML5History"><span class="nav-number">3.</span> <span class="nav-text">三、HTML5History</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、HashHistory"><span class="nav-number">4.</span> <span class="nav-text">四、HashHistory</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HashHistory-push"><span class="nav-number">4.1.</span> <span class="nav-text">HashHistory.push()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HashHistory-replace"><span class="nav-number">4.2.</span> <span class="nav-text">HashHistory.replace()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、history模式的优点"><span class="nav-number">5.</span> <span class="nav-text">五、history模式的优点</span></a></li></ol></div>
             
 
           </div>
@@ -751,7 +745,7 @@
       repo: 'MrPand111.github.io',
       owner: 'MrPand111',
       admin: ['熊猫'],
-      id: 'dcf3c39e13ce973e9275d133427a7503',
+      id: 'cec85ede25142f8d58c3ce6a674d7b94',
         language: window.navigator.language || window.navigator.userLanguage,
       
       distractionFreeMode: 'true'
