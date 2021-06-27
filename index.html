@@ -4,9 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./static/css/basic.css">
+    <link rel="stylesheet" href="./static/css/header.css">
 </head>
 <body>
-    This is MrPanda.
-    <a href="./多种三栏布局.md">多种三栏布局</a>
+    <div class="home-page">
+        <header class="flex-center">
+            <div class="header-container">
+                <div class="header-avatar-border flex-center">
+                    <img src="./static/img/avatar.png" alt="">
+                </div>
+                <div class="header-info flex-center">
+                    <div class="header-name"><span>Mr.</span>Panda</div>
+                    <div>Front End @ByteDance</div>
+                    <div>A Web Developer, focus on Web Efficient Dev Tools.</div>
+                </div>
+                <div class="header-link-list">
+                    <!-- github -->
+                    <a href="https://github.com/MrPand111" target="_blank">
+                        <img src="./static/img/github.svg" type="image/svg+xml" />
+                    </a>
+                    <!-- zhihu -->
+                    <a href="https://www.zhihu.com/people/chang-miao-61" target="_blank">
+                        <img src="./static/img/zhihu.svg" type="image/svg+xml" />
+                    </a>
+                    <!-- juejin -->
+                    <a href="https://juejin.cn/user/1855631359487527" target="_blank">
+                        <img src="./static/img/juejin.svg" type="image/svg+xml" />
+                    </a>
+                    <!-- bilibli -->
+                    <a href="https://space.bilibili.com/2811470" target="_blank">
+                        <img src="./static/img/bilibili.svg" type="image/svg+xml" />
+                    </a>  
+                    <!-- mail -->
+                    <a href="mailto:liuchang.panda@bytedance.com" target="_blank">
+                        <img src="./static/img/mail.svg" type="image/svg+xml" />
+                    </a>      
+                </div>
+            </div>
+        </header>
+        <main id="main">
+        </main>
+        <div class="show-more-btn" id="btn">
+            More Posts
+        </div>
+        <footer>
+            © 2021 MrPanda's blog. Powered by handle.
+        </footer>
+    </div>
 </body>
+<script src="./static/js/config.js"></script>
+<script src="./static/js/index.js"></script>
 </html>
