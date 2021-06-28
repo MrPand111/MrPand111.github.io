@@ -1,3 +1,9 @@
+@keyframes trans
+{
+    0%   {transform: rotate(0)}
+    100% {transform: rotate(360deg)}
+}
+
 .home-page header {
     width: 80%;
     margin: 0 auto;
@@ -26,10 +32,16 @@
     border: 1px solid #e6e6e6;
 }
 
-.header-container img {
+.header-container .header-avatar-border img {
     width: 100px;
     height: 100px;
     border-radius: 50%;
+}
+
+.header-container .header-avatar-border img:hover {
+    transform-origin: center;
+    animation: trans 1s;
+    animation-iteration-count: infinite;
 }
 
 .header-info {
@@ -54,6 +66,10 @@
 .header-link-list>a>img {
     width: 20px;
     height: 20px;
+}
+
+.header-link-list>a>img:hover {
+    transform: scale(1.3);
 }
 
 @media screen and (max-width: 1000px) {
