@@ -1,6 +1,7 @@
 @keyframes trans
 {
     0%   {transform: rotate(0)}
+    50%  {transform: rotate(180deg)}
     100% {transform: rotate(360deg)}
 }
 
@@ -40,7 +41,7 @@
 
 .header-container .header-avatar-border img:hover {
     transform-origin: center;
-    animation: trans 1s;
+    animation: trans 1s linear;
     animation-iteration-count: infinite;
 }
 

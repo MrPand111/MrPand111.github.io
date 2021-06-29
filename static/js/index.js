@@ -1,4 +1,6 @@
-window.PageSize = 1;
+(function () {
+
+PageSize = 1;
 
 const createNode = (config) => {
     const { title, tag, date, url } = config;
@@ -46,3 +48,4 @@ document.querySelector('#btn').addEventListener('click', () => {
     window.PageSize++;
     addPost();
 })
+})()
